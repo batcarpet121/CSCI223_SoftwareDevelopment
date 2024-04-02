@@ -1,0 +1,62 @@
+body header nav div ul li{
+    background: transparent;
+    display: block;
+}
+
+body header nav div h1 h2 h3 h4 h5 h6 p a ul li{
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    background-color: antiquewhite;
+    line-height: 1;
+}
+
+header{
+    height: 125px;
+    margin-bottom: 60px;
+
+}
+#title{
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    font-size: 50px;
+    text-shadow: 2px 2px rgb(167, 203, 240);
+}
+
+#nav{
+    position: absolute;
+    overflow: hidden;
+    width: 99%;
+    height: 50px;
+    color: white;
+    background-color: black;
+}
+
+a{
+    color: white;
+    padding: 16px 35px;
+    border: 1px solid #333
+    
+}
+#nav a{
+    float: right;
+    font: white;
+    text-align: center;
+    text-decoration: none;
+    list-style: none;
+    list-style-image: none;
+}
+    
+#nav a:hover{
+    background-color: #333;
+}
