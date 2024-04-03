@@ -2,7 +2,7 @@ body header nav div ul li{
     background: transparent;
     display: block;
 }
-
+/*fonts*/
 body header nav div h1 h2 h3 h4 h5 h6 p a ul li{
     font-size: 100%;
     margin: 0;
@@ -36,10 +36,11 @@ h1{
 #nav{
     position: absolute;
     overflow: hidden;
-    width: 99%;
-    height: 50px;
+    width: 85%;
+    height: 5%;
     color: white;
     background-color: black;
+    right: 10px;
 }
 
 a{
@@ -49,7 +50,7 @@ a{
     
 }
 #nav a{
-    float: right;
+    float: left;
     font: white;
     text-align: center;
     text-decoration: none;
@@ -59,4 +60,28 @@ a{
     
 #nav a:hover{
     background-color: #333;
+}
+
+#SearchBar{
+    margin-left: 10px; 
+    padding: 10px;
+    width: 10%; 
+    height: 18%; 
+    font-size: 100%; 
+}
+
+main{
+    flex: 1;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+#rightColumn{
+    width: 80%;
+    
 }
