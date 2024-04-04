@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <!-- <script src="javascript.js" async></script> -->
     <title>Document</title>
 </head>
 
@@ -28,31 +29,35 @@
             </h2>
             <div>
                 <label for="dep">Choose a department:</label>
-        
+
                 <select name="dep" id="dep">
-                    <option value="volvo">CSCI</option>
-                    <option value="saab">ITS</option>
+                    <option value="volvo">Test 1</option>
+                    <option value="saab">Test 2</option>
                 </select>
             </div>
-        
-            <div> 
+
+            <div>
                 <label for="course">Choose a course:</label>
-        
+
                 <select name="dep" id="dep">
-                    <option value="volvo">CSCI</option>
-                    <option value="saab">ITS</option>
+                    <option value="volvo">Test 1</option>
+                    <option value="saab">Test 2</option>
                 </select>
             </div>
         </div>
 
+
         <div id="mainContent">
-            <h2>
-                Main Content
+            <h2 id="department">
+
             </h2>
         </div>
 
     </div>
-
+    <script>
+        var text = "new text";
+        document.getElementById("department").innerHTML = "New Text"; 
+    </script>
 </body>
 
 <footer>
