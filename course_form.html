@@ -3,9 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Course Form</title>
 </head>
-<body>
-    <p>Test</p>
+<body>    
+    <div class="formWrapper">
+        <form action="">
+            <label for="DEPT">Select a Department: </label>
+            <select name="DEPT" id="DEPT">
+                <div id="DEPT_FORM">
+                    <option value="TEST_ONE">TEST ONE</option>
+                    <option value="TEST_TWO">TEST TWO</option>
+                </div>
+            </select>
+
+            <div id="ADD_COURSE">
+                <label for="COURSE_Title">Enter Course Title:</label>
+                <input type="text" id="COURSE_TITLE" name="COURSE_TITLE" placeholder="Enter the Course Title">
+            </div>
+        </form>
+    </div>
 </body>
 </html>
