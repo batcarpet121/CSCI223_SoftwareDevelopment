@@ -15,9 +15,10 @@
             <h1>Tracker2024</h1>
         </div>
         <div id="nav">
-            <a href="button3.html">button 3</a>
-            <a href="button2.html">button 2</a>
-            <a href="button1.html">button 1</a>
+            <a href="index.html">Home</a>
+            <a href="course_form.html">Course Form</a>
+            <a href="view.html">View</a>
+            
         </div>
         <input id="SearchBar" type="text" placeholder="Search...">
     </header>
@@ -31,32 +32,47 @@
                 <label for="dep">Choose a department:</label>
 
                 <select name="dep" id="dep">
-                    <option value="volvo">Test 1</option>
-                    <option value="saab">Test 2</option>
+                    <option value="Select your course">Select a department</option>
+                    <option value="Test 1">Test 1</option>
+                    <option value="Test 2">Test 2</option>
                 </select>
             </div>
 
             <div>
                 <label for="course">Choose a course:</label>
 
-                <select name="dep" id="dep">
-                    <option value="volvo">Test 1</option>
-                    <option value="saab">Test 2</option>
+                <select name="course" id="course">
+                    <option value="Select your course">Select a course</option>
+                    <option value="Test 1">Test 1</option>
+                    <option value="Test 2">Test 2</option>
                 </select>
             </div>
         </div>
 
 
         <div id="mainContent">
-            <h2 id="department">
-
-            </h2>
+            <h2 id="department"></h2>
+            <h3 id="class"></h3>
         </div>
 
     </div>
-    <script>
-        var text = "new text";
-        document.getElementById("department").innerHTML = "New Text"; 
+    <script async>
+        function departmentVal(){
+            val = document.getElementsByName('dep')[0].value;
+            return val
+        }
+        function courseVal(){
+            val = document.getElementsByName('course')[0].value;
+            return val
+        }
+
+        document.getElementsByName('dep')[0].addEventListener('change', function(){
+            document.getElementById("department").innerHTML = departmentVal();
+        })
+        
+        document.getElementsByName('course')[0].addEventListener('change', function(){
+            document.getElementById("class").innerHTML = courseVal();
+        })
     </script>
 </body>
 
