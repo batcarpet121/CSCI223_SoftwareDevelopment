@@ -35,6 +35,6 @@ jobs:
       - name: Sync files to hosting
         uses: SamKirkland/FTP-Deploy-Action@4.3.5
         with:
-          server: aaron_steverobinett.net
+          server: aaron_steverobinett.net@steverobinett.net
           username: aaron_steverobinett.net
           password: ${{ secrets.ftp_password }}
