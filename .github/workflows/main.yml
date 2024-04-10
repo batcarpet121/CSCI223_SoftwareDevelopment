@@ -33,7 +33,7 @@ deploy:
         name: dist
         path: dist
     - name: Sync files to hosting
-      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      uses: SamKirkland/FTP-Deploy-Action@4.3.5
       with:
         server: aaron_steverobinett.net
         username: aaron_steverobinett.net
