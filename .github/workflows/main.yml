@@ -13,7 +13,7 @@ jobs:
       with:
         server: ftp.steverobinett.net
         username: aaron_steverobinett.net@steverobinett.net
-        password: ${{ secrets.password }}
+        password: ${{ secrets.FTP_PASSWORD }}
         protocol: ftp
         port: 21
 
