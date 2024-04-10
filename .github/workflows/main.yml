@@ -12,7 +12,7 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: tracker2024.steverobinett.net
-        username: aaron_steverobinett.net@steverobinett.net
+        username: aaron_steverobinett.net
         password: ${{ secrets.FTP_PASSWORD }}
         protocol: ftp
         port: 21
