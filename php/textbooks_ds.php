@@ -54,7 +54,7 @@ class Textbooks_ds extends textbooks {
             */
         }
 
-        $qry = 'SELECT ' . $sel_list.' FROM textbooks';
+        $qry = 'SELECT ' . $sel_list.' FROM textbook';
         $stmt = $this->conn->prepare($qry);
         $stmt -> execute();
         $stmt -> store_result();
