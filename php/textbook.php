@@ -1,5 +1,5 @@
 <?php 
-class Textbooks {
+class Textbook {
 
     var $textbook_id;
     var $class_id;

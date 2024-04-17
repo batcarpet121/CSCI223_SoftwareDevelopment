@@ -7,18 +7,21 @@ require('../php/textbooks.php');
     Make sure to adjust the current code based on the textbook table
 */
 
-class Textbooks_ds extends textbooks {
+class Textbook_ds extends Textbook {
 
     public function selectSingle($key) {
-        // Adjust this to use textbook.columnValue to make it more modular?
-        $qry = 'SELECT * FROM textbook WHERE textbook.isbn = ?';
+        if ($key === null) {
+            return false;
+        }
+
+        $qry = 'SELECT * FROM textbook WHERE textbook_id = ?';
         // For testing uncomment any commented code below --
         // echo $qry;
-        $stmt = $this -> conn -> prepare($qry);
-        $stmt -> bind_param('s', $key);
-        $stmt -> execute();
-        // $stmt -> store_result();
-        $stmt -> bind_result(
+        $stmt = $this->conn->prepare($qry);
+        $stmt->bind_param('s', $key);
+        $stmt->execute();
+        // $stmt->store_result();
+        $stmt->bind_result(
             $this->textbook_id,
             $this->class_id,
             $this->title,
@@ -52,16 +55,15 @@ class Textbooks_ds extends textbooks {
             $sel_list ='*';
         } else {
             ;
-            /*
-            Add extra functionality based on reqs.S
-            */
+        // ToDo - handle specific cols
+        // expect csv string in arg. explode into arr
         }
 
         $qry = 'SELECT ' . $sel_list.' FROM textbook';
         $stmt = $this->conn->prepare($qry);
-        $stmt -> execute();
-        $stmt -> store_result();
-        $stmt -> bind_result(
+        $stmt->execute();
+        $stmt->store_result();
+        $stmt->bind_result(
             $this->textbook_id,
             $this->class_id,
             $this->title,
@@ -105,49 +107,77 @@ class Textbooks_ds extends textbooks {
         $qry = 'INSERT INTO textbook (class_id, title, author, isbn, publisher, edition, price) VALUES (?, ?, ?, ?, ?, ?, ?)';
         $stmt = $this->conn->prepare($qry);
 
-        $stmt -> bind_param('isssssd', $values['class_id'], $values['title'], $values['author'], $values['isbn'], $values['publisher'], $values['edition'], $values['price']);
-        $success = $stmt -> execute();
+        $stmt->bind_param(
+            'isssssd', $values['class_id'], $values['title'], $values['author'], $values['isbn'], $values['publisher'], $values['edition'], $values['price']);
+        $success = $stmt->execute();
 
         // if (!$success) {
-        //     echo "Insert failed: " . $stmt -> error;
+        //     echo "Insert failed: " . $stmt->error;
         // }
     }
 
-    public function update($value, $field, $id) {
-        if ($value === null || $field === null || $id === null) {
+    // public function updateRow($value, $field, $id) {
+    //     if ($value === null || $field === null || $id === null) {
+    //         return false;
+    //     }
+
+    //     $qry = 'UPDATE textbook set ' . $field . ' = ' . $value . ' WHERE textbook_id = ' . $id;
+    //     $stmt = $this->conn->prepare($qry);
+    //     switch(gettype($value)){
+    //         case 'integer';
+    //             $bindtype = 'i';
+    //             break;
+    //         case 'double';
+    //             $bindtype = 'd';
+    //             break;
+    //         case 'string';
+    //         default:
+    //             $bindtype = 's';
+    //             break;
+    //     }
+    //     $stmt->bind_param($bindtype . 'i', $value, $id);
+    //     $success = $stmt->execute();
+    //     if (!$success) {
+    //         echo "Update failed: " . $stmt->error;
+    //     }
+    // }
+
+    public function update($row) {
+        if ($row === null) {
             return false;
         }
 
-        $qry = 'UPDATE textbook set ' . $field . ' = ' . $value . ' WHERE textbook_id = ' . $id;
-        $stmt = $this -> conn -> prepare($qry);
-        switch(gettype($value)){
-            case 'integer';
-                $bindtype = 'i';
-                break;
-            case 'double';
-                $bindtype = 'd';
-                break;
-            case 'string';
-            default:
-                $bindtype = 's';
-                break;
-        }
-        $stmt -> bind_param($bindtype . 'i', $value, $id);
-        $success = $stmt -> execute();
+        $qry = 'UPDATE textbook SET class_id = (?) 
+                                    title = (?)
+                                    author = (?)
+                                    isbn = (?) 
+                                    publisher = (?) 
+                                    edition = (?) 
+                                    price = (?) WHERE 
+                                    textbook_id = ' . $row['textbook_id'];
+
+        $stmt = $this->conn->prepare($qry);
+        $stmt->bind_param('isssssd', $row['class_id'], $row['title'], $row['author'], $row['isbn'], $row['publisher'], $row['edition'], $row['price']);
+
+        $success = $stmt->execute();
         // if (!$success) {
-        //     echo "Update failed: " . $stmt -> error;
+        //     echo "Update failed: " . $stmt->error;
         // }
     }
 
     
-    public function delete($id) {
-        $qry = 'DELETE FROM textbook WHERE textbook_id = ?';
-        $stmt = $this -> conn -> prepare($qry);
-        $stmt -> bind_param('i', $id);
+    public function delete($id){
+        if ($id === null) {
+            return false;
+        }
 
-        $success = $stmt -> execute();
+        $qry = 'DELETE FROM textbook WHERE textbook_id = ?';
+        $stmt = $this->conn->prepare($qry);
+        $stmt->bind_param('i', $id);
+
+        $success = $stmt->execute();
         // if (!$success) {
-        //     echo "Delete failed: " . $stmt -> error;
+        //     echo "Delete failed: " . $stmt->error;
         // }
     }
 
