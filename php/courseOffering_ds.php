@@ -65,7 +65,47 @@ class Course_Offering_ds extends Course_Offering{
         }
     }
 
-    public function insert($values){
-        return null;
+    public function insert($values) {
+        if (!is_array($values)){
+            return false;
+        }
+        
+        $qry = 'INSERT INTO courseOffering (course_offering_id, course_id, term, YEAR) VALUES (?, ?, ?, ?)';
+        $stmt = $this->conn->prepare($qry);
+
+        $stmt -> bind_param('iisi', $values['course_offering_id'], $values['course_id'], $values['term'], $values['YEAR']);
+        $success = $stmt -> execute();
     }
+
+    public function update($value, $field, $id) {
+        if ($value === null || $field === null || $id === null) {
+            return false;
+        }
+
+        $qry = 'UPDATE courseOffering set ' . $field . ' = ' . $value . ' WHERE course_offering_id = ' . $id;
+        $stmt = $this -> conn -> prepare($qry);
+        switch(gettype($value)){
+            case 'integer';
+                $bindtype = 'i';
+                break;
+            case 'double';
+                $bindtype = 'd';
+                break;
+            case 'string';
+            default:
+                $bindtype = 's';
+                break;
+        }
+        $stmt -> bind_param($bindtype . 'i', $value, $id);
+        $success = $stmt -> execute();
+    }
+
+    public function delete($id) {
+        $qry = 'DELETE FROM courseOffering WHERE course_offering_id = ?';
+        $stmt = $this -> conn -> prepare($qry);
+        $stmt -> bind_param('i', $id);
+
+        $success = $stmt -> execute();
+    }
+
 }

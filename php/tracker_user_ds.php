@@ -1,9 +1,9 @@
 <?php
-require('../php/courseOffering.php');
+require('../php/tracker_user.php');
 
 class tracker_user_ds extends tracker_user{
     public function selectSingle($key){
-        $qry = 'SELECT * FROM courseOffering WHERE courseOffering.isbn = ?';
+        $qry = 'SELECT * FROM tracker_user WHERE tracker_user.isbn = ?';
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('s', $key);
         $stmt->execute();
@@ -65,7 +65,46 @@ class tracker_user_ds extends tracker_user{
         }
     }
 
-    public function insert($values){
-        return null;
+    public function insert($values) {
+        if (!is_array($values)){
+            return false;
+        }
+        
+        $qry = 'INSERT INTO courseOffering (user_id, role_id, term, PASSWORD) VALUES (?, ?, ?, ?)';
+        $stmt = $this->conn->prepare($qry);
+
+        $stmt -> bind_param('iiss', $values['user_id'], $values['role_id'], $values['username'], $values['PASSWORD']);
+        $success = $stmt -> execute();
+    }
+
+    public function update($value, $field, $id) {
+        if ($value === null || $field === null || $id === null) {
+            return false;
+        }
+
+        $qry = 'UPDATE tracker_user set ' . $field . ' = ' . $value . ' WHERE user_id = ' . $id;
+        $stmt = $this -> conn -> prepare($qry);
+        switch(gettype($value)){
+            case 'integer';
+                $bindtype = 'i';
+                break;
+            case 'double';
+                $bindtype = 'd';
+                break;
+            case 'string';
+            default:
+                $bindtype = 's';
+                break;
+        }
+        $stmt -> bind_param($bindtype . 'i', $value, $id);
+        $success = $stmt -> execute();
+    }
+
+    public function delete($id) {
+        $qry = 'DELETE FROM tracker_user WHERE user_id = ?';
+        $stmt = $this -> conn -> prepare($qry);
+        $stmt -> bind_param('i', $id);
+
+        $success = $stmt -> execute();
     }
 }
