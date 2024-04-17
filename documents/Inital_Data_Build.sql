@@ -1,4 +1,4 @@
-INSERT INTO Role Values(
+INSERT INTO Tracker_Role Values(
     1,
     'Professor'
 );

@@ -78,12 +78,21 @@ class role_ds extends role
             return $stmt->role_id;
         }
         else{
-            return False;
+            return false;
         }
     }
 
-    public function update($values)
+    public function update($role_id, $values)
     {
-        return null;
+        $qry = 'UPDATE Role SET role_name = ? WHERE role_id = ?';
+
+        $stmt = $this->conn->prepare($qry);
+        $stmt->bind_param('si', $values['role_name'], $role_id);
+        
+        if ($stmt->execute()) {
+            return true;
+        }else{
+            return false;
+        }
     }
 }
