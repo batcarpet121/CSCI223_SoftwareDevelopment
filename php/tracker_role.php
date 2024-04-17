@@ -1,5 +1,5 @@
 <?php
-class role{
+class tracker_role{
     var $role_id;
     var $role_name;
 }

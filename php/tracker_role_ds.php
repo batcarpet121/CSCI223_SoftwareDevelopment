@@ -1,7 +1,7 @@
 <?php
-require('../data/role.php');
+require('../data/tracker_role.php');
 
-class role_ds extends role
+class tracker_role_ds extends tracker_role
 {
     public $conn;
 
@@ -12,7 +12,7 @@ class role_ds extends role
 
     public function selectSingle($key)
     {
-        $qry = 'SELECT * FROM Role WHERE Role.role_name = ?';
+        $qry = 'SELECT * FROM Tracker_Role WHERE Tracker_Role.role_id = ?';
         // echo $qry;
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('s', $key);
@@ -88,7 +88,7 @@ class role_ds extends role
 
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('si', $values['role_name'], $role_id);
-        
+
         if ($stmt->execute()) {
             return true;
         }else{
