@@ -1,8 +1,8 @@
-INSERT INTO Role Values(
+INSERT INTO Tracker_Role Values(
     1,
     'Professor'
 );
-INSERT INTO Tracker_User Values(
+INSERT INTO Tracker_User (role_id, username, password) Values(
     
     1,
     'TestUser',
