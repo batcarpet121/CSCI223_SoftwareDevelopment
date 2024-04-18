@@ -18,21 +18,13 @@
     }
     echo"<br>";
 
-    $user_id = 1;
-
-    $stmt = $conn->prepare("SELECT * FROM tracker_user where user_id = ?");
-    $stmt-> bind_param("i", $user_id);
-    $stmt-> execute();
-    $result = $stmt->get_result();
-
-    if ($row = $result->fetch_assoc()) {
-        echo "<p>User ID: " . $row['user_id'] . "</p>";
-        echo "<p>Role ID: " . $row['role_id'] . "</p>";
-        echo "<p>Username: " . $row['username'] . "</p>";
-        echo "<p>Password: " . $row['password'] . "</p>";
-    } else {
-        echo "No user found with the provided ID.";
-    }
+    $result = $conn->query("SELECT * FROM 'Tracker_User'");
+    
+    echo "$result";
+    
+    $stmt->close();
+    $conn->close();
+    ?>
     ?>
 </body>
 </html>
