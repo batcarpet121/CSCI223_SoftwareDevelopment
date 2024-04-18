@@ -29,7 +29,8 @@
 
     if ($result) {
         // Output or process the result as needed
-        echo ($result);
+        echo $result;
+        echo "Hello";
     } else {
         echo "No record found for the given key.";
     }
