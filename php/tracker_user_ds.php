@@ -34,7 +34,7 @@ class tracker_user_ds extends tracker_user{
             ;
         }
 
-        $qry = 'SELECT '. $sel_list.' FROM Books';
+        $qry = 'SELECT '. $sel_list.' FROM tracker_user';
         $stmt = $this->conn->prepare($qry);
         $stmt->execute();
         $stmt->store_result();
@@ -66,45 +66,23 @@ class tracker_user_ds extends tracker_user{
     }
 
     public function insert($values) {
-        if (!is_array($values)){
-            return false;
-        }
-        
-        $qry = 'INSERT INTO courseOffering (user_id, role_id, term, PASSWORD) VALUES (?, ?, ?, ?)';
+        $qry = 'INSERT INTO tracker_user (user_id, role_id, username, PASSWORD) VALUES (?, ?, ?, ?)';
         $stmt = $this->conn->prepare($qry);
-
-        $stmt -> bind_param('iiss', $values['user_id'], $values['role_id'], $values['username'], $values['PASSWORD']);
-        $success = $stmt -> execute();
+        $stmt->bind_param('iiss', $values['user_id'], $values['role_id'], $values['username'], $values['PASSWORD']);
+        return $stmt->execute();
     }
 
     public function update($value, $field, $id) {
-        if ($value === null || $field === null || $id === null) {
-            return false;
-        }
-
-        $qry = 'UPDATE tracker_user set ' . $field . ' = ' . $value . ' WHERE user_id = ' . $id;
-        $stmt = $this -> conn -> prepare($qry);
-        switch(gettype($value)){
-            case 'integer';
-                $bindtype = 'i';
-                break;
-            case 'double';
-                $bindtype = 'd';
-                break;
-            case 'string';
-            default:
-                $bindtype = 's';
-                break;
-        }
-        $stmt -> bind_param($bindtype . 'i', $value, $id);
-        $success = $stmt -> execute();
+        $qry = 'UPDATE tracker_user SET ' . $field . ' = ? WHERE user_id = ?';
+        $stmt = $this->conn->prepare($qry);
+        $stmt->bind_param('si', $value, $id);
+        return $stmt->execute();
     }
 
     public function delete($id) {
         $qry = 'DELETE FROM tracker_user WHERE user_id = ?';
-        $stmt = $this -> conn -> prepare($qry);
-        $stmt -> bind_param('i', $id);
-
-        $success = $stmt -> execute();
+        $stmt = $this->conn->prepare($qry);
+        $stmt->bind_param('i', $id);
+        return $stmt->execute();
     }
 }
