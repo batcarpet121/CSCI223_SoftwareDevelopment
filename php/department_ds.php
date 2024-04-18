@@ -8,7 +8,7 @@ require('../php/department.php');
 class Department_ds extends Department {
 
     public function selectSingle($key) {
-        if ($key === null) {
+        if ($key == null) {
             return false;
         }
 

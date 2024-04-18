@@ -8,7 +8,7 @@ require('../php/textbook.php');
 class Textbook_ds extends Textbook {
 
     public function selectSingle($key) {
-        if ($key === null) {
+        if ($key == null) {
             return false;
         }
 
@@ -119,7 +119,7 @@ class Textbook_ds extends Textbook {
     }
 
     // public function updateRow($value, $field, $id) {
-    //     if ($value === null || $field === null || $id === null) {
+    //     if ($value == null || $field == null || $id == null) {
     //         return false;
     //     }
 
