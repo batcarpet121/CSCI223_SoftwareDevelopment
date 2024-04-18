@@ -12,19 +12,23 @@
     $conn = db_connect();
 
     if ($conn->connect_error == null) {
-        echo "success!";
+        echo "Success!";
     } else {
         echo "FAILED! " . $conn->connect_error;
     }
-    echo"<br>";
+    echo "<br>";
 
-    $result = $conn->query("SELECT * FROM 'Tracker_User'");
+    $result = $conn->query("SELECT * FROM Tracker_User");
     
-    echo "$result";
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            echo "User ID: " . $row["user_id"]. " - Role ID: " . $row["role_id"]. " - Username: " . $row["username"]. " - Password: " . $row["password"]. "<br>";
+        }
+    } else {
+        echo "0 results";
+    }
     
-    $stmt->close();
     $conn->close();
-    ?>
     ?>
 </body>
 </html>
