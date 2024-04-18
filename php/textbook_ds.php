@@ -1,8 +1,6 @@
 <?php
 
-use function PHPSTORM_META\type;
-
-require('../php/textbooks.php');
+require('../php/textbook.php');
 /* Ignore any conn errors as steve will make the connection file
     Make sure to adjust the current code based on the textbook table
 */
@@ -14,7 +12,7 @@ class Textbook_ds extends Textbook {
             return false;
         }
 
-        $qry = 'SELECT * FROM textbook WHERE textbook_id = ?';
+        $qry = 'SELECT * FROM Textbook WHERE textbook_id = ?';
         // For testing uncomment any commented code below --
         // echo $qry;
         $stmt = $this->conn->prepare($qry);
@@ -54,12 +52,16 @@ class Textbook_ds extends Textbook {
         if ($sel_list == null) {
             $sel_list ='*';
         } else {
-            ;
-        // ToDo - handle specific cols
-        // expect csv string in arg. explode into arr
+            $sel_col = explode(',', $sel_list);
+            for ($i=0; $i < count($sel_col); $i++) {
+                $sel_col[$i] = "'" . $sel_col[$i] . "'";
+            }
+
+            $sel_list = implode(", ", $sel_col);
+
         }
 
-        $qry = 'SELECT ' . $sel_list.' FROM textbook';
+        $qry = 'SELECT ' . $sel_list.' FROM Textbook';
         $stmt = $this->conn->prepare($qry);
         $stmt->execute();
         $stmt->store_result();
@@ -104,7 +106,7 @@ class Textbook_ds extends Textbook {
             return false;
         }
         
-        $qry = 'INSERT INTO textbook (class_id, title, author, isbn, publisher, edition, price) VALUES (?, ?, ?, ?, ?, ?, ?)';
+        $qry = 'INSERT INTO Textbook (class_id, title, author, isbn, publisher, edition, price) VALUES (?, ?, ?, ?, ?, ?, ?)';
         $stmt = $this->conn->prepare($qry);
 
         $stmt->bind_param(
@@ -143,16 +145,16 @@ class Textbook_ds extends Textbook {
     // }
 
     public function update($row) {
-        if ($row === null) {
+        if ($row == null) {
             return false;
         }
 
-        $qry = 'UPDATE textbook SET class_id = (?) 
-                                    title = (?)
-                                    author = (?)
-                                    isbn = (?) 
-                                    publisher = (?) 
-                                    edition = (?) 
+        $qry = 'UPDATE Textbook SET class_id = (?), 
+                                    title = (?),
+                                    author = (?),
+                                    isbn = (?),
+                                    publisher = (?),
+                                    edition = (?),
                                     price = (?) WHERE 
                                     textbook_id = ' . $row['textbook_id'];
 
@@ -167,11 +169,11 @@ class Textbook_ds extends Textbook {
 
     
     public function delete($id){
-        if ($id === null) {
+        if ($id == null) {
             return false;
         }
 
-        $qry = 'DELETE FROM textbook WHERE textbook_id = ?';
+        $qry = 'DELETE FROM Textbook WHERE textbook_id = ?';
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('i', $id);
 
