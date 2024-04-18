@@ -10,7 +10,7 @@
 <body>
     <h4>Test Course</h4>
     <?php
-    require('../data/course_ds.php');
+    require("../php/course_ds.php");
     require("../utils/db_utils.php");
     $conn = db_connect();
 
