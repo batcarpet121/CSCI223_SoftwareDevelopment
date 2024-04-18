@@ -29,9 +29,11 @@ class Textbook_ds extends Textbook {
         echo '29';
 
         $qry = 'SELECT * FROM Textbook WHERE author = ?';
+        echo '30';
         // For testing uncomment any commented code below --
         // echo $qry;
         $stmt = $this->conn->prepare($qry);
+        echo '31';
         $stmt->bind_param('s', $key);
         echo '36';
 
