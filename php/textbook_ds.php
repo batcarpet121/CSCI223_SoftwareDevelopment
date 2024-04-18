@@ -37,7 +37,7 @@ class Textbook_ds extends Textbook {
         try {
             echo 'inside try';
             $stmt = $this->conn->prepare($qry);
-        } catch(Exception $e){
+        } catch(error $e){
             echo 'inside catch';
             echo $e->getMessage();
         }
