@@ -10,10 +10,8 @@
 <body>
     <h4>Test Course</h4>
     <?php
-    // require('../php/course_ds.php');
-    require("db_utils.php");
-
-    require("db_utils.php");
+    require('../data/course_ds.php');
+    require("../utils/db_utils.php");
     $conn = db_connect();
 
     if ($conn->connect_error == null) {
@@ -22,19 +20,19 @@
         echo "FAILED! " . $conn->connect_error;
     }
 
-    // $course_obj = new course_ds($conn);
+    $course_obj = new course_ds($conn);
 
     
-    // $key = 1;
-    // $result = $course_obj->selectSingle($key);
+    $key = 1;
+    $result = $course_obj->selectSingle($key);
 
-    // if ($result) {
-    //     // Output or process the result as needed
-    //     // echo $result;
-    //     echo "Hello";
-    // } else {
-    //     echo "No record found for the given key.";
-    // }
+    if ($result) {
+        // Output or process the result as needed
+        // echo $result;
+        echo "Hello";
+    } else {
+        echo "No record found for the given key.";
+    }
 
 
 
