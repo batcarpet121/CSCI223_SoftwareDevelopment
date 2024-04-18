@@ -16,11 +16,7 @@
     
     $qryOutput = $testTextbook->selectSingle($textbookID);
 
-    if($qryOutput) {
-        echo $qryOutput;
-    } else {
-        echo "Failure";
-    }
+    echo $qryOutput;
     
 ?>
 
