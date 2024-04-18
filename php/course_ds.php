@@ -1,6 +1,6 @@
 <?php
 require('../data/course.php');
-require("db_utils.php");
+require("../utils/db_utils.php");
 
 class course_ds extends course
 {
