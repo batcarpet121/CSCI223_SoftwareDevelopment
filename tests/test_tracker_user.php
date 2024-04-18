@@ -16,6 +16,7 @@
     } else {
         echo "FAILED! " . $conn->connect_error;
     }
+    echo"<br>";
 
     $user_id = 1;
 
