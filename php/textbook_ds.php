@@ -27,11 +27,11 @@ class Textbook_ds extends Textbook {
             return false;
         }
 
-        $qry = 'SELECT * FROM Textbook WHERE textbook_id = ?';
+        $qry = 'SELECT * FROM Textbook WHERE author = ?';
         // For testing uncomment any commented code below --
         // echo $qry;
         $stmt = $this->conn->prepare($qry);
-        $stmt->bind_param('i', $key);
+        $stmt->bind_param('s', $key);
         $stmt->execute();
         // $stmt->store_result();
         $stmt->bind_result(
