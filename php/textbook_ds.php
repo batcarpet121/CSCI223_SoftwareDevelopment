@@ -32,7 +32,13 @@ class Textbook_ds extends Textbook {
         echo '30';
         // For testing uncomment any commented code below --
         // echo $qry;
-        $stmt = $this->conn->prepare($qry);
+        $stmt = '';
+        try {
+            $stmt = $this->conn->prepare($qry);
+        } catch(Exception $e){
+            echo $e->getMessage();
+        }
+      
         echo '31';
         $stmt->bind_param('s', $key);
         echo '36';
