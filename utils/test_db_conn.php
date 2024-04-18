@@ -10,6 +10,15 @@
     <?php
         require("db_utils.php");
         $conn = db_connect();
+
+        if ($conn->connect_error == null){
+            echo "success!";
+        }
+        else{
+            echo "FAILED! ". $conn->connect_error;
+        }
+
+
         
     ?>
     
