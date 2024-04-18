@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Tracker User</title>
+    <title>User Information</title>
 </head>
-
 <body>
-    <h4>Test Tracker User</h4>
+    <h1>User Information</h1>
+
     <?php
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
     require("db_utils.php");
     $conn = db_connect();
 
-    if ($conn->connect_error == null) {
-        echo "success!";
-    } else {
-        echo "FAILED! " . $conn->connect_error;
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
 
     $user_id = 1;
@@ -28,7 +23,7 @@
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if($result->num_rows > 0){
+    if ($result->num_rows > 0) {
         echo "<h2>User Information</h2>";
         echo "<table border='1'>";
         echo "<tr><th>User ID</th><th>Role ID</th><th>Username</th><th>Password</th></tr>";
@@ -47,9 +42,6 @@
 
     $stmt->close();
     $conn->close();
-        
-
     ?>
 </body>
-
 </html>
