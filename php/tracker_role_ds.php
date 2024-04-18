@@ -75,7 +75,7 @@ class tracker_role_ds extends tracker_role
         $stmt->bind_param('s', $info['role_name']);
 
         if($stmt->execute()){
-            return $stmt->role_id;
+            return true;
         }
         else{
             return false;

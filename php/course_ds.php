@@ -12,7 +12,7 @@ class course_ds extends course
 
     public function selectSingle($key)
     {
-        $qry = 'SELECT * FROM Course WHERE Course.course_title = ?';
+        $qry = 'SELECT * FROM Course WHERE Course.course_id = ?';
         // echo $qry;
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('s', $key);
@@ -69,25 +69,32 @@ class course_ds extends course
         }
     }
 
-    public function insert($values)
+    public function insert($dept_id, $course_title)
     {
-        if($values != null){
-            $title = $values;
-        }
-        
-        $qry = 'INSERT INTO course VALUES ($title)';
+        $qry = 'INSERT INTO Course VALUES ($dept_id, $course_id)';
 
-        $this->conn->query($qry);
+        $stmt = $this->conn->preprare($qry);
+        // $stmt->bind_param('is', $dept_id, $course_title);
+
+        if($stmt->execute()){
+            return true;
+        }
+        else{
+            return $stmt->errno;
+        }
     }
 
-    public function update($values)
+    public function update($course_id, $dept_id, $course_title)
     {
-        if($values != null){
-            $title = $values;
-        }
-        
-        $qry = 'UPDATE course SET course_title = ($title) WHERE course_id = $id';
+        $qry = 'UPDATE Course SET course_title = ? WHERE course_id = ?';
 
-        $this->conn->query($qry);
+        $stmt = $this->conn->prepare($qry);
+        $stmt->bind_param('si', $dept_id, $course_id);
+
+        if ($stmt->execute()) {
+            return true;
+        }else{
+            return false;
+        }
     }
 }
