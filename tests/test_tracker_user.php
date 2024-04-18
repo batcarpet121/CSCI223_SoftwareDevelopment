@@ -10,6 +10,8 @@
 <body>
     <h4>Test Tracker User</h4>
     <?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
     require("db_utils.php");
     $conn = db_connect();
 
