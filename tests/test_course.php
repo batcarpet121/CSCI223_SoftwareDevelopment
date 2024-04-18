@@ -17,15 +17,26 @@
 
     
     $key = 1;
-    $result = $course_obj->selectSingle($key);
+    $singleResult = $course_obj->selectSingle($key);
+    $allResult= $course_obj->selectAll($sel_list);
+    
 
-    if ($result) {
+    if ($singleResult) {
         // Output or process the result as needed
         // echo $result;
-        echo print_r($result);
+        echo print_r($singleResult);
     } else {
         echo "No record found for the given key.";
     }
+
+    if ($allResult) {
+        // Output or process the result as needed
+        // echo $result;
+        echo print_r($allResult);
+    } else {
+        echo "No record found for the given key.";
+    }
+
 
 
 

@@ -18,14 +18,14 @@
     }
     echo "<br>";
 
-    $result = $conn->query("SELECT * FROM Tracker_User");
+    $result = $conn->query("SELECT * FROM CourseOffering");
     
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            echo "User ID: " . $row["user_id"]. "<br>";
-            echo "Role ID: " . $row["role_id"]. "<br>";
-            echo "Username: " . $row["username"]. "<br>";
-            echo "Password: " . $row["password"]. "<br>";
+            echo "Course Offering ID: " . $row["course_offering_id"]. "<br>";
+            echo "Course ID: " . $row["course_id"]. "<br>";
+            echo "Course Term: " . $row["course_term"]. "<br>";
+            echo "Course Year: " . $row["year"]. "<br>";
             echo "<br>";
         }
     } else {
