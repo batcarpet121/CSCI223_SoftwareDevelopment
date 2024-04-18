@@ -17,6 +17,8 @@
     } else {
         echo "FAILED! " . $conn->connect_error;
     }
+
+    echo"Hello!";
     ?>
 </body>
 </html>
