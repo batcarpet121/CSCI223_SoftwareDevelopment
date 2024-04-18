@@ -11,15 +11,8 @@
     <h4>Test Course</h4>
     <?php
     require("../php/course_ds.php");
-    require("../utils/db_utils.php");
-    $conn = db_connect();
 
-    if ($conn->connect_error == null) {
-        echo "success!";
-    } else {
-        echo "FAILED! " . $conn->connect_error;
-    }
-
+    
     $course_obj = new course_ds($conn);
 
     

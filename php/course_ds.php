@@ -1,6 +1,6 @@
 <?php
-require('../data/course.php');
-require("db_utils.php");
+require('../php/course.php');
+require("../utils/db_utils.php");
 
 class course_ds extends course
 {
@@ -11,6 +11,13 @@ class course_ds extends course
     {
         $conn = db_connect();
         $this->conn = $conn;
+        
+        if ($conn->connect_error == null) {
+            echo "success!";
+        } else {
+            echo "FAILED! " . $conn->connect_error;
+        }
+    
     }
 
     public function selectSingle($key)
