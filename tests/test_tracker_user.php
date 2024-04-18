@@ -22,7 +22,11 @@
     
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            echo "User ID: " . $row["user_id"]. " - Role ID: " . $row["role_id"]. " - Username: " . $row["username"]. " - Password: " . $row["password"]. "<br>";
+            echo "User ID: " . $row["user_id"]. "<br>";
+            echo "Role ID: " . $row["role_id"]. "<br>";
+            echo "Username: " . $row["username"]. "<br>";
+            echo "Password: " . $row["password"]. "<br>";
+            echo "<br>";
         }
     } else {
         echo "0 results";
