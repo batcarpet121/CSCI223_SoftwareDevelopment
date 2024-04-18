@@ -13,8 +13,12 @@
     $testTextbook = new Textbook_ds($conn);
 
     $textbookID = 1;
+
+    $qryResult = $testTextbook->selectSingle($textbookID);
     
-    print_r($testTextbook->selectSingle($textbookID));
+    print_r($qryResult);
+    echo '<br><br><br>';
+    var_dump($qryResult);
     
 ?>
 
