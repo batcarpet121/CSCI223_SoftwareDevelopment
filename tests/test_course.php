@@ -22,7 +22,7 @@
     if ($result) {
         // Output or process the result as needed
         // echo $result;
-        echo "Hello";
+        echo print_r($result);
     } else {
         echo "No record found for the given key.";
     }
