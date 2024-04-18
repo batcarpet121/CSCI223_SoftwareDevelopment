@@ -14,7 +14,7 @@
 
     $textbookID = 1;
     
-    echo $testTextbook->selectSingle($textbookID);
+    print_r($testTextbook->selectSingle($textbookID));
     
 ?>
 
