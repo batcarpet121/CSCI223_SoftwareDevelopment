@@ -3,10 +3,10 @@
 function db_connect(){
     
     // Database connection parameters
-    $servername = "localhost"; // Replace 'localhost' with your MySQL host
-    $username = "srobinett_tracker2024"; // Replace 'your_username' with your MySQL username
-    $password = "track#!2024GFC"; // Replace 'your_password' with your MySQL password
-    $database = "tracker2024"; // Replace 'your_database' with your MySQL database name
+    $servername = "localhost"; 
+    $username = "srobinett_tracker2024@10.123.0.54"; 
+    $password = "track#!2024GFC"; 
+    $database = "tracker2024"; 
     
     // Create a connection
     $conn = new mysqli($servername, $username, $password, $database);
