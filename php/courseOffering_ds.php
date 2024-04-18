@@ -34,7 +34,7 @@ class Course_Offering_ds extends Course_Offering{
             ;
         }
 
-        $qry = 'SELECT '. $sel_list.' FROM Books';
+        $qry = 'SELECT '. $sel_list.' FROM courseOffering';
         $stmt = $this->conn->prepare($qry);
         $stmt->execute();
         $stmt->store_result();
@@ -66,46 +66,24 @@ class Course_Offering_ds extends Course_Offering{
     }
 
     public function insert($values) {
-        if (!is_array($values)){
-            return false;
-        }
-        
         $qry = 'INSERT INTO courseOffering (course_offering_id, course_id, term, YEAR) VALUES (?, ?, ?, ?)';
         $stmt = $this->conn->prepare($qry);
-
-        $stmt -> bind_param('iisi', $values['course_offering_id'], $values['course_id'], $values['term'], $values['YEAR']);
-        $success = $stmt -> execute();
+        $stmt->bind_param('iiss', $values['course_offering_id'], $values['course_id'], $values['term'], $values['YEAR']);
+        return $stmt->execute();
     }
 
     public function update($value, $field, $id) {
-        if ($value === null || $field === null || $id === null) {
-            return false;
-        }
-
-        $qry = 'UPDATE courseOffering set ' . $field . ' = ' . $value . ' WHERE course_offering_id = ' . $id;
-        $stmt = $this -> conn -> prepare($qry);
-        switch(gettype($value)){
-            case 'integer';
-                $bindtype = 'i';
-                break;
-            case 'double';
-                $bindtype = 'd';
-                break;
-            case 'string';
-            default:
-                $bindtype = 's';
-                break;
-        }
-        $stmt -> bind_param($bindtype . 'i', $value, $id);
-        $success = $stmt -> execute();
+        $qry = 'UPDATE courseOffering SET ' . $field . ' = ? WHERE course_offering_id = ?';
+        $stmt = $this->conn->prepare($qry);
+        $stmt->bind_param('si', $value, $id);
+        return $stmt->execute();
     }
 
     public function delete($id) {
         $qry = 'DELETE FROM courseOffering WHERE course_offering_id = ?';
-        $stmt = $this -> conn -> prepare($qry);
-        $stmt -> bind_param('i', $id);
-
-        $success = $stmt -> execute();
+        $stmt = $this->conn->prepare($qry);
+        $stmt->bind_param('i', $id);
+        return $stmt->execute();
     }
 
 }
