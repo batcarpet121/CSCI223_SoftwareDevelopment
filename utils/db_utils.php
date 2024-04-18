@@ -2,8 +2,11 @@
 
 // Function db_connect()
 // PARAMS - None
-// returns instance of myssqli
-// caller should check $conn->
+// RETURNS instance of mysqli
+// caller should check $conn->connect_error. values are 
+//              null on success
+//              error number on fail
+//          
 
 function db_connect()
 {
