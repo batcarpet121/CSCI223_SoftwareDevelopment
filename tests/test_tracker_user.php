@@ -8,7 +8,6 @@
 <body>
     <h4>Test Tracker User</h4>
     <?php 
-    require("../php/tracker_user_ds.php");
     require("../utils/db_utils.php");
     $conn = db_connect();
 
