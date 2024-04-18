@@ -19,6 +19,12 @@
     print_r($qryResult);
     echo '<br><br><br>';
     var_dump($qryResult);
+
+    if($qryResult) {
+        echo 'What is wrong?';
+    } else {
+        echo 'I am bad at this';
+    }
     
 ?>
 
