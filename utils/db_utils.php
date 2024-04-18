@@ -6,7 +6,7 @@ function db_connect(){
     $servername = "localhost"; 
     $username = "srobinett_tracker2024"; 
     $password = "Track##2024"; 
-    $database = "srobinett_stracker2024"; 
+    $database = "srobinett_tracker2024"; 
     
     // Create a connection
     $conn = new mysqli($servername, $username, $password, $database);
