@@ -33,9 +33,12 @@ class Textbook_ds extends Textbook {
         // For testing uncomment any commented code below --
         // echo $qry;
         $stmt = '';
+        echo 'Starting prepare';
         try {
+            echo 'inside try';
             $stmt = $this->conn->prepare($qry);
         } catch(Exception $e){
+            echo 'inside catch';
             echo $e->getMessage();
         }
       
