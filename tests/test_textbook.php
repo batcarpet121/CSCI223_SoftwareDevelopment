@@ -14,9 +14,7 @@
 
     $textbookID = 1;
     
-    $qryOutput = $testTextbook->selectSingle($textbookID);
-
-    echo $qryOutput;
+    echo $testTextbook->selectSingle($textbookID);
     
 ?>
 
