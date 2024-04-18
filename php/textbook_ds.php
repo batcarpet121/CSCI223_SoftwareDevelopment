@@ -26,13 +26,18 @@ class Textbook_ds extends Textbook {
         if ($key == null) {
             return false;
         }
+        echo '29';
 
         $qry = 'SELECT * FROM Textbook WHERE author = ?';
         // For testing uncomment any commented code below --
         // echo $qry;
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('s', $key);
+        echo '36';
+
         $stmt->execute();
+
+        echo '40';
         // $stmt->store_result();
         $stmt->bind_result(
             $this->textbook_id,
@@ -45,6 +50,7 @@ class Textbook_ds extends Textbook {
             $this->price);
         
         $row = array();
+        echo '53';
         while ($stmt->fetch()) {
             array_push($row, $this->textbook_id);
             array_push($row, $this->class_id);
@@ -55,6 +61,7 @@ class Textbook_ds extends Textbook {
             array_push($row, $this->edition);
             array_push($row, $this->price);
         }
+        echo '64';
         if (!empty($row)) {
             return $row;
         } else {
