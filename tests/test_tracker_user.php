@@ -18,7 +18,7 @@
     }
     echo"<br>";
 
-    $result = $conn->query("SELECT * FROM tracker_user");
+    $result = $conn->query("SELECT * FROM 'Tracker_User'");
     
     echo "$result";
     
