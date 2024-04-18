@@ -5,7 +5,22 @@ require('../php/textbook.php');
     Make sure to adjust the current code based on the textbook table
 */
 
+require('../utils/db_utils.php');
 class Textbook_ds extends Textbook {
+
+    public $conn;
+
+    public function __construct($conn)
+    {
+        $this->$conn = db_connect();
+        
+        if ($conn->connect_error == null) {
+            echo "success!";
+        } else {
+            echo "FAILED! " . $conn->connect_error;
+        }
+        
+    }
 
     public function selectSingle($key) {
         if ($key == null) {
