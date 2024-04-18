@@ -2,6 +2,12 @@
 require('../php/tracker_user.php');
 
 class tracker_user_ds extends tracker_user{
+    public $conn;
+
+    public function __construct($conn)
+    {
+        $this->conn = $conn;
+    }
     public function selectSingle($key){
         $qry = 'SELECT * FROM tracker_user WHERE tracker_user.isbn = ?';
         $stmt = $this->conn->prepare($qry);
