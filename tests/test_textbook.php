@@ -10,7 +10,7 @@
 <?php
     require '../php/textbook_ds.php';
 
-    $testTextbook = new Textbook_ds($conn);
+    $testTextbook = new Textbook_ds();
 
     $textbookID = 'Brian Ward';
 

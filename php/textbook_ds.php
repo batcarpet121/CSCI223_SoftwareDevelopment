@@ -10,14 +10,14 @@ class Textbook_ds extends Textbook {
 
     public $conn;
 
-    public function __construct($conn)
+    public function __construct()
     {
-        $this->$conn = db_connect();
+        $this->conn = db_connect();
         
-        if ($conn->connect_error == null) {
+        if ($this->conn->connect_error == null) {
             echo "success!";
         } else {
-            echo "FAILED! " . $conn->connect_error;
+            echo "FAILED! " . $this->conn->connect_error;
         }
         
     }
