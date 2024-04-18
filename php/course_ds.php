@@ -1,12 +1,15 @@
 <?php
 require('../data/course.php');
+require("db_utils.php");
 
 class course_ds extends course
 {
     public $conn;
+    
 
     public function __construct($conn)
     {
+        $conn = db_connect();
         $this->conn = $conn;
     }
 
@@ -73,7 +76,7 @@ class course_ds extends course
     {
         $qry = 'INSERT INTO Course VALUES ($dept_id, $course_id)';
 
-        $stmt = $this->conn->preprare($qry);
+        $stmt = $this->conn->prepare($qry);
         // $stmt->bind_param('is', $dept_id, $course_title);
 
         if($stmt->execute()){
