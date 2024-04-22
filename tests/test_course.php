@@ -19,7 +19,7 @@
     $key = 1;
     $dept_id=1;
     $course_title="Javascript";
-    
+
     $singleResult = $course_obj->selectSingle($key);
     $allResult= $course_obj->selectAll($sel_list);
     $insertInfo = $course_obj->insert($dept_id, $course_title);
@@ -46,11 +46,11 @@
         echo "No record found for the given key.";
     }
 
-    if($insertInfo){
-        echo "Inserted the information";
-    } else {
-        echo "Unable to insert the infomation";
-    }
+    // if($insertInfo){
+    //     echo "Inserted the information";
+    // } else {
+    //     echo "Unable to insert the infomation";
+    // }
 
 
 
