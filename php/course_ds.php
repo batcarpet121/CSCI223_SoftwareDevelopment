@@ -87,6 +87,7 @@ class course_ds extends course
         // $stmt->bind_param('is', $dept_id, $course_title);
 
         if($stmt->execute()){
+            echo "Insert Worked";
             return true;
         }
         else{
