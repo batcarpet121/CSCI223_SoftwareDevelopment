@@ -82,21 +82,21 @@ class Course_Offering_ds extends Course_Offering{
     }
 
     public function insert($values) {
-        $qry = 'INSERT INTO courseOffering (course_offering_id, course_id, course_term, course_year) VALUES (?, ?, ?, ?)';
+        $qry = 'INSERT INTO CourseOffering (course_offering_id, course_id, course_term, course_year) VALUES (?, ?, ?, ?)';
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('iiss', $values['course_offering_id'], $values['course_id'], $values['course_term'], $values['course_year']);
         return $stmt->execute();
     }
 
     public function update($value, $field, $id) {
-        $qry = 'UPDATE courseOffering SET ' . $field . ' = ? WHERE course_offering_id = ?';
+        $qry = 'UPDATE CourseOffering SET ' . $field . ' = ? WHERE course_offering_id = ?';
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('si', $value, $id);
         return $stmt->execute();
     }
 
     public function delete($id) {
-        $qry = 'DELETE FROM courseOffering WHERE course_offering_id = ?';
+        $qry = 'DELETE FROM CourseOffering WHERE course_offering_id = ?';
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('i', $id);
         return $stmt->execute();
