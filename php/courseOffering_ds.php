@@ -26,15 +26,15 @@ class Course_Offering_ds extends Course_Offering{
         $stmt->bind_result(
             $this->course_offering_id, 
             $this->course_id, 
-            $this->term, 
-            $this->YEAR);
+            $this->course_term, 
+            $this->course_year);
 
         $row = array();
         while ($stmt->fetch()) {
             array_push($row, $this->course_offering_id);
             array_push($row, $this->course_id);
-            array_push($row, $this->term);
-            array_push($row, $this->YEAR);
+            array_push($row, $this->course_term);
+            array_push($row, $this->course_year);
         }
         if (!empty($row)) {
             return $row;
@@ -57,8 +57,8 @@ class Course_Offering_ds extends Course_Offering{
         $stmt->bind_result(
             $this->course_offering_id, 
             $this->course_id, 
-            $this->term, 
-            $this->YEAR);
+            $this->course_term, 
+            $this->course_year);
 
         $returnSet = array();
         $rowCount = 0;
@@ -67,8 +67,8 @@ class Course_Offering_ds extends Course_Offering{
 
             array_push($row, $this->course_offering_id);
             array_push($row, $this->course_id);
-            array_push($row, $this->term);
-            array_push($row, $this->YEAR);
+            array_push($row, $this->course_term);
+            array_push($row, $this->course_year);
 
             $rowCount++;
 
@@ -82,9 +82,9 @@ class Course_Offering_ds extends Course_Offering{
     }
 
     public function insert($values) {
-        $qry = 'INSERT INTO courseOffering (course_offering_id, course_id, term, YEAR) VALUES (?, ?, ?, ?)';
+        $qry = 'INSERT INTO courseOffering (course_offering_id, course_id, course_term, course_year) VALUES (?, ?, ?, ?)';
         $stmt = $this->conn->prepare($qry);
-        $stmt->bind_param('iiss', $values['course_offering_id'], $values['course_id'], $values['term'], $values['YEAR']);
+        $stmt->bind_param('iiss', $values['course_offering_id'], $values['course_id'], $values['course_term'], $values['course_year']);
         return $stmt->execute();
     }
 

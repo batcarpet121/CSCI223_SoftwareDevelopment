@@ -12,7 +12,6 @@
     <?php
     require("../php/courseOffering_ds.php");
 
-    $conn = db_connect();
     $courseOffering_obj = new Course_Offering_ds($conn);
 
     $key = 1;
