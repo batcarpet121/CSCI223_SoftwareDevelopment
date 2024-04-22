@@ -109,8 +109,10 @@ class course_ds extends course
         $stmt->bind_param('iis',$course_id, $dept_id, $course_title);
 
         if ($stmt->execute()) {
+            "works";
             return true;
         }else{
+            "didnt work";
             return false;
         }
     }
