@@ -125,7 +125,7 @@ class Textbook_ds extends Textbook {
         $stmt = $this->conn->prepare($qry);
 
         $stmt->bind_param(
-            'isssssd', 
+            'isssssf', 
             $values['class_id'], 
             $values['title'], 
             $values['author'], 
