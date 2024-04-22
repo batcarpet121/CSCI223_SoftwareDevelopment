@@ -22,9 +22,13 @@
     
 
     if ($singleResult) {
-        // Output or process the result as needed
-        // echo $result;
-        echo print_r($singleResult);
+        while ($row = $result->fetch_assoc()) {
+            echo "Course Offering ID: " . $row["course_offering_id"] . "<br>";
+            echo "Course ID: " . $row["course_id"] . "<br>";
+            echo "Course Term: " . $row["course_term"] . "<br>";
+            echo "Course Year: " . $row["year"] . "<br>";
+            echo "<br>";
+        }
     } else {
         echo "No record found for the given key.";
     }
