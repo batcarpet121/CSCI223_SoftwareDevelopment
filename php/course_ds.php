@@ -79,18 +79,21 @@ class course_ds extends course
         }
     }
 
-    public function insertInfo($dept_id, $course_title)
+    public function insertInfo($course_id, $dept_id, $course_title)
     {
-        $qry = 'INSERT INTO Course VALUES ($dept_id, $course_title)';
+        $qry = 'INSERT INTO Course VALUES ($course_id, $dept_id, $course_title)';
 
         $stmt = $this->conn->prepare($qry);
         // $stmt->bind_param('is', $dept_id, $course_title);
 
         if($stmt->execute()){
+            echo "Insert Worked";
             return true;
         }
         else{
+            echo $stmt->errno;
             return $stmt->errno;
+            
         }
     }
 
