@@ -23,10 +23,9 @@
 
     if ($singleResult) {
         while ($row = $result->fetch_assoc()) {
-            echo "Course Offering ID: " . $row["course_offering_id"] . "<br>";
             echo "Course ID: " . $row["course_id"] . "<br>";
-            echo "Course Term: " . $row["course_term"] . "<br>";
-            echo "Course Year: " . $row["year"] . "<br>";
+            echo "Department ID: " . $row["dept_id"] . "<br>";
+            echo "Course Title: " . $row["course_title"] . "<br>";
             echo "<br>";
         }
     } else {
