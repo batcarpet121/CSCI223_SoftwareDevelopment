@@ -115,17 +115,21 @@ class Textbook_ds extends Textbook {
             }
     
         }
-        
+
     public function insert($values) {
+        echo '1';
         if (!is_array($values)){
             return false;
         }
+        echo '2';
         
-        $qry = 'INSERT INTO Textbook (class_id, title, author, isbn, publisher, edition, price) VALUES (?, ?, ?, ?, ?, ?, ?)';
+        $qry = 'INSERT INTO Textbook (textbook_id, class_id, title, author, isbn, publisher, edition, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+        echo '3';
         $stmt = $this->conn->prepare($qry);
-
+        echo '4';
         $stmt->bind_param(
-            'isssssd', 
+            'iisssssd',
+            $values['textbook_id'],
             $values['class_id'], 
             $values['title'], 
             $values['author'], 
@@ -133,9 +137,9 @@ class Textbook_ds extends Textbook {
             $values['publisher'], 
             $values['edition'], 
             $values['price']);
-
+            echo '5';
         $success = $stmt->execute();
-
+            echo '6';
         if (!$success) {
             echo "Insert failed: " . $stmt->error;
         }

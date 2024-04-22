@@ -13,9 +13,9 @@ class course_ds extends course
         $this->conn = $conn;
         
         if ($conn->connect_error == null) {
-            echo "success!";
+            echo "success! <br>";
         } else {
-            echo "FAILED! " . $conn->connect_error;
+            echo "FAILED! <br> " . $conn->connect_error;
         }
     
     }
@@ -79,18 +79,21 @@ class course_ds extends course
         }
     }
 
-    public function insert($dept_id, $course_title)
+    public function insertInfo($course_id, $dept_id, $course_title)
     {
-        $qry = 'INSERT INTO Course VALUES ($dept_id, $course_title)';
+        $qry = 'INSERT INTO Course VALUES ($course_id, $dept_id, $course_title)';
 
         $stmt = $this->conn->prepare($qry);
         // $stmt->bind_param('is', $dept_id, $course_title);
 
         if($stmt->execute()){
+            echo "Insert Worked";
             return true;
         }
         else{
+            echo $stmt->errno;
             return $stmt->errno;
+            
         }
     }
 
