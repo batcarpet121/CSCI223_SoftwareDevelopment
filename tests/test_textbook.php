@@ -17,10 +17,16 @@
     $qryResult = $testTextbook->selectSingle($textbookID);   
     print_r($qryResult);
 
-    echo '<br><br><br>Select all test<br>';
+    echo '<br><br><br>Select all empty test<br>';
     $textbookSelectMult = '';
     $qryResultMult = $testTextbook->selectAll($textbookSelectMult);
     print_r($qryResultMult);
+
+    echo '<br><br><br>Select all test<br>';
+    $textbookSelectMult = 'author, course_id';
+    $qryResultMult = $testTextbook->selectAll($textbookSelectMult);
+    print_r($qryResultMult);
+
 
     
 ?>
