@@ -2,7 +2,7 @@
 require('../php/tracker_user.php');
 require("../utils/db_utils.php");
 
-class tracker_user_ds extends tracker_user{
+class tracker_user_ds extends Tracker_User{
     public $conn;
 
     public function __construct($conn)
@@ -27,14 +27,14 @@ class tracker_user_ds extends tracker_user{
             $this->user_id, 
             $this->role_id, 
             $this->username, 
-            $this->PASSWORD);
+            $this->password);
 
         $row = array();
         while ($stmt->fetch()) {
             array_push($row, $this->user_id);
             array_push($row, $this->role_id);
             array_push($row, $this->username);
-            array_push($row, $this->PASSWORD);
+            array_push($row, $this->password);
         }
         if (!empty($row)) {
             return $row;
@@ -58,7 +58,7 @@ class tracker_user_ds extends tracker_user{
             $this->user_id, 
             $this->role_id, 
             $this->username, 
-            $this->PASSWORD);
+            $this->password);
 
         $returnSet = array();
         $rowCount = 0;
@@ -68,7 +68,7 @@ class tracker_user_ds extends tracker_user{
             array_push($row, $this->user_id);
             array_push($row, $this->role_id);
             array_push($row, $this->username);
-            array_push($row, $this->PASSWORD);
+            array_push($row, $this->password);
 
             $rowCount++;
 
