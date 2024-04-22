@@ -36,8 +36,9 @@
 
     if($allResult){
         foreach($allResult as $result){
-            echo $result[0];
-            echo $result[2];
+            echo $result[0]. "<br>";
+            echo $result[1]. "<br>";
+            echo $result[2]. "<br>";
         }        
         
     }
