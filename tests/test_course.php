@@ -22,20 +22,25 @@
     
 
     if ($singleResult) {
-        echo "Course ID:" . $singleResult[0];
-        echo "Department ID:" . $singleResult[1];
-        echo "Course Title:" . $singleResult[2];
+        echo "Course ID: " . $singleResult[0]. "<br>";
+        echo "Department ID: " . $singleResult[1]. "<br>";
+        echo "Course Title: " . $singleResult[2]. "<br>";
+        echo "<br>";
     } else {
         echo "No record found for the given key.";
     }
 
-    // if ($allResult) {
-    //     // Output or process the result as needed
-    //     // echo $result;
-    //     echo print_r($allResult);
-    // } else {
-    //     echo "No record found for the given key.";
-    // }
+    if ($allResult) {
+        foreach($allresults as $result){
+            echo "Course ID: " . $singleResult[0]. "<br>";
+            echo "Department ID: " . $singleResult[1]. "<br>";
+            echo "Course Title: " . $singleResult[2]. "<br>";
+            echo "<br>";
+        }
+        
+    } else {
+        echo "No record found for the given key.";
+    }
 
 
 
