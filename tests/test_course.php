@@ -36,9 +36,9 @@
 
     if($allResult){
         foreach($allResult as $result){
-            echo $result[0]. "<br>";
-            echo $result[1]. "<br>";
-            echo $result[2]. "<br>";
+            echo "Course ID: ". $result[0]. "<br>";
+            echo "Department ID: ". $result[1]. "<br>";
+            echo "Course Title: ". $result[2]. "<br>";
         }        
         
     }
