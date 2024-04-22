@@ -34,16 +34,14 @@
         echo "No record found for the given key.";
     }
 
-    if ($allResult) {
+    while($allResult) {
         foreach($allresult as $result){
             echo "Course ID: " . $result[0]. "<br>";
             echo "Department ID: " . $result[1]. "<br>";
             echo "Course Title: " . $result[2]. "<br>";
             echo "<br>";
-        }    
-    } else {
-        echo "No record found for the given key.";
-    }
+        }  
+    }  
 
     // if($insertInfo){
     //     echo "Inserted the information";
