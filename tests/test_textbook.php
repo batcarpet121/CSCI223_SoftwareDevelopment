@@ -35,7 +35,7 @@
     'isbn' => '0123456789',
     'publisher' => 'GF Press',
     'edition' => '3rd',
-    'price' => 79.95);
+    'price' => 79);
     $testTextbook->insert($textbookInsert);
 
 

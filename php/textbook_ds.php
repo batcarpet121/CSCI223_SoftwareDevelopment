@@ -125,12 +125,20 @@ class Textbook_ds extends Textbook {
         $stmt = $this->conn->prepare($qry);
 
         $stmt->bind_param(
-            'isssssd', $values['class_id'], $values['title'], $values['author'], $values['isbn'], $values['publisher'], $values['edition'], $values['price']);
+            'isssssd', 
+            $values['class_id'], 
+            $values['title'], 
+            $values['author'], 
+            $values['isbn'], 
+            $values['publisher'], 
+            $values['edition'], 
+            $values['price']);
+
         $success = $stmt->execute();
 
-        // if (!$success) {
-        //     echo "Insert failed: " . $stmt->error;
-        // }
+        if (!$success) {
+            echo "Insert failed: " . $stmt->error;
+        }
     }
 
     // public function updateRow($value, $field, $id) {
