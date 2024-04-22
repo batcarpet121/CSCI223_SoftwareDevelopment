@@ -10,7 +10,7 @@
 <?php
     require '../php/department_ds.php';
 
-    $testTextbook = new Textbook_ds();
+    $testTextbook = new department_ds();
 
     echo '<br><br><br>Select single test<br>';
     $departmentID = 1;
