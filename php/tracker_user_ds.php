@@ -1,13 +1,23 @@
 <?php
 require('../php/tracker_user.php');
+require("../utils/db_utils.php");
 
 class tracker_user_ds extends tracker_user{
     public $conn;
 
     public function __construct($conn)
     {
+        $conn = db_connect();
         $this->conn = $conn;
+        
+        if ($conn->connect_error == null) {
+            echo "success!<br>";
+        } else {
+            echo "FAILED! <br>" . $conn->connect_error;
+        }
+    
     }
+
     public function selectSingle($key){
         $qry = 'SELECT * FROM Tracker_User WHERE Tracker_User.user_id = ?';
         $stmt = $this->conn->prepare($qry);
