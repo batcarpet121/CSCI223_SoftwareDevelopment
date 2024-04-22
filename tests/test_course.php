@@ -17,15 +17,16 @@
 
 
     $key = 1;
-    // $dept_id=1;
-    // $course_title="Javascript";
+
+    $dept_id=1;
+    $course_title="Javascript";
 
     $singleResult = $course_obj->selectSingle($key);
     $allResult = $course_obj->selectAll($sel_list);
-    // $insertInfo = $course_obj->insert($dept_id, $course_title);
+    $insertInfo = $course_obj->insertInfo($dept_id, $course_title);
 
     echo "Testing select single <br>";
-    
+
     if ($singleResult) {
         echo "Course ID: " . $singleResult[1] . "<br>";
         echo "Department ID: " . $singleResult[1] . "<br>";
@@ -49,11 +50,11 @@
     
 
 
-    // if($insertInfo){
-    //     echo "Inserted the information";
-    // } else {
-    //     echo "Unable to insert the infomation";
-    // }
+    if($insertInfo){
+        echo "Inserted the information";
+    } else {
+        echo "Unable to insert the infomation";
+    }
 
 
 
