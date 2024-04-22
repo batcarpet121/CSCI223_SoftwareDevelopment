@@ -22,20 +22,20 @@
     
 
     if ($singleResult) {
-        echo $singleResult['course_id'];
-        echo $singleResult['dept_id'];
-        echo $singleResult['course_title'];
+        echo "Course ID:", $singleResult['course_id'];
+        echo "Department ID:", $singleResult['dept_id'];
+        echo "Course Title:", $singleResult['course_title'];
     } else {
         echo "No record found for the given key.";
     }
 
-    if ($allResult) {
-        // Output or process the result as needed
-        // echo $result;
-        echo print_r($allResult);
-    } else {
-        echo "No record found for the given key.";
-    }
+    // if ($allResult) {
+    //     // Output or process the result as needed
+    //     // echo $result;
+    //     echo print_r($allResult);
+    // } else {
+    //     echo "No record found for the given key.";
+    // }
 
 
 
