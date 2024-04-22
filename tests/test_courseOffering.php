@@ -19,6 +19,7 @@
     $key = 1;
 
     $singleResult = $course_offering_obj->selectSingle($key);
+    $allResult = $course_obj->selectAll($sel_list);
 
     echo "Testing select single <br>";
 
