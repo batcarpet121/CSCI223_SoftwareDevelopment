@@ -106,7 +106,7 @@ class course_ds extends course
         $qry = 'UPDATE Course SET dept_id = ? course_title = ? WHERE course_id = ?';
 
         $stmt = $this->conn->prepare($qry);
-        $stmt->bind_param('si', $dept_id, $course_id);
+        $stmt->bind_param('is', $dept_id, $course_title);
 
         if ($stmt->execute()) {
             return true;
