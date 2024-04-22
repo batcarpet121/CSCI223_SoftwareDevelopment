@@ -26,7 +26,7 @@ class Textbook_ds extends Textbook {
         if ($key == null) {
             return false;
         }
-        $qry = 'SELECT * FROM Textbook WHERE author = ?';
+        $qry = 'SELECT * FROM Textbook WHERE textbook_id = ?';
         // For testing uncomment any commented code below --
         // echo $qry;
         $stmt = '';

@@ -12,7 +12,7 @@
 
     $testTextbook = new Textbook_ds();
 
-    $textbookID = 'Brian Ward';
+    $textbookID = '1';
 
     $qryResult = $testTextbook->selectSingle($textbookID);
     
