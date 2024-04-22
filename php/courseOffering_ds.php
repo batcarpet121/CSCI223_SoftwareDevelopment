@@ -6,8 +6,17 @@ class Course_Offering_ds extends Course_Offering{
 
     public function __construct($conn)
     {
+        $conn = db_connect();
         $this->conn = $conn;
+        
+        if ($conn->connect_error == null) {
+            echo "success!";
+        } else {
+            echo "FAILED! " . $conn->connect_error;
+        }
+    
     }
+    
     public function selectSingle($key){
         $qry = 'SELECT * FROM courseOffering WHERE courseOffering.isbn = ?';
         $stmt = $this->conn->prepare($qry);
