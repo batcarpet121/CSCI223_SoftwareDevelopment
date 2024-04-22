@@ -21,9 +21,10 @@
 
     echo "Testing Single";
     if ($singleResult) {
-        echo "Course ID: " . $singleResult[0] . "<br>";
-        echo "Department ID: " . $singleResult[1] . "<br>";
-        echo "Course Title: " . $singleResult[2] . "<br>";
+        echo "Course Offering ID: " . $singleResult[0] . "<br>";
+        echo "Course Offering: " . $singleResult[1] . "<br>";
+        echo "Course Term: " . $singleResult[2] . "<br>";
+        echo "Course Year: " . $singleResult[3] . "<br>";
         echo "<br>";
     } 
     else {
