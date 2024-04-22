@@ -84,7 +84,7 @@ class course_ds extends course
         $qry = 'INSERT INTO Course VALUES ($course_id, $dept_id, $course_title)';
 
         $stmt = $this->conn->prepare($qry);
-        // $stmt->bind_param('is', $dept_id, $course_title);
+        $stmt->bind_param('iis', $course_id, $dept_id, $course_title);
 
         if($stmt->execute()){
             echo "Insert Worked";
