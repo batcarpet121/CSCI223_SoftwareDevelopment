@@ -19,6 +19,7 @@
     $key = 1;
     $singleResult = $course_obj->selectSingle($key);
     $allResult= $course_obj->selectAll($sel_list);
+    $insertInfo = $course_obj->insert(1, "Javascript");
     
 
     if ($singleResult) {
@@ -42,6 +43,11 @@
         echo "No record found for the given key.";
     }
 
+    if($insertInfo){
+        echo "Inserted the information";
+    } else {
+        echo "Unable to insert the infomation";
+    }
 
 
 
