@@ -8,31 +8,69 @@
 </head>
 
 <body>
-    <h4>Test Course Offering</h4>
+    <h4>Test Course</h4>
     <?php
-    require("../php/courseOffering_ds.php");
+    require("../php/course_ds.php");
 
-    $courseOffering_obj = new Course_Offering_ds($conn);
 
+    $course_obj = new Course_Offering_ds($conn);
+
+    //Select Single values
     $key = 1;
 
-    $singleResult = $courseOffering_obj->selectSingle($key);
+    // Insert values
+    //$insert_dept_id=1;
+    //$insert_course_title="Javascript";
 
-    echo "Testing Single";
+    // Update
+    //$update_course_id=9;
+    //$update_dept_id=1;
+    //$update_course_title= "105 Javascript";
+
+    $singleResult = $course_obj->selectSingle($key);
+    $allResult = $course_obj->selectAll($sel_list);
+    // $insertInfo = $course_obj->insertInfo($insert_dept_id, $insert_course_title);
+    //$updateInfo = $course_obj->update($update_course_id, $update_dept_id, $update_course_title);
+
+    echo "Testing select single <br>";
 
     if ($singleResult) {
-        echo "Course Offering ID: " . $singleResult[0] . "<br>";
-        echo "Course Offering: " . $singleResult[1] . "<br>";
-        echo "Course Term: " . $singleResult[2] . "<br>";
-        echo "Course Year: " . $singleResult[3] . "<br>";
+        echo "Course ID: " . $singleResult[1] . "<br>";
+        echo "Department ID: " . $singleResult[1] . "<br>";
+        echo "Course Title: " . $singleResult[2] . "<br>";
         echo "<br>";
     } else {
         echo "No record found for the given key.";
     }
 
-    $conn->close();
+    echo "Testing select all <br>";
+    
+    if($allResult){
+        foreach($allResult as $result){
+            echo "Course ID: ". $result[0]. "<br>";
+            echo "Department ID: ". $result[1]. "<br>";
+            echo "Course Title: ". $result[2]. "<br>";
+            echo "<br>";
+        }        
+        
+    }
+    
+
+
+    // if($insertInfo){
+    //     echo "Inserted the information";
+    // } else {
+    //     echo "Unable to insert the infomation";
+    // }
+
+    // if($update){
+    //     echo "Information Updated";
+    // } else {
+    //     echo "failed";
+    // }
 
     ?>
+
 </body>
 
 </html>
