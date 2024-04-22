@@ -12,19 +12,16 @@
 
     $testTextbook = new Textbook_ds();
 
+    echo 'Select single test';
     $textbookID = '1';
-
-    $qryResult = $testTextbook->selectSingle($textbookID);
-    
+    $qryResult = $testTextbook->selectSingle($textbookID);   
     print_r($qryResult);
-    echo '<br><br><br>';
-    var_dump($qryResult);
 
-    if($qryResult) {
-        echo 'What is wrong?';
-    } else {
-        echo 'I am bad at this';
-    }
+    echo 'Select all test';
+    $textbookSelectMult = '';
+    $qryResultMult = $testTextbook->selectAll($textbookSelectMult);
+    print_r($qryResultMult);
+
     
 ?>
 
