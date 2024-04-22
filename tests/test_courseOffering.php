@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h4>Test Tracker User</h4>
+    <h4>Test Course Offering</h4>
     <?php 
     require("../utils/db_utils.php");
     $conn = db_connect();
@@ -18,7 +18,7 @@
     }
     echo "<br>";
 
-    $result = $conn->query("SELECT * FROM CourseOffering");
+    $result = $conn->query("SELECT * FROM CourseOffering WHERE course_offering_id=1");
     
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
