@@ -9,29 +9,28 @@
 
 <body>
     <h4>Test Course</h4>
-
-    <div id="ADD_COURSE" class="addForm">
-        <label for="COURSE_Title">Enter Course Title:</label>
-        <input type="text" id="COURSE_TITLE" name="COURSE_TITLE" placeholder="Enter the Course Title" required>
-    </div>
     <?php
     require("../php/course_ds.php");
 
 
     $course_obj = new course_ds($conn);
 
-    //Select Single row value
+    //Select Single values
     $key = 1;
 
-    // Insert
-    $dept_id= $_GET['COURSE_TITLE'];
-    $course_title="Javascript";
+    // Insert values
+    $insert_dept_id=1;
+    $insert_course_title="Javascript";
 
-    echo $dept_id;
+    // Update
+    $update_course_id=9;
+    $update_dept_id=1;
+    $update_coures_title= "105 Javascript";
 
     $singleResult = $course_obj->selectSingle($key);
     $allResult = $course_obj->selectAll($sel_list);
-    $insertInfo = $course_obj->insertInfo($dept_id, $course_title);
+    $insertInfo = $course_obj->insertInfo($insert_dept_id, $insert_course_title);
+    $updateInfo = $course_obj->update($update_course_id, $update_dept_id, $update_course_title);
 
     echo "Testing select single <br>";
 
@@ -64,7 +63,11 @@
     //     echo "Unable to insert the infomation";
     // }
 
-
+    if($update){
+        echo "Information Updated";
+    } else {
+        echo "failed";
+    }
 
     ?>
 
