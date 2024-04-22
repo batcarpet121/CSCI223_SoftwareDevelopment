@@ -26,7 +26,7 @@
 
 
     if ($singleResult) {
-        echo "Course ID: " . $singleResult["course_id"] . "<br>";
+        echo "Course ID: " . $singleResult[1] . "<br>";
         echo "Department ID: " . $singleResult[1] . "<br>";
         echo "Course Title: " . $singleResult[2] . "<br>";
         echo "<br>";
@@ -34,12 +34,13 @@
         echo "No record found for the given key.";
     }
 
-    foreach ($allresult as $result) {
-        echo "Course ID: " . $result[0] . "<br>";
-        echo "Department ID: " . $result[1] . "<br>";
-        echo "Course Title: " . $result[2] . "<br>";
-        echo "<br>";
+    if($allResult){
+        foreach($allResult as $result){
+            echo $allResult[$result[0]];
+        }
+        
     }
+    
 
 
     // if($insertInfo){
