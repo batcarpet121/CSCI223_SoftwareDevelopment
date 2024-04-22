@@ -42,7 +42,7 @@
 
 
     echo '<br><br><br>Update test<br>';
-    $textbookUpdate = array(
+    $textbookUpdate = [
     'class_id' => 1,
     'title' => 'Developing Software',
     'author' => 'David Thomas',
@@ -50,7 +50,7 @@
     'publisher' => 'GFCMSU',
     'edition' => '1st Edition',
     'price' => 64.00,
-    'textbook_id' => 1);
+    'textbook_id' => 1];
     $testTextbook->update($textbookUpdate);
     
 
