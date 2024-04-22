@@ -9,7 +9,7 @@ class tracker_user_ds extends tracker_user{
         $this->conn = $conn;
     }
     public function selectSingle($key){
-        $qry = 'SELECT * FROM tracker_user WHERE tracker_user.isbn = ?';
+        $qry = 'SELECT * FROM Tracker_User WHERE Tracker_User.user_id = ?';
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('s', $key);
         $stmt->execute();
@@ -40,7 +40,7 @@ class tracker_user_ds extends tracker_user{
             ;
         }
 
-        $qry = 'SELECT '. $sel_list.' FROM tracker_user';
+        $qry = 'SELECT '. $sel_list.' FROM Tracker_User';
         $stmt = $this->conn->prepare($qry);
         $stmt->execute();
         $stmt->store_result();
@@ -72,21 +72,21 @@ class tracker_user_ds extends tracker_user{
     }
 
     public function insert($values) {
-        $qry = 'INSERT INTO tracker_user (user_id, role_id, username, PASSWORD) VALUES (?, ?, ?, ?)';
+        $qry = 'INSERT INTO Tracker_User (user_id, role_id, username, PASSWORD) VALUES (?, ?, ?, ?)';
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('iiss', $values['user_id'], $values['role_id'], $values['username'], $values['PASSWORD']);
         return $stmt->execute();
     }
 
     public function update($value, $field, $id) {
-        $qry = 'UPDATE tracker_user SET ' . $field . ' = ? WHERE user_id = ?';
+        $qry = 'UPDATE Tracker_User SET ' . $field . ' = ? WHERE user_id = ?';
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('si', $value, $id);
         return $stmt->execute();
     }
 
     public function delete($id) {
-        $qry = 'DELETE FROM tracker_user WHERE user_id = ?';
+        $qry = 'DELETE FROM Tracker_User WHERE user_id = ?';
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('i', $id);
         return $stmt->execute();
