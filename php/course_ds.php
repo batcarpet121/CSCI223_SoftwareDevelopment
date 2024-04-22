@@ -88,12 +88,11 @@ class course_ds extends course
         $stmt = $this->conn->prepare($qry);
         echo "2 works";
         
-        $stmt->bind_param('is', $dept_id, $course_title);
-        echo "3 works";
+        //$stmt->bind_param('is', $dept_id, $course_title);
         
         if($stmt->execute()){
             echo "Insert Worked";
-            return true;
+            return "hello";
         }
         else{
             echo $stmt->errno;
