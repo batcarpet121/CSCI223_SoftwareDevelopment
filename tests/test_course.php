@@ -9,18 +9,25 @@
 
 <body>
     <h4>Test Course</h4>
+
+    <div id="ADD_COURSE" class="addForm">
+        <label for="COURSE_Title">Enter Course Title:</label>
+        <input type="text" id="COURSE_TITLE" name="COURSE_TITLE" placeholder="Enter the Course Title" required>
+    </div>
     <?php
     require("../php/course_ds.php");
 
 
     $course_obj = new course_ds($conn);
 
-
+    //Select Single row value
     $key = 1;
 
-    // $course_id=NULL;
-    $dept_id=1;
+    // Insert
+    $dept_id= $_GET['COURSE_TITLE'];
     $course_title="Javascript";
+
+    echo $dept_id;
 
     $singleResult = $course_obj->selectSingle($key);
     $allResult = $course_obj->selectAll($sel_list);
@@ -51,11 +58,11 @@
     
 
 
-    if($insertInfo){
-        echo "Inserted the information";
-    } else {
-        echo "Unable to insert the infomation";
-    }
+    // if($insertInfo){
+    //     echo "Inserted the information";
+    // } else {
+    //     echo "Unable to insert the infomation";
+    // }
 
 
 
