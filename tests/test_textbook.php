@@ -12,12 +12,12 @@
 
     $testTextbook = new Textbook_ds();
 
-    echo 'Select single test';
+    echo '<br><br><br>Select single test<br>';
     $textbookID = '1';
     $qryResult = $testTextbook->selectSingle($textbookID);   
     print_r($qryResult);
 
-    echo 'Select all test';
+    echo '<br><br><br>Select all test<br>';
     $textbookSelectMult = '';
     $qryResultMult = $testTextbook->selectAll($textbookSelectMult);
     print_r($qryResultMult);
