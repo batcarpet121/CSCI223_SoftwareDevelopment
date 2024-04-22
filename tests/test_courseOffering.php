@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h4>Test Course Offering</h4>
-    <?php 
-    require("../utils/db_utils.php");
-    $conn = db_connect();
+    <?php
+    require("../php/courseOffering_ds.php");
 
-    if ($conn->connect_error == null) {
-        echo "Success!";
-    } else {
-        echo "FAILED! " . $conn->connect_error;
-    }
-    echo "<br>";
+    $course_obj = new Course_Offering_ds($conn);
 
-    $result = $conn->query("SELECT * FROM CourseOffering WHERE course_offering_id=1");
-    
-    if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-            echo "Course Offering ID: " . $row["course_offering_id"]. "<br>";
-            echo "Course ID: " . $row["course_id"]. "<br>";
-            echo "Course Term: " . $row["course_term"]. "<br>";
-            echo "Course Year: " . $row["year"]. "<br>";
-            echo "<br>";
-        }
-    } else {
-        echo "0 results";
+    $key = 1;
+
+    $singleResult = $course_obj->selectSingle($key);
+    $allResult = $course_obj->selectAll($sel_list);
+
+    echo "Testing Single";
+    if ($singleResult) {
+        echo "Course ID: " . $singleResult[0] . "<br>";
+        echo "Department ID: " . $singleResult[1] . "<br>";
+        echo "Course Title: " . $singleResult[2] . "<br>";
+        echo "<br>";
+    } 
+    else {
+        echo "No record found for the given key.";
     }
-    
-    $conn->close();
+
+    // echo "Testing Select All";
+    // if ($allResult) {
+    //     foreach ($allResult as $result) {
+    //         echo "Course ID: " . $result[0] . "<br>";
+    //         echo "Department ID: " . $result[1] . "<br>";
+    //         echo "Course Title: " . $result[2] . "<br>";
+    //         echo "<br>";
+    //     }
+    // }
+
     ?>
 </body>
+
 </html>
