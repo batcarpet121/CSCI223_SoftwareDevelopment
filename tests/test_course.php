@@ -22,9 +22,9 @@
     
 
     if ($singleResult) {
-        echo "Course ID:", $singleResult['course_id'];
-        echo "Department ID:", $singleResult['dept_id'];
-        echo "Course Title:", $singleResult['course_title'];
+        echo "Course ID:" . $singleResult['course_id'];
+        echo "Department ID:" . $singleResult['dept_id'];
+        echo "Course Title:" . $singleResult['course_title'];
     } else {
         echo "No record found for the given key.";
     }
