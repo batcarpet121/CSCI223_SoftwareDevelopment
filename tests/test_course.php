@@ -18,13 +18,13 @@
 
     $key = 1;
 
-    $course_id=NULL;
+    // $course_id=NULL;
     $dept_id=1;
     $course_title="Javascript";
 
     $singleResult = $course_obj->selectSingle($key);
     $allResult = $course_obj->selectAll($sel_list);
-    $insertInfo = $course_obj->insertInfo($course_id, $dept_id, $course_title);
+    $insertInfo = $course_obj->insertInfo($dept_id, $course_title);
 
     echo "Testing select single <br>";
 
