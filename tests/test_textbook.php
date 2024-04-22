@@ -27,18 +27,17 @@
     $qryResultMult = $testTextbook->selectAll($textbookSelectMult);
     print_r($qryResultMult);
 
-    // echo '<br><br><br>Insert test<br>';
-    // $textbookInsert = array(1, 'Insert Test', 'Aaron Polaske', '0123456789', 'GF Press', '3rd', 79.95 );
-    // array(
-    // 'class_id' => 1,
-    // 'title' => 'Insert Test',
-    // 'author' => 'Aaron Polaske',
-    // 'isbn' => '0123456789',
-    // 'publisher' => 'GF Press',
-    // 'edition' => '3rd',
-    // 'price' => 79.95);
-
-    // $testTextbook->insert($textbookInsert);
+    echo '<br><br><br>Insert test<br>';
+    $textbookInsert = [
+    'class_id' => 1,
+    'title' => 'Insert Test',
+    'author' => 'Aaron Polaske',
+    'isbn' => '0123456789',
+    'publisher' => 'GF Press',
+    'edition' => '3rd',
+    'price' => 79.95];
+    
+    $testTextbook->insert($textbookInsert);
 
 
     echo '<br><br><br>Update test<br>';
