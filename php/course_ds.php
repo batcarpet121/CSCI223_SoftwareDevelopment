@@ -79,7 +79,7 @@ class course_ds extends course
         }
     }
 
-    public function insert($dept_id, $course_title)
+    public function insertInfo($dept_id, $course_title)
     {
         $qry = 'INSERT INTO Course VALUES ($dept_id, $course_title)';
 
