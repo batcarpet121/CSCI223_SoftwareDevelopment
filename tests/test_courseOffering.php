@@ -8,31 +8,23 @@
 <body>
     <h4>Test Course Offering</h4>
     <?php 
-    require("../utils/db_utils.php");
-    $conn = db_connect();
+    require("../php/courseOffering_ds.php");
 
-    if ($conn->connect_error == null) {
-        echo "Success!";
-    } else {
-        echo "FAILED! " . $conn->connect_error;
-    }
-    echo "<br>";
+    $course_obj = new Course_Offering_ds($conn);
 
-    $result = $conn->query("SELECT * FROM CourseOffering WHERE course_offering_id=1");
-    
-    if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-            echo "Course Offering ID: " . $row["course_offering_id"]. "<br>";
-            echo "Course ID: " . $row["course_id"]. "<br>";
-            echo "Course Term: " . $row["course_term"]. "<br>";
-            echo "Course Year: " . $row["year"]. "<br>";
-            echo "<br>";
-        }
+    $key = 1;
+
+    $singleResult = $course_obj->selectSingle($key);
+    $allResult = $course_obj->selectAll($sel_list);
+
+    if ($singleResult) {
+        echo "Course ID: " . $singleResult[0]. "<br>";
+        echo "Department ID: " . $singleResult[1]. "<br>";
+        echo "Course Title: " . $singleResult[2]. "<br>";
+        echo "<br>";
     } else {
-        echo "0 results";
+        echo "No record found for the given key.";
     }
-    
-    $conn->close();
     ?>
 </body>
 </html>
