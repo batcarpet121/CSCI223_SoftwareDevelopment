@@ -37,16 +37,16 @@
     // 'edition' => '3rd',
     // 'price' => 79.95);
 
-    $classID = 1;
-    $title = 'Insert Test';
-    $author = 'Aaron Polaske';
-    $isbn = '0123456789';
-    $publisher = 'GF Press';
-    $edition = 'Edition';
-    $price = 79.95;
+    // $classID = 1;
+    // $title = 'Insert Test';
+    // $author = 'Aaron Polaske';
+    // $isbn = '0123456789';
+    // $publisher = 'GF Press';
+    // $edition = 'Edition';
+    // $price = 79.95;
 
 
-    $testTextbook->insert($classID, $title, $author, $isbn, $publisher, $edition, $price);
+    // $testTextbook->insert($classID, $title, $author, $isbn, $publisher, $edition, $price);
 
 
     // echo '<br><br><br>Update test<br>';
