@@ -103,7 +103,7 @@ class course_ds extends course
 
     public function update($course_id, $dept_id, $course_title)
     {
-        $qry = 'UPDATE Course SET dept_id = ? course_title = ? WHERE course_id = ?';
+        $qry = 'UPDATE Course SET dept_id = ?, course_title = ? WHERE course_id = ?';
 
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('is', $dept_id, $course_title);

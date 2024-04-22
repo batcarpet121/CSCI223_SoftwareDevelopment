@@ -29,7 +29,7 @@
 
     $singleResult = $course_obj->selectSingle($key);
     $allResult = $course_obj->selectAll($sel_list);
-    $insertInfo = $course_obj->insertInfo($insert_dept_id, $insert_course_title);
+    // $insertInfo = $course_obj->insertInfo($insert_dept_id, $insert_course_title);
     $updateInfo = $course_obj->update($update_course_id, $update_dept_id, $update_course_title);
 
     echo "Testing select single <br>";
