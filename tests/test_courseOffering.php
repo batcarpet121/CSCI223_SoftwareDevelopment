@@ -13,38 +13,24 @@
     require("../php/courseOffering_ds.php");
 
 
-    $course_obj = new Course_Offering_ds($conn);
+    $course_offering_obj = new Course_Offering_ds($conn);
 
     //Select Single values
     $key = 1;
 
-    $singleResult = $course_obj->selectSingle($key);
-    $allResult = $course_obj->selectAll($sel_list);
+    $singleResult = $course_offering_obj->selectSingle($key);
 
     echo "Testing select single <br>";
 
     if ($singleResult) {
+        echo "Course Offering ID: " . $singleResult[1] . "<br>";
         echo "Course ID: " . $singleResult[1] . "<br>";
-        echo "Department ID: " . $singleResult[1] . "<br>";
-        echo "Course Title: " . $singleResult[2] . "<br>";
+        echo "Course Term: " . $singleResult[2] . "<br>";
+        echo "Course Year: " . $singleResult[3] . "<br>";
         echo "<br>";
     } else {
         echo "No record found for the given key.";
     }
-
-    echo "Testing select all <br>";
-    
-    if($allResult){
-        foreach($allResult as $result){
-            echo "Course ID: ". $result[0]. "<br>";
-            echo "Department ID: ". $result[1]. "<br>";
-            echo "Course Title: ". $result[2]. "<br>";
-            echo "<br>";
-        }        
-        
-    }
-
-
     ?>
 
 </body>
