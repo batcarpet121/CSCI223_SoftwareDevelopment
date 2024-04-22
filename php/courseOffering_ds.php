@@ -50,7 +50,7 @@ class Course_Offering_ds extends Course_Offering{
             ;
         }
 
-        $qry = 'SELECT '. $sel_list.' FROM courseOffering';
+        $qry = 'SELECT '. $sel_list.' FROM CourseOffering';
         $stmt = $this->conn->prepare($qry);
         $stmt->execute();
         $stmt->store_result();
