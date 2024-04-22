@@ -10,7 +10,7 @@
 <body>
     <h4>Test Course</h4>
     <?php
-    require("../php/course_ds.php");
+    require("../php/courseOffering_ds.php");
 
 
     $course_obj = new Course_Offering_ds($conn);
@@ -18,19 +18,8 @@
     //Select Single values
     $key = 1;
 
-    // Insert values
-    //$insert_dept_id=1;
-    //$insert_course_title="Javascript";
-
-    // Update
-    //$update_course_id=9;
-    //$update_dept_id=1;
-    //$update_course_title= "105 Javascript";
-
     $singleResult = $course_obj->selectSingle($key);
     $allResult = $course_obj->selectAll($sel_list);
-    // $insertInfo = $course_obj->insertInfo($insert_dept_id, $insert_course_title);
-    //$updateInfo = $course_obj->update($update_course_id, $update_dept_id, $update_course_title);
 
     echo "Testing select single <br>";
 
@@ -54,20 +43,7 @@
         }        
         
     }
-    
 
-
-    // if($insertInfo){
-    //     echo "Inserted the information";
-    // } else {
-    //     echo "Unable to insert the infomation";
-    // }
-
-    // if($update){
-    //     echo "Information Updated";
-    // } else {
-    //     echo "failed";
-    // }
 
     ?>
 
