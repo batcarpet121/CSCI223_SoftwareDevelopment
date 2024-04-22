@@ -123,13 +123,15 @@ class Textbook_ds extends Textbook {
         }
         echo '2';
         
-        $qry = 'INSERT INTO Textbook (textbook_id, class_id, title, author, isbn, publisher, edition, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+        $qry = "INSERT INTO textbook (class_id, title, author, isbn, publisher, edition, price) VALUES (?, ?, ?, ?, ?, ?, ?)";
         echo '3';
         $stmt = $this->conn->prepare($qry);
         echo '4';
+        echo $stmt;
+        echo'<br><br><br>';
+        echo $qry;
         $stmt->bind_param(
-            'iisssssd',
-            $values['textbook_id'],
+            'isssssd',
             $values['class_id'], 
             $values['title'], 
             $values['author'], 

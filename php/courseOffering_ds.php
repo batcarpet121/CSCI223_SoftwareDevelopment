@@ -1,5 +1,6 @@
 <?php
 require('../php/courseOffering.php');
+require("../utils/db_utils.php");
 
 class Course_Offering_ds extends Course_Offering{
     public $conn;
@@ -16,7 +17,7 @@ class Course_Offering_ds extends Course_Offering{
         }
     
     }
-    
+
     public function selectSingle($key){
         $qry = 'SELECT * FROM courseOffering WHERE courseOffering.isbn = ?';
         $stmt = $this->conn->prepare($qry);

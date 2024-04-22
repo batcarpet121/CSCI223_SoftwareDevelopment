@@ -28,15 +28,15 @@
     print_r($qryResultMult);
 
     echo '<br><br><br>Insert test<br>';
-    $textbookInsert = [
-    'textbook_id' => '',
+    $textbookInsert = array(    
     'class_id' => 1,
     'title' => 'Insert Test',
     'author' => 'Aaron Polaske',
     'isbn' => '0123456789',
     'publisher' => 'GF Press',
     'edition' => '3rd',
-    'price' => 79.95];
+    'price' => 79.95);
+
 
     $testTextbook->insert($textbookInsert);
 

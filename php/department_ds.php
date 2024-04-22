@@ -7,6 +7,20 @@ require('../php/department.php');
 
 class Department_ds extends Department {
 
+    public $conn;
+
+    public function __construct()
+    {
+        $this->conn = db_connect();
+        
+        if ($this->conn->connect_error == null) {
+            echo "success!";
+        } else {
+            echo "FAILED! " . $this->conn->connect_error;
+        }
+        
+    }
+
     public function selectSingle($key) {
         if ($key == null) {
             return false;
@@ -24,7 +38,7 @@ class Department_ds extends Department {
             $this->dept_name);
         
         $row = array();
-        while ($stmt->fetch()) {
+        if ($stmt->fetch()) {
             array_push($row, $this->dept_id);
             array_push($row, $this->dept_name);
         }
