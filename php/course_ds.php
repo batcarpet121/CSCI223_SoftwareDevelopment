@@ -13,9 +13,9 @@ class course_ds extends course
         $this->conn = $conn;
         
         if ($conn->connect_error == null) {
-            echo "success!";
+            echo "success! <br>";
         } else {
-            echo "FAILED! " . $conn->connect_error;
+            echo "FAILED! <br> " . $conn->connect_error;
         }
     
     }
