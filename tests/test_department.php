@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEST Textbook Datastore</title>
+    <title>TEST department Datastore</title>
 </head>
 <body>
     
 <?php
-    require '../php/textbook_ds.php';
+    require '../php/department_ds.php';
 
-    $testTextbook = new Textbook_ds();
+    $testTextbook = new department_ds();
 
     echo '<br><br><br>Select single test<br>';
-    $textbookID = 1;
-    $qryResult = $testTextbook->selectSingle($textbookID);   
+    $departmentID = 1;
+    $qryResult = $testTextbook->selectSingle($departmentID);   
     print_r($qryResult);
 
     echo '<br><br><br>Select all empty test<br>';
-    $textbookSelectMult = '';
-    $qryResultMult = $testTextbook->selectAll($textbookSelectMult);
+    $departmentSelectMult = '';
+    $qryResultMult = $testDepartment->selectAll($departmentSelectMult);
     print_r($qryResultMult);
 
     echo '<br><br><br>Select all test<br>';
-    $textbookSelectMult = 'textbook_id, author';
-    $qryResultMult = $testTextbook->selectAll($textbookSelectMult);
+    $departmentSelectField = 'dept_id';
+    $qryResultMult = $testTextbook->selectAll($departmentSelectField);
     print_r($qryResultMult);
 
     // echo '<br><br><br>Insert test<br>';
@@ -37,16 +37,16 @@
     // 'edition' => '3rd',
     // 'price' => 79.95);
 
-    $classID = 1;
-    $title = 'Insert Test';
-    $author = 'Aaron Polaske';
-    $isbn = '0123456789';
-    $publisher = 'GF Press';
-    $edition = 'Edition';
-    $price = 79.95;
+    // $classID = 1;
+    // $title = 'Insert Test';
+    // $author = 'Aaron Polaske';
+    // $isbn = '0123456789';
+    // $publisher = 'GF Press';
+    // $edition = 'Edition';
+    // $price = 79.95;
 
 
-    $testTextbook->insert($classID, $title, $author, $isbn, $publisher, $edition, $price);
+    // $testTextbook->insert($classID, $title, $author, $isbn, $publisher, $edition, $price);
 
 
     // echo '<br><br><br>Update test<br>';

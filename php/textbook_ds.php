@@ -116,11 +116,38 @@ class Textbook_ds extends Textbook {
     
         }
 
-    public function insert($values) {
-        echo '1';
-        if (!is_array($values)){
-            return false;
-        }
+    // public function insert($values) {
+    //     echo '1';
+    //     if (!is_array($values)){
+    //         return false;
+    //     }
+    //     echo '2';
+        
+    //     $qry = "INSERT INTO textbook (class_id, title, author, isbn, publisher, edition, price) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    //     echo '3';
+    //     $stmt = $this->conn->prepare($qry);
+    //     echo '4';
+    //     echo $stmt;
+    //     echo'<br><br><br>';
+    //     echo $qry;
+    //     $stmt->bind_param(
+    //         'isssssd',
+    //         $values['class_id'], 
+    //         $values['title'], 
+    //         $values['author'], 
+    //         $values['isbn'], 
+    //         $values['publisher'], 
+    //         $values['edition'], 
+    //         $values['price']);
+    //         echo '5';
+    //     $success = $stmt->execute();
+    //         echo '6';
+    //     if (!$success) {
+    //         echo "Insert failed: " . $stmt->error;
+    //     }
+    // }
+
+    public function insert($classID, $title, $author, $isbn, $publisher, $edition, $price) {
         echo '2';
         
         $qry = "INSERT INTO textbook (class_id, title, author, isbn, publisher, edition, price) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -131,14 +158,7 @@ class Textbook_ds extends Textbook {
         echo'<br><br><br>';
         echo $qry;
         $stmt->bind_param(
-            'isssssd',
-            $values['class_id'], 
-            $values['title'], 
-            $values['author'], 
-            $values['isbn'], 
-            $values['publisher'], 
-            $values['edition'], 
-            $values['price']);
+            'isssssd', $classID, $title, $author, $isbn, $publisher, $edition, $price);
             echo '5';
         $success = $stmt->execute();
             echo '6';
