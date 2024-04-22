@@ -37,7 +37,7 @@
     if($allResult){
         foreach($allResult as $result){
             echo $result[0];
-            echo $result[3];
+            echo $result[2];
         }        
         
     }
