@@ -13,7 +13,7 @@
     $testTextbook = new Textbook_ds();
 
     echo '<br><br><br>Select single test<br>';
-    $textbookID = '1';
+    $textbookID = 1;
     $qryResult = $testTextbook->selectSingle($textbookID);   
     print_r($qryResult);
 
