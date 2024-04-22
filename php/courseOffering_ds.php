@@ -19,7 +19,7 @@ class Course_Offering_ds extends Course_Offering{
     }
 
     public function selectSingle($key){
-        $qry = 'SELECT * FROM courseOffering WHERE courseOffering.isbn = ?';
+        $qry = 'SELECT * FROM courseOffering WHERE courseOffering.course_id = ?';
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('s', $key);
         $stmt->execute();

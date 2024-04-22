@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <h4>Test Course</h4>
+    <h4>Test Course Offering</h4>
     <?php
     require("../php/courseOffering_ds.php");
 
