@@ -22,12 +22,9 @@
     
 
     if ($singleResult) {
-        while ($row = $result->fetch_assoc()) {
-            echo "Course ID: " . $row["course_id"] . "<br>";
-            echo "Department ID: " . $row["dept_id"] . "<br>";
-            echo "Course Title: " . $row["course_title"] . "<br>";
-            echo "<br>";
-        }
+        echo $singleResult['course_id'];
+        echo $singleResult['dept_id'];
+        echo $singleResult['course_title'];
     } else {
         echo "No record found for the given key.";
     }
