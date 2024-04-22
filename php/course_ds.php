@@ -82,13 +82,14 @@ class course_ds extends course
     public function insertInfo($dept_id, $course_title)
     {
         
-        $qry = 'INSERT INTO Course (dept_id, course_title) VALUES ($dept_id, $course_title)';
+        $qry = 'INSERT INTO Course (dept_id, course_title) VALUES (?, ?)';
         echo "1 works";
         
         $stmt = $this->conn->prepare($qry);
         echo "2 works";
         
         $stmt->bind_param('is', $dept_id, $course_title);
+        echo "3 works";
         
         if($stmt->execute()){
             echo "Insert Worked";
