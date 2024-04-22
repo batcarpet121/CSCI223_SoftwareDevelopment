@@ -35,7 +35,9 @@
     }
 
     if($allResult){
-        print_r($allResult);
+        foreach($allResult as $result){
+            echo $result[0];
+        }        
         
     }
     
