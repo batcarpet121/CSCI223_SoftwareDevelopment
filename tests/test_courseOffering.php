@@ -31,6 +31,19 @@
     } else {
         echo "No record found for the given key.";
     }
+
+    echo "Testing select all <br>";
+
+    if ($allResult) {
+        foreach ($allResult as $result) {
+            echo "Course Offering ID: " . $singleResult[1] . "<br>";
+            echo "Course ID: " . $singleResult[1] . "<br>";
+            echo "Course Term: " . $singleResult[2] . "<br>";
+            echo "Course Year: " . $singleResult[3] . "<br>";
+            echo "<br>";
+        }
+    }
+
     ?>
 
 </body>
