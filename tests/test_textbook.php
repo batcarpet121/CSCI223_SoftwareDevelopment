@@ -29,6 +29,7 @@
 
     echo '<br><br><br>Insert test<br>';
     $textbookInsert = [
+    'textbook_id' => '',
     'class_id' => 1,
     'title' => 'Insert Test',
     'author' => 'Aaron Polaske',
