@@ -37,10 +37,10 @@
 
     if ($allResult) {
         foreach ($allResult as $result) {
-            echo "Course Offering ID: " . $singleResult[0] . "<br>";
-            echo "Course ID: " . $singleResult[1] . "<br>";
-            echo "Course Term: " . $singleResult[2] . "<br>";
-            echo "Course Year: " . $singleResult[3] . "<br>";
+            echo "Course Offering ID: " . $result[0] . "<br>";
+            echo "Course ID: " . $result[1] . "<br>";
+            echo "Course Term: " . $result[2] . "<br>";
+            echo "Course Year: " . $result[3] . "<br>";
             echo "<br>";
         }
     }
