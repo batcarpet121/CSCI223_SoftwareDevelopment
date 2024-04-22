@@ -26,7 +26,7 @@
 
 
     if ($singleResult) {
-        echo "Course ID: " . $singleResult[0] . "<br>";
+        echo "Course ID: " . $singleResult["course_id"] . "<br>";
         echo "Department ID: " . $singleResult[1] . "<br>";
         echo "Course Title: " . $singleResult[2] . "<br>";
         echo "<br>";
