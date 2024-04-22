@@ -24,7 +24,7 @@
     echo "Testing select single <br>";
 
     if ($singleResult) {
-        echo "Course Offering ID: " . $singleResult[1] . "<br>";
+        echo "Course Offering ID: " . $singleResult[0] . "<br>";
         echo "Course ID: " . $singleResult[1] . "<br>";
         echo "Course Term: " . $singleResult[2] . "<br>";
         echo "Course Year: " . $singleResult[3] . "<br>";
