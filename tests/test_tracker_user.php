@@ -13,7 +13,7 @@
     require("../php/tracker_user_ds.php");
 
 
-    $tracker_user_obj = new tracker_role_ds($conn);
+    $tracker_user_obj = new tracker_user_ds($conn);
 
     //Select Single values
     $key = 1;
