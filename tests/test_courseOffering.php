@@ -30,6 +30,8 @@
         echo "No record found for the given key.";
     }
 
+    $conn->close();
+
     ?>
 </body>
 
