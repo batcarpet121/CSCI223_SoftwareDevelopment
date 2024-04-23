@@ -85,7 +85,6 @@ class Textbook_ds extends Textbook {
             $this->publisher,
             $this->edition,
             $this->price);
-            echo $stmt;
 
             $returnSet = array();
             $rowCount = 0;
