@@ -115,11 +115,12 @@ class Textbook_ds extends Textbook {
         if ($values == null){
             return false;
         }
-        
+    
         $qry = "INSERT INTO textbook (course_offering_id, title, author, isbn, publisher, edition, price) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($qry);
+
         $stmt->bind_param(
-            'isssssd',
+            'issssss',
             $values['course_offering_id'], 
             $values['title'], 
             $values['author'], 
@@ -127,9 +128,8 @@ class Textbook_ds extends Textbook {
             $values['publisher'], 
             $values['edition'], 
             $values['price']);
-            echo '5';
+            
         $success = $stmt->execute();
-            echo '6';
         if (!$success) {
             echo "Insert failed: " . $stmt->error;
         } else {
