@@ -105,7 +105,7 @@ class course_ds extends course
         }
     }
 
-    public function update($course_id, $dept_id, $course_title)
+    public function update($dept_id, $course_title, $course_id)
     {
         $qry = 'UPDATE Course SET dept_id = ?, course_title = ? WHERE course_id = ?';
 
