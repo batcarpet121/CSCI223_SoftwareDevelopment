@@ -99,16 +99,22 @@
         echo "No Records found";
     }
 
-    echo '<br><br><br>Insert test<br>';
-    $textbookInsert = array(    
-        'course_offering_id' => 1,
-        'title' => 'Insert Test',
-        'author' => 'Aaron Polaske',
-        'isbn' => '0123456789',
-        'publisher' => 'GF Press',
-        'edition' => '3rd',
-        'price' => 79.95);
-    $testTextbook->insert($textbookInsert);
+    // echo '<br><br><br>Insert test<br>';
+    // $textbookInsert = array(    
+    //     'course_offering_id' => 1,
+    //     'title' => 'Insert Test',
+    //     'author' => 'Aaron Polaske',
+    //     'isbn' => '0123456789',
+    //     'publisher' => 'GF Press',
+    //     'edition' => '3rd',
+    //     'price' => 79.95);
+    // $testTextbook->insert($textbookInsert);
+
+    echo '<br><br><br>Update test<br>';
+    $txtbookUpdate = array(
+    'textbook_id' => 10,
+    'title' => 'New test');
+    $testTextbook->update($txtbookUpdate);
     
 ?>
 
