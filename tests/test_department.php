@@ -28,19 +28,14 @@
     print_r($qryResultMult);
 
 
-    echo '<br><br><br>Insert test<br>';
-    $newDept = 'AaronsDepartment';
-    $deptInsert = $testDepartment->insert($newDept);
+    // echo '<br><br><br>Insert test Brandons way<br>';
+    // $newDept = 'AaronsDepartment';
+    // $deptInsert = $testDepartment->insert($newDept);
 
-    // echo '<br><br><br>Insert test<br>';
-    // $textbookInsert = array(    
-    // 'class_id' => 1,
-    // 'title' => 'Insert Test',
-    // 'author' => 'Aaron Polaske',
-    // 'isbn' => '0123456789',
-    // 'publisher' => 'GF Press',
-    // 'edition' => '3rd',
-    // 'price' => 79.95);
+    echo '<br><br><br>Insert test<br>';
+    $deptInsert = array(    
+    'dept_name' => 'Aarons Dept 2');
+    $testDepartment->insert($deptInsert);
 
     // $classID = 1;
     // $title = 'Insert Test';

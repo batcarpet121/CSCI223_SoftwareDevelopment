@@ -90,15 +90,15 @@ class Department_ds extends Department {
     
         }
         
-    public function insert($value) {
-        if($value == null) {
+    public function insert($values) {
+        if (!is_array($values)){
             return false;
         }
         
         $qry = 'INSERT INTO Dept (dept_name) VALUES (?)';
         $stmt = $this->conn->prepare($qry);
 
-        $stmt->bind_param('s', $value);
+        $stmt->bind_param('s', $values['dept_name']);
         $success = $stmt->execute();
 
         if (!$success) {
