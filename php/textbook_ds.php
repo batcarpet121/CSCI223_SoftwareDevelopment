@@ -65,15 +65,10 @@ class Textbook_ds extends Textbook {
 
     public function selectAll($sel_list){
         if ($sel_list == null) {
-            $sel_list ='*';
+            $sel_list = '*';
         } else {
             $sel_col = explode(',', $sel_list);
-            for ($i=0; $i < count($sel_col); $i++) {
-                $sel_col[$i] = "'" . $sel_col[$i] . "'";
-            }
-
             $sel_list = implode(", ", $sel_col);
-
         }
 
         $qry = 'SELECT ' . $sel_list.' FROM textbook';

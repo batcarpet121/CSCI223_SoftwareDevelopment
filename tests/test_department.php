@@ -48,10 +48,10 @@
     $qryResultMult = $testDepartment->selectAll($departmentSelectField);
     print_r($qryResultMult);
 
-    echo "<br>";
+    
 
     if($qryResultMult){
-
+        echo "<br>";
         foreach($qryResultMult as $result){
             if(isset($includedFields['dept_id'])){
                 echo 'Department ID: ' . $result[0] . '<br>';
