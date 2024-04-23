@@ -41,14 +41,14 @@
     if($qryResultMult){
         foreach($qryResultMult as $result){
             echo '<br>';
-            echo "Textbook ID: " . $qryResult[0] . "<br>";
-            echo "Course Offering ID: " . $qryResult[1] . "<br>";
-            echo "Title: " . $qryResult[2] . "<br>";
-            echo "Author: " . $qryResult[3] . "<br>";
-            echo "ISBN: " . $qryResult[4] . "<br>";
-            echo "Publisher: " . $qryResult[5] . "<br>";
-            echo "Edition: " . $qryResult[6] . "<br>";
-            echo "Price: $" . $qryResult[7] . "<br>";
+            echo "Textbook ID: " . $result[0] . "<br>";
+            echo "Course Offering ID: " . $result[1] . "<br>";
+            echo "Title: " . $result[2] . "<br>";
+            echo "Author: " . $result[3] . "<br>";
+            echo "ISBN: " . $result[4] . "<br>";
+            echo "Publisher: " . $result[5] . "<br>";
+            echo "Edition: " . $result[6] . "<br>";
+            echo "Price: $" . $result[7] . "<br>";
             echo "<br>";
         }        
         
@@ -69,30 +69,30 @@
     
     if($qryResultMultSelect){
         echo "<br>";
-        foreach($qryResultMultSelect as $result){
+        foreach($qryResultMultSelect as $selectResult){
             if(isset($includedFields['textbook_id'])){
-                echo 'Textbook ID: ' . $result[0] . '<br>';
+                echo 'Textbook ID: ' . $selectResult[0] . '<br>';
             }
             if(isset($includedFields['course_offering_id'])){
-                echo 'Course Offering ID: ' . $result[1] . '<br>';
+                echo 'Course Offering ID: ' . $selectResult[1] . '<br>';
             }
             if(isset($includedFields['title'])){
-                echo 'Title: ' . $result[2] . '<br>';
+                echo 'Title: ' . $selectResult[2] . '<br>';
             }
             if(isset($includedFields['author'])){
-                echo 'Author: ' . $result[3] . '<br>';
+                echo 'Author: ' . $selectResult[3] . '<br>';
             }
             if(isset($includedFields['isbn'])){
-                echo 'ISBN: ' . $result[4] . '<br>';
+                echo 'ISBN: ' . $selectResult[4] . '<br>';
             }
             if(isset($includedFields['publisher'])){
-                echo 'publisher: ' . $result[5] . '<br>';
+                echo 'publisher: ' . $selectResult[5] . '<br>';
             }
             if(isset($includedFields['edition'])){
-                echo 'Edition: ' . $result[6] . '<br>';
+                echo 'Edition: ' . $selectResult[6] . '<br>';
             }
             if(isset($includedFields['price'])){
-                echo 'Price: $' . $result[7] . '<br>';
+                echo 'Price: $' . $selectResult[7] . '<br>';
             }
         }         
     } else {
