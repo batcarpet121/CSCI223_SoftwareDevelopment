@@ -44,9 +44,9 @@
     // 'dept_name' => 'New test');
     // $testDepartment->update($deptUpdate);
     
-    echo '<br><br><br>Delete test<br>';
-    $delDept = 4;
-    $testDepartment->delete($delDept);
+    // echo '<br><br><br>Delete test<br>';
+    // $delDept = 4;
+    // $testDepartment->delete($delDept);
 
     
 ?>
