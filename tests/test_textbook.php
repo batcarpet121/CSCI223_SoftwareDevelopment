@@ -59,42 +59,41 @@
 
 
     echo '<br><br><br>Select all test<br>';
-    $textbookSelectFields = 'textbook_id, price';
-
+    $textbookSelectFields = 'textbook_id, edition, price';
+    
     $includedFields = array_flip(explode(", ", $textbookSelectFields));
-
+    
     $qryResultMultFields = $testTextbook->selectAll($textbookSelectFields);
     print_r($qryResultMultFields);
-
     
-    if($qryResultMultFields){
+    if ($qryResultMultFields) {
         echo "<br>";
-        foreach($qryResultMultFields as $fieldResult){
-            if(isset($includedFields['textbook_id'])){
-                echo 'Textbook ID: ' . $fieldResult[0] . '<br>';
+        foreach ($qryResultMultFields as $fieldResult) {
+            if (isset($includedFields['textbook_id'])) {
+                echo 'Textbook ID: ' . $fieldResult[$includedFields['textbook_id']] . '<br>';
             }
-            if(isset($includedFields['course_offering_id'])){
-                echo 'Course Offering ID: ' . $fieldResult[1] . '<br>';
+            if (isset($includedFields['course_offering_id'])) {
+                echo 'Course Offering ID: ' . $fieldResult[$includedFields['course_offering_id']] . '<br>';
             }
-            if(isset($includedFields['title'])){
-                echo 'Title: ' . $fieldResult[2] . '<br>';
+            if (isset($includedFields['title'])) {
+                echo 'Title: ' . $fieldResult[$includedFields['title']] . '<br>';
             }
-            if(isset($includedFields['author'])){
-                echo 'Author: ' . $fieldResult[3] . '<br>';
+            if (isset($includedFields['author'])) {
+                echo 'Author: ' . $fieldResult[$includedFields['author']] . '<br>';
             }
-            if(isset($includedFields['isbn'])){
-                echo 'ISBN: ' . $fieldResult[4] . '<br>';
+            if (isset($includedFields['isbn'])) {
+                echo 'ISBN: ' . $fieldResult[$includedFields['isbn']] . '<br>';
             }
-            if(isset($includedFields['publisher'])){
-                echo 'publisher: ' . $fieldResult[5] . '<br>';
+            if (isset($includedFields['publisher'])) {
+                echo 'Publisher: ' . $fieldResult[$includedFields['publisher']] . '<br>';
             }
-            if(isset($includedFields['edition'])){
-                echo 'Edition: ' . $fieldResult[6] . '<br>';
+            if (isset($includedFields['edition'])) {
+                echo 'Edition: ' . $fieldResult[$includedFields['edition']] . '<br>';
             }
-            if(isset($includedFields['price'])){
-                echo 'Price: $' . $fieldResult[7] . '<br>';
+            if (isset($includedFields['price'])) {
+                echo 'Price: $' . $fieldResult[$includedFields['price']] . '<br>';
             }
-        }         
+        }
     } else {
         echo "No Records found";
     }
