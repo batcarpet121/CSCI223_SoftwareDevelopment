@@ -11,8 +11,9 @@ class Department_ds extends Department {
 
     public function __construct()
     {
+        echo '10';
         $this->conn = db_connect();
-        
+        echo '11';
         if ($this->conn) {
             echo "Database connection successful.<br>";
         } else {
