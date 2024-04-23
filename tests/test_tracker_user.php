@@ -18,11 +18,11 @@
     //Select Single values
     $key = 1;
 
-    // //Insert values
-    // $user_id = 2;
-    // $role_id = 2;
-    // $username = "TestUser2";
-    // $password = "TestPassword2";
+    //Insert values
+    $user_id = 1;
+    $role_id = 1;
+    $username = "TestUser2";
+    $password = "TestPassword2";
 
     $singleResult = $tracker_user_obj->selectSingle($key);
     $allResult = $tracker_user_obj->selectAll($sel_list);
@@ -52,11 +52,11 @@
         }
     }
 
-    // if($insertInfo){
-    //     echo "Insert successful!";
-    // }else{
-    //     echo "Insert Failed.";
-    // }
+    if($insertInfo){
+        echo "Insert successful!";
+    }else{
+        echo "Insert Failed.";
+    }
 
     ?>
 
