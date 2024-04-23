@@ -48,7 +48,7 @@
             echo "ISBN: " . $qryResult[4] . "<br>";
             echo "Publisher: " . $qryResult[5] . "<br>";
             echo "Edition: " . $qryResult[6] . "<br>";
-            echo "Price: " . $qryResult[7] . "<br>";
+            echo "Price: $" . $qryResult[7] . "<br>";
             echo "<br>";
         }        
         
@@ -59,9 +59,9 @@
 
 
     echo '<br><br><br>Select all test<br>';
-    $textbookSelectField = 'textbook_id, author';
-    $includedFields = array_flip(explode(", ", $textbookSelectField));
-    $qryResultMult = $testTextbook->selectAll($textbookSelectMult);
+    $textbookSelectFields = 'textbook_id, author';
+    $includedFields = array_flip(explode(", ", $textbookSelectFields));
+    $qryResultMult = $testTextbook->selectAll($textbookSelectFields);
     print_r($qryResultMult);
 
     
