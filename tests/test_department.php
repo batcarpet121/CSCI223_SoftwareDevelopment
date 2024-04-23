@@ -17,6 +17,7 @@
     $qryResult = $testDepartment->selectSingle($departmentID);   
     print_r($qryResult);
     if ($qryResult) {
+        echo '<br>';
         echo "Department ID: " . $qryResult[0] . "<br>";
         echo "Department Name: " . $qryResult[1] . "<br>";
         echo "<br>";
@@ -28,6 +29,17 @@
     $departmentSelectMult = '';
     $qryResultMult = $testDepartment->selectAll($departmentSelectMult);
     print_r($qryResultMult);
+    echo "<br>";
+    if($qryResultMult){
+        foreach($qryResultMult as $result){
+            echo "Department ID: ". $result[0]. "<br>";
+            echo "Department Name: ". $result[1]. "<br>";
+            echo "<br>";
+        }        
+        
+    } else {
+        echo "No Records found";
+    }
 
     echo '<br><br><br>Select all test<br>';
     $departmentSelectField = 'dept_id';
