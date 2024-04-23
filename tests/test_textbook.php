@@ -121,7 +121,7 @@
         'edition' => '3rd',
         'price' => 79.95);
     $testTextbook->update($textbookUpdate);
-    
+
     // echo '<br><br><br>Delete test<br>';
     // $deleteID = 10;
     // $testTextbook->delete($deleteID);
