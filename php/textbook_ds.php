@@ -75,6 +75,7 @@ class Textbook_ds extends Textbook {
         $stmt = $this->conn->prepare($qry);
         $stmt->execute();
         $stmt->store_result();
+        echo $qry;
         $stmt->bind_result(
             $this->textbook_id,
             $this->course_offering_id,
@@ -84,6 +85,7 @@ class Textbook_ds extends Textbook {
             $this->publisher,
             $this->edition,
             $this->price);
+            echo $stmt;
 
             $returnSet = array();
             $rowCount = 0;
