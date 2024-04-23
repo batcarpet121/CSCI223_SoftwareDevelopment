@@ -32,34 +32,17 @@
     // $newDept = 'AaronsDepartment';
     // $deptInsert = $testDepartment->insert($newDept);
 
-    echo '<br><br><br>Insert test<br>';
-    $deptInsert = array(    
-    'dept_name' => 'Aarons Dept 2');
-    $testDepartment->insert($deptInsert);
-
-    // $classID = 1;
-    // $title = 'Insert Test';
-    // $author = 'Aaron Polaske';
-    // $isbn = '0123456789';
-    // $publisher = 'GF Press';
-    // $edition = 'Edition';
-    // $price = 79.95;
+    // echo '<br><br><br>Insert test<br>';
+    // $deptInsert = array(    
+    // 'dept_name' => 'Aarons Dept 2');
+    // $testDepartment->insert($deptInsert);
 
 
-    // $testTextbook->insert($classID, $title, $author, $isbn, $publisher, $edition, $price);
-
-
-    // echo '<br><br><br>Update test<br>';
-    // $textbookUpdate = [
-    // 'class_id' => 1,
-    // 'title' => 'Developing Software',
-    // 'author' => 'David Thomas',
-    // 'isbn' => '978-1-489-03264-9',
-    // 'publisher' => 'GFCMSU',
-    // 'edition' => '1st Edition',
-    // 'price' => 64.00,
-    // 'textbook_id' => 1];
-    // $testTextbook->update($textbookUpdate);
+    echo '<br><br><br>Update test<br>';
+    $textbookUpdate = array(
+    'dept_id' => 4,
+    'dept_name' => 'Something Else');
+    $testTextbook->update($textbookUpdate);
     
 
 

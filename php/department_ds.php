@@ -119,9 +119,11 @@ class Department_ds extends Department {
         $stmt->bind_param('s', $row['dept_name']);
 
         $success = $stmt->execute();
-        // if (!$success) {
-        //     echo "Update failed: " . $stmt->error;
-        // }
+        if (!$success) {
+            echo "Update failed: " . $stmt->error;
+        } else {
+            echo "Woo insert worked!";
+        }
     }
 
     
