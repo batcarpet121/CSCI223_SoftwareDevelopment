@@ -111,7 +111,8 @@
     // $testTextbook->insert($textbookInsert);
 
     echo '<br><br><br>Update test<br>';
-    $textbookUpdate = array(    
+    $textbookUpdate = array(
+        'textbook_id' => 10,  
         'course_offering_id' => 1,
         'title' => 'Insert Test',
         'author' => 'Aaron Polaske',
