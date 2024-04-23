@@ -25,7 +25,7 @@
     // Update
     $update_course_id=9;
     $update_dept_id=1;
-    $update_course_title= "Javascript";
+    $update_course_title= "105 Javascript";
 
     $singleResult = $course_obj->selectSingle($key);
     $allResult = $course_obj->selectAll($sel_list);
