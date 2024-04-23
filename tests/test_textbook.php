@@ -63,36 +63,36 @@
 
     $includedFields = array_flip(explode(", ", $textbookSelectFields));
 
-    $qryResultMultSelect = $testTextbook->selectAll($textbookSelectFields);
-    print_r($qryResultMultSelect);
+    $qryResultMultFields = $testTextbook->selectAll($textbookSelectFields);
+    print_r($qryResultMultFields);
 
     
-    if($qryResultMultSelect){
+    if($qryResultMultFields){
         echo "<br>";
-        foreach($qryResultMultSelect as $selectResult){
+        foreach($qryResultMultSelect as $fieldResult){
             if(isset($includedFields['textbook_id'])){
-                echo 'Textbook ID: ' . $selectResult[0] . '<br>';
+                echo 'Textbook ID: ' . $fieldResult[0] . '<br>';
             }
             if(isset($includedFields['course_offering_id'])){
-                echo 'Course Offering ID: ' . $selectResult[1] . '<br>';
+                echo 'Course Offering ID: ' . $fieldResult[1] . '<br>';
             }
             if(isset($includedFields['title'])){
-                echo 'Title: ' . $selectResult[2] . '<br>';
+                echo 'Title: ' . $fieldResult[2] . '<br>';
             }
             if(isset($includedFields['author'])){
-                echo 'Author: ' . $selectResult[3] . '<br>';
+                echo 'Author: ' . $fieldResult[3] . '<br>';
             }
             if(isset($includedFields['isbn'])){
-                echo 'ISBN: ' . $selectResult[4] . '<br>';
+                echo 'ISBN: ' . $fieldResult[4] . '<br>';
             }
             if(isset($includedFields['publisher'])){
-                echo 'publisher: ' . $selectResult[5] . '<br>';
+                echo 'publisher: ' . $fieldResult[5] . '<br>';
             }
             if(isset($includedFields['edition'])){
-                echo 'Edition: ' . $selectResult[6] . '<br>';
+                echo 'Edition: ' . $fieldResult[6] . '<br>';
             }
             if(isset($includedFields['price'])){
-                echo 'Price: $' . $selectResult[7] . '<br>';
+                echo 'Price: $' . $fieldResult[7] . '<br>';
             }
         }         
     } else {
