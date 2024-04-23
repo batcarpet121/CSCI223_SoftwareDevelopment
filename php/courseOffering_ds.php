@@ -81,7 +81,7 @@ class Course_Offering_ds extends Course_Offering{
         }
     }
 
-    public function insert($values) {
+    public function insert($course_offering_id, $course_id, $course_term, $course_year) {
         $qry = 'INSERT INTO CourseOffering (course_offering_id, course_id, course_term, course_year) VALUES (?, ?, ?, ?)';
         $stmt = $this->conn->prepare($qry);
     

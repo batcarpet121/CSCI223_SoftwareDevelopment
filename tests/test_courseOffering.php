@@ -26,7 +26,7 @@
 
     $singleResult = $course_offering_obj->selectSingle($key);
     $allResult = $course_offering_obj->selectAll($sel_list);
-    //$insertInfo = $course_offering_obj->insert($insert_offering_id, $insert_course_id, $insert_term, $insert_year);
+    $insertInfo = $course_offering_obj->insert($insert_offering_id, $insert_course_id, $insert_term, $insert_year);
 
     echo "Testing select single <br>";
 
@@ -52,11 +52,11 @@
         }
     }
 
-    // if($insertInfo){
-    //     echo "Insert successful!";
-    // }else{
-    //     echo "Insert Failed.";
-    // }
+    if($insertInfo){
+        echo "Insert successful!";
+    }else{
+        echo "Insert Failed.";
+    }
 
 
 
