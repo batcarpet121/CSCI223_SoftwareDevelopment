@@ -91,7 +91,7 @@ class Department_ds extends Department {
         }
         
     public function insert($value) {
-        if (!is_array($value)){
+        if($value == null) {
             return false;
         }
         
