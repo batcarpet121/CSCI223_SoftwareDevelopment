@@ -25,12 +25,13 @@
     $course_year = "2024";
 
     //Delete row
-    $deleteKey=9;
+    // $deleteKey=9;
+    // $deleteResult = $course_offering_obj->delete($deleteKey);
+
 
     $singleResult = $course_offering_obj->selectSingle($key);
     $allResult = $course_offering_obj->selectAll($sel_list);
     //$insertInfo = $course_offering_obj->insert($course_offering_id, $course_id, $course_term, $course_year);
-    $deleteResult = $course_offering_obj->delete($deleteKey);
 
     echo "Testing select single <br>";
 
