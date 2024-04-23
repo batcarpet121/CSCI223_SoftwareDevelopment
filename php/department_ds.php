@@ -48,46 +48,41 @@ class Department_ds extends Department {
         }
 
     }
-
-    public function selectAll($sel_list){
-        if ($sel_list == null) {
-            $sel_list ='*';
-        } else {
-            $sel_col = explode(',', $sel_list);
-            for ($i=0; $i < count($sel_col); $i++) {
-                $sel_col[$i] = "'" . $sel_col[$i] . "'";
-            }
-
-            $sel_list = implode(", ", $sel_col);
-
-        }
-
-        $qry = 'SELECT ' . $sel_list.' FROM Dept';
-        $stmt = $this->conn->prepare($qry);
-        $stmt->execute();
-        $stmt->store_result();
-        $stmt->bind_result(
-            $this->dept_id,
-            $this->dept_name);
-
-            $returnSet = array();
-            $rowCount = 0;
-            while ($stmt->fetch()) {
-                $row = array();
     
-                array_push($row, $this->dept_id);
-                array_push($row, $this->dept_name);
-    
-                $rowCount++;
-    
-                array_push($returnSet, $row);
-            }
-            if ($rowCount > 0) {
-                return $returnSet;
+    public function selectAll($sel_list) {
+            if ($sel_list == null) {
+                $sel_list = '*';
             } else {
-                return null;
+                $sel_col = explode(',', $sel_list);
+                $sel_list = implode(", ", $sel_col);
             }
-    
+        
+            $qry = 'SELECT ' . $sel_list . ' FROM Dept';
+            $stmt = $this->conn->prepare($qry);
+            $stmt->execute();
+            $stmt->store_result();
+            $stmt->bind_result(
+                $this->dept_id,
+                $this->dept_name);
+        
+           
+                $returnSet = array();
+                $rowCount = 0;
+                while ($stmt->fetch()) {
+                    $row = array();
+        
+                    array_push($row, $this->dept_id);
+                    array_push($row, $this->dept_name);
+        
+                    $rowCount++;
+        
+                    array_push($returnSet, $row);
+                }
+                if ($rowCount > 0) {
+                    return $returnSet;
+                } else {
+                    return null;
+                }
         }
         
     public function insert($values) {

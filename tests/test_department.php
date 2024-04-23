@@ -45,6 +45,16 @@
     $departmentSelectField = 'dept_id';
     $qryResultMult = $testDepartment->selectAll($departmentSelectField);
     print_r($qryResultMult);
+    echo "<br>";
+    if($qryResultMult){
+        foreach($qryResultMult as $result){
+            echo "Department ID: ". $result[0]. "<br>";
+            echo "<br>";
+        }        
+        
+    } else {
+        echo "No Records found";
+    }
 
 
     // echo '<br><br><br>Insert test Brandons way<br>';
