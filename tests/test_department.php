@@ -42,14 +42,24 @@
     }
 
     echo '<br><br><br>Select all test<br>';
-    $departmentSelectField = 'dept_id';
+    $departmentSelectField = 'dept_id, dept_name';
+    $includedFields = array_flip(explode(", ", $departmentSelectField));
+
     $qryResultMult = $testDepartment->selectAll($departmentSelectField);
     print_r($qryResultMult);
+
     echo "<br>";
+
     if($qryResultMult){
+
         foreach($qryResultMult as $result){
-            echo "Department ID: ". $result[0]. "<br>";
-            echo "<br>";
+            if(isset($includedFields['dept_id'])){
+                echo 'Department ID: ' . $result[0] . '<br>';
+            }
+            if(isset($includedFields['dept_name'])){
+                echo 'Department ID: ' . $result[1] . '<br>';
+            }
+            echo '<br>';
         }        
         
     } else {
