@@ -37,7 +37,7 @@ class Department_ds extends Department {
             $this->dept_name);
             echo '3';
         $row = array();
-        if ($stmt->fetch()) {
+        while ($stmt->fetch()) {
             array_push($row, $this->dept_id);
             array_push($row, $this->dept_name);
         }
