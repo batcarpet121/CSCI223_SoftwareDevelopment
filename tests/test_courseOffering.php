@@ -52,6 +52,11 @@
         }
     }
 
+    echo"$insert_offering_id <br>";
+    echo"$insert_course_id <br>";
+    echo"$insert_term <br>";
+    echo"$insert_year <br>";
+
     if($insertInfo){
         echo "Insert successful!";
     }else{
