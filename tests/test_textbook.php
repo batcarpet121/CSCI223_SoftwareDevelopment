@@ -101,10 +101,10 @@
 
 
     echo '<br><br><br>Select all test<br>';
-    $departmentSelectField = 'textbook_id, course_offering_id';
-    $includedFields = array_flip(explode(", ", $departmentSelectField));
+    $textbookSelectField = 'textbook_id, course_offering_id, title, author, isbn, publisher, edition, price';
+    $includedFields = array_flip(explode(", ", $textbookSelectField));
 
-    $qryResultMultFields = $testTextbook->selectAll($departmentSelectField);
+    $qryResultMultFields = $testTextbook->selectAll($textbookSelectField);
     print_r($qryResultMultFields);
 
     
@@ -117,6 +117,24 @@
             }
             if(isset($includedFields['course_offering_id'])){
                 echo 'Course offering ID: ' . $resultField[1] . '<br>';
+            }
+            if(isset($includedFields['title'])){
+                echo 'Title: ' . $resultField[1] . '<br>';
+            }
+            if(isset($includedFields['author'])){
+                echo 'Author: ' . $resultField[1] . '<br>';
+            }
+            if(isset($includedFields['isbn'])){
+                echo 'ISBN: ' . $resultField[1] . '<br>';
+            }
+            if(isset($includedFields['publisher'])){
+                echo 'Publisher: ' . $resultField[1] . '<br>';
+            }
+            if(isset($includedFields['edition'])){
+                echo 'Edition: ' . $resultField[1] . '<br>';
+            }
+            if(isset($includedFields['price'])){
+                echo 'Price: $' . $resultField[1] . '<br>';
             }
             echo '<br>';
         }        

@@ -143,6 +143,7 @@ class Textbook_ds extends Textbook {
                     array_push($row, $this->textbook_id);
                     array_push($row, $this->course_offering_id);
                     array_push($row, $this->title);
+                    array_push($row, $this->author);
                     array_push($row, $this->isbn);
                     array_push($row, $this->publisher);
                     array_push($row, $this->edition);
