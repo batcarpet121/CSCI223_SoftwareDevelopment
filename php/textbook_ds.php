@@ -63,53 +63,101 @@ class Textbook_ds extends Textbook {
 
     }
 
-    public function selectAll($sel_list){
-        if ($sel_list == null) {
-            $sel_list = '*';
-        } else {
-            $sel_col = explode(',', $sel_list);
-            $sel_list = implode(", ", $sel_col);
-        }
+    // public function selectAll($sel_list){
+    //     if ($sel_list == null) {
+    //         $sel_list = '*';
+    //     } else {
+    //         $sel_col = explode(',', $sel_list);
+    //         $sel_list = implode(", ", $sel_col);
+    //     }
 
-        $qry = 'SELECT ' . $sel_list.' FROM Textbook';
-        $stmt = $this->conn->prepare($qry);
-        $stmt->execute();
-        $stmt->store_result();
-        echo $qry;
-        $stmt->bind_result(
-            $this->textbook_id,
-            $this->course_offering_id,
-            $this->title,
-            $this->author,
-            $this->isbn,
-            $this->publisher,
-            $this->edition,
-            $this->price);
+    //     $qry = 'SELECT ' . $sel_list.' FROM Textbook';
+    //     $stmt = $this->conn->prepare($qry);
+    //     $stmt->execute();
+    //     $stmt->store_result();
+    //     echo $qry;
+    //     $stmt->bind_result(
+    //         $this->textbook_id,
+    //         $this->course_offering_id,
+    //         $this->title,
+    //         $this->author,
+    //         $this->isbn,
+    //         $this->publisher,
+    //         $this->edition,
+    //         $this->price);
 
-            $returnSet = array();
-            $rowCount = 0;
-            while ($stmt->fetch()) {
-                $row = array();
+    //         $returnSet = array();
+    //         $rowCount = 0;
+    //         while ($stmt->fetch()) {
+    //             $row = array();
     
-                array_push($row, $this->textbook_id);
-                array_push($row, $this->course_offering_id);
-                array_push($row, $this->title);
-                array_push($row, $this->author);
-                array_push($row, $this->isbn);
-                array_push($row, $this->publisher);
-                array_push($row, $this->edition);
-                array_push($row, $this->price);
+    //             array_push($row, $this->textbook_id);
+    //             array_push($row, $this->course_offering_id);
+    //             array_push($row, $this->title);
+    //             array_push($row, $this->author);
+    //             array_push($row, $this->isbn);
+    //             array_push($row, $this->publisher);
+    //             array_push($row, $this->edition);
+    //             array_push($row, $this->price);
     
-                $rowCount++;
+    //             $rowCount++;
     
-                array_push($returnSet, $row);
-            }
-            if ($rowCount > 0) {
-                return $returnSet;
+    //             array_push($returnSet, $row);
+    //         }
+    //         if ($rowCount > 0) {
+    //             return $returnSet;
+    //         } else {
+    //             return null;
+    //         }
+    
+    //     }
+
+        public function selectAll($sel_list) {
+            if ($sel_list == null) {
+                $sel_list = '*';
             } else {
-                return null;
+                $sel_col = explode(',', $sel_list);
+                $sel_list = implode(", ", $sel_col);
             }
-    
+        
+            $qry = 'SELECT ' . $sel_list . ' FROM Textbook';
+            $stmt = $this->conn->prepare($qry);
+            $stmt->execute();
+            $stmt->store_result();
+            $stmt->bind_result(
+                $this->textbook_id,
+                $this->course_offering_id,
+                $this->title,
+                $this->author,
+                $this->isbn,
+                $this->publisher,
+                $this->edition,
+                $this->price);
+        
+           
+                $returnSet = array();
+                $rowCount = 0;
+                while ($stmt->fetch()) {
+                    $row = array();
+        
+                    array_push($row, $this->textbook_id);
+                    array_push($row, $this->course_offering_id);
+                    array_push($row, $this->title);
+                    array_push($row, $this->isbn);
+                    array_push($row, $this->publisher);
+                    array_push($row, $this->edition);
+                    array_push($row, $this->price);
+                    
+        
+                    $rowCount++;
+        
+                    array_push($returnSet, $row);
+                }
+                if ($rowCount > 0) {
+                    return $returnSet;
+                } else {
+                    return null;
+                }
         }
 
     public function insert($values) {
