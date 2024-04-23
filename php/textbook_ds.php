@@ -45,7 +45,7 @@ class Textbook_ds extends Textbook {
             $this->price);
         
         $row = array();
-        if ($stmt->fetch()) {
+        while ($stmt->fetch()) {
             array_push($row, $this->textbook_id);
             array_push($row, $this->course_offering_id);
             array_push($row, $this->title);
@@ -73,6 +73,9 @@ class Textbook_ds extends Textbook {
 
         $qry = 'SELECT ' . $sel_list.' FROM Textbook';
         $stmt = $this->conn->prepare($qry);
+        echo $stmt;
+        echo "<br>";
+        echo $qry;
         $stmt->execute();
         $stmt->store_result();
         $stmt->bind_result(

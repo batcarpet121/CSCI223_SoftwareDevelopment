@@ -41,14 +41,14 @@
     if($qryResultMult){
         foreach($qryResultMult as $result){
             echo '<br>';
-            echo "Textbook ID: " . $qryResult[0] . "<br>";
-            echo "Course Offering ID: " . $qryResult[1] . "<br>";
-            echo "Title: " . $qryResult[2] . "<br>";
-            echo "Author: " . $qryResult[3] . "<br>";
-            echo "ISBN: " . $qryResult[4] . "<br>";
-            echo "Publisher: " . $qryResult[5] . "<br>";
-            echo "Edition: " . $qryResult[6] . "<br>";
-            echo "Price: $" . $qryResult[7] . "<br>";
+            echo "Textbook ID: " . $result[0] . "<br>";
+            echo "Course Offering ID: " . $result[1] . "<br>";
+            echo "Title: " . $result[2] . "<br>";
+            echo "Author: " . $result[3] . "<br>";
+            echo "ISBN: " . $result[4] . "<br>";
+            echo "Publisher: " . $result[5] . "<br>";
+            echo "Edition: " . $result[6] . "<br>";
+            echo "Price: $" . $result[7] . "<br>";
             echo "<br>";
         }        
         
@@ -63,36 +63,36 @@
 
     $includedFields = array_flip(explode(", ", $textbookSelectFields));
 
-    $qryResultMultSelect = $testTextbook->selectAll($textbookSelectFields);
-    print_r($qryResultMultSelect);
+    $qryResultMultFields = $testTextbook->selectAll($textbookSelectFields);
+    print_r($qryResultMultFields);
 
     
-    if($qryResultMultSelect){
+    if($qryResultMultFields){
         echo "<br>";
-        foreach($qryResultMultSelect as $result){
+        foreach($qryResultMultFields as $fieldResult){
             if(isset($includedFields['textbook_id'])){
-                echo 'Textbook ID: ' . $result[0] . '<br>';
+                echo 'Textbook ID: ' . $fieldResult[0] . '<br>';
             }
             if(isset($includedFields['course_offering_id'])){
-                echo 'Course Offering ID: ' . $result[1] . '<br>';
+                echo 'Course Offering ID: ' . $fieldResult[1] . '<br>';
             }
             if(isset($includedFields['title'])){
-                echo 'Title: ' . $result[2] . '<br>';
+                echo 'Title: ' . $fieldResult[2] . '<br>';
             }
             if(isset($includedFields['author'])){
-                echo 'Author: ' . $result[3] . '<br>';
+                echo 'Author: ' . $fieldResult[3] . '<br>';
             }
             if(isset($includedFields['isbn'])){
-                echo 'ISBN: ' . $result[4] . '<br>';
+                echo 'ISBN: ' . $fieldResult[4] . '<br>';
             }
             if(isset($includedFields['publisher'])){
-                echo 'publisher: ' . $result[5] . '<br>';
+                echo 'publisher: ' . $fieldResult[5] . '<br>';
             }
             if(isset($includedFields['edition'])){
-                echo 'Edition: ' . $result[6] . '<br>';
+                echo 'Edition: ' . $fieldResult[6] . '<br>';
             }
             if(isset($includedFields['price'])){
-                echo 'Price: $' . $result[7] . '<br>';
+                echo 'Price: $' . $fieldResult[7] . '<br>';
             }
         }         
     } else {
@@ -121,7 +121,7 @@
     //     'edition' => '3rd',
     //     'price' => 79.95);
     // $testTextbook->update($textbookUpdate);
-    
+
     // echo '<br><br><br>Delete test<br>';
     // $deleteID = 10;
     // $testTextbook->delete($deleteID);

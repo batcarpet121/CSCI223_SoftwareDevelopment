@@ -20,6 +20,10 @@ class course_ds extends course
     
     }
 
+    public function __destruct(){
+        
+    }
+
     public function selectSingle($key)
     {
         $qry = 'SELECT * FROM Course WHERE Course.course_id = ?';
@@ -101,18 +105,16 @@ class course_ds extends course
         }
     }
 
-    public function update($course_id, $dept_id, $course_title)
+    public function update($dept_id, $course_title, $course_id)
     {
         $qry = 'UPDATE Course SET dept_id = ?, course_title = ? WHERE course_id = ?';
 
         $stmt = $this->conn->prepare($qry);
-        // $stmt->bind_param('iis',$course_id, $dept_id, $course_title);
+        $stmt->bind_param('isi',$dept_id, $course_title, $course_id);
 
         if ($stmt->execute()) {
-            "works";
             return true;
         }else{
-            "didnt work";
             return false;
         }
     }

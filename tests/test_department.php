@@ -45,19 +45,19 @@
     $departmentSelectField = 'dept_id, 0';
     $includedFields = array_flip(explode(", ", $departmentSelectField));
 
-    $qryResultMult = $testDepartment->selectAll($departmentSelectField);
-    print_r($qryResultMult);
+    $qryResultMultFields = $testDepartment->selectAll($departmentSelectField);
+    print_r($qryResultMultFields);
 
     
 
-    if($qryResultMult){
+    if($qryResultMultFields){
         echo "<br>";
-        foreach($qryResultMult as $result){
+        foreach($qryResultMultFields as $resultField){
             if(isset($includedFields['dept_id'])){
-                echo 'Department ID: ' . $result[0] . '<br>';
+                echo 'Department ID: ' . $resultField[0] . '<br>';
             }
             if(isset($includedFields['dept_name'])){
-                echo 'Department ID: ' . $result[1] . '<br>';
+                echo 'Department ID: ' . $resultField[1] . '<br>';
             }
             echo '<br>';
         }        
