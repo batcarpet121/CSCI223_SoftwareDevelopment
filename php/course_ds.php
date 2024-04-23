@@ -103,14 +103,16 @@ class course_ds extends course
 
     public function update($course_id, $dept_id, $course_title)
     {
-        $qry = 'UPDATE Course SET course_title = ? WHERE course_id = ?';
+        $qry = 'UPDATE Course SET dept_id = ?, course_title = ? WHERE course_id = ?';
 
         $stmt = $this->conn->prepare($qry);
-        $stmt->bind_param('si', $dept_id, $course_id);
+        // $stmt->bind_param('iis',$course_id, $dept_id, $course_title);
 
         if ($stmt->execute()) {
+            "works";
             return true;
         }else{
+            "didnt work";
             return false;
         }
     }
