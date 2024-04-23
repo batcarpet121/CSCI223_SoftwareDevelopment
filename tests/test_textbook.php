@@ -59,15 +59,17 @@
 
 
     echo '<br><br><br>Select all test<br>';
-    $textbookSelectFields = 'textbook_id, author';
+    $textbookSelectFields = 'textbook_id, price';
+
     $includedFields = array_flip(explode(", ", $textbookSelectFields));
-    $qryResultMult = $testTextbook->selectAll($textbookSelectFields);
-    print_r($qryResultMult);
+
+    $qryResultMultSelect = $testTextbook->selectAll($textbookSelectFields);
+    print_r($qryResultMultSelect);
 
     
-    if($qryResultMult){
+    if($qryResultMultSelect){
         echo "<br>";
-        foreach($qryResultMult as $result){
+        foreach($qryResultMultSelect as $result){
             if(isset($includedFields['textbook_id'])){
                 echo 'Textbook ID: ' . $result[0] . '<br>';
             }

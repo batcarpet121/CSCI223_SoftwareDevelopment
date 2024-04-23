@@ -71,7 +71,7 @@ class Textbook_ds extends Textbook {
             $sel_list = implode(", ", $sel_col);
         }
 
-        $qry = 'SELECT ' . $sel_list.' FROM textbook';
+        $qry = 'SELECT ' . $sel_list.' FROM Textbook';
         $stmt = $this->conn->prepare($qry);
         $stmt->execute();
         $stmt->store_result();
