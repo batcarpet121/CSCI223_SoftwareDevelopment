@@ -41,7 +41,7 @@
     echo '<br><br><br>Update test<br>';
     $deptUpdate = array(
     'dept_id' => 4,
-    'dept_name' => 'Something Else');
+    'dept_name' => 'New test');
     $testDepartment->update($deptUpdate);
     
 

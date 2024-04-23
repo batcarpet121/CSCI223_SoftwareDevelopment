@@ -113,16 +113,16 @@ class Department_ds extends Department {
             return false;
         }
 
-        $qry = 'UPDATE Dept SET dept_name = (?) WHERE dept_id = ' . $row['dept_id'];
+        $qry = 'UPDATE Dept SET dept_name = (?) WHERE dept_id = (?)';
 
         $stmt = $this->conn->prepare($qry);
-        $stmt->bind_param('s', $row['dept_name']);
+        $stmt->bind_param('si', $row['dept_name'], $row['dept_id']);
 
         $success = $stmt->execute();
         if (!$success) {
             echo "Update failed: " . $stmt->error;
         } else {
-            echo "Woo insert worked!";
+            echo "Woo Update worked!";
         }
     }
 
