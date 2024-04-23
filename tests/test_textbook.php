@@ -122,7 +122,9 @@
     //     'price' => 79.95);
     // $testTextbook->update($textbookUpdate);
     
-    $testTextbook->delete(10);
+    // echo '<br><br><br>Delete test<br>';
+    // $deleteID = 10;
+    // $testTextbook->delete($deleteID);
 ?>
 
 </body>
