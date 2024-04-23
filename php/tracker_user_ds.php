@@ -90,6 +90,7 @@ class tracker_user_ds extends Tracker_User{
         if ($stmt->execute()) {
             return true;
         } else {
+            echo "Insertion failed: " . $stmt->error;
             return false; 
         }
     }
