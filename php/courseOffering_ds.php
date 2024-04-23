@@ -84,8 +84,20 @@ class Course_Offering_ds extends Course_Offering{
     public function insert($values) {
         $qry = 'INSERT INTO CourseOffering (course_offering_id, course_id, course_term, course_year) VALUES (?, ?, ?, ?)';
         $stmt = $this->conn->prepare($qry);
+        
+        if (!$stmt) {
+            echo "Statement preparation failed: " . $this->conn->error;
+            return false;
+        }
+    
         $stmt->bind_param('iiss', $values['course_offering_id'], $values['course_id'], $values['course_term'], $values['course_year']);
-        return $stmt->execute();
+        
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            echo "Insertion failed: " . $stmt->error;
+            return false; 
+        }
     }
 
     public function update($value, $field, $id) {
