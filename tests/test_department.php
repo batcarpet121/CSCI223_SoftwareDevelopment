@@ -10,11 +10,11 @@
 <?php
     require '../php/department_ds.php';
 
-    $testTextbook = new department_ds();
+    $testDepartment = new Department_ds();
 
     echo '<br><br><br>Select single test<br>';
     $departmentID = 1;
-    $qryResult = $testTextbook->selectSingle($departmentID);   
+    $qryResult = $testDepartment->selectSingle($departmentID);   
     print_r($qryResult);
 
     echo '<br><br><br>Select all empty test<br>';
@@ -24,7 +24,7 @@
 
     echo '<br><br><br>Select all test<br>';
     $departmentSelectField = 'dept_id';
-    $qryResultMult = $testTextbook->selectAll($departmentSelectField);
+    $qryResultMult = $testDepartment->selectAll($departmentSelectField);
     print_r($qryResultMult);
 
     // echo '<br><br><br>Insert test<br>';

@@ -13,19 +13,20 @@ class Department_ds extends Department {
     {
         $this->conn = db_connect();
         
-        if ($this->conn->connect_error == null) {
-            echo "success!";
+        if ($this->conn) {
+            echo "Database connection successful.<br>";
         } else {
-            echo "FAILED! " . $this->conn->connect_error;
+            echo "Database connection failed: " . $this->conn->connect_error . "<br>";
         }
         
     }
 
     public function selectSingle($key) {
+        echo '1';
         if ($key == null) {
             return false;
         }
-
+        echo '2';
         $qry = 'SELECT * FROM Dept WHERE Dept_id = ?';
         // For testing uncomment any commented code below --
         // echo $qry;
@@ -36,7 +37,7 @@ class Department_ds extends Department {
         $stmt->bind_result(
             $this->dept_id,
             $this->dept_name);
-        
+            echo '3';
         $row = array();
         if ($stmt->fetch()) {
             array_push($row, $this->dept_id);
