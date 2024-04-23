@@ -101,7 +101,7 @@
 
 
     echo '<br><br><br>Select all test<br>';
-    $textbookSelectField = 'textbook_id, author, publisher, edition, price';
+    $textbookSelectField = 'textbook_id, author, isbn, publisher, edition, price';
     $includedFields = array_flip(explode(", ", $textbookSelectField));
 
     $qryResultMultFields = $testTextbook->selectAll($textbookSelectField);
