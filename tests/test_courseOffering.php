@@ -19,8 +19,8 @@
     $key = 1;
 
     //Insert values
-    $course_offering_id = 9;
-    $course_id = 9;
+    $course_offering_id = 15;
+    $course_id = 15;
     $course_term = "Spring";
     $course_year = 2024;
 
