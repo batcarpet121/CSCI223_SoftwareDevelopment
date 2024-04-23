@@ -112,19 +112,12 @@ class Textbook_ds extends Textbook {
         }
 
     public function insert($values) {
-        echo '1';
-        if (!is_array($values)){
+        if ($values == null){
             return false;
         }
-        echo '2';
         
         $qry = "INSERT INTO textbook (course_offering_id, title, author, isbn, publisher, edition, price) VALUES (?, ?, ?, ?, ?, ?, ?)";
-        echo '3';
         $stmt = $this->conn->prepare($qry);
-        echo '4';
-        echo $stmt;
-        echo'<br><br><br>';
-        echo $qry;
         $stmt->bind_param(
             'isssssd',
             $values['course_offering_id'], 
@@ -139,6 +132,8 @@ class Textbook_ds extends Textbook {
             echo '6';
         if (!$success) {
             echo "Insert failed: " . $stmt->error;
+        } else {
+            echo "Insert Successful!";
         }
     }
 
@@ -162,9 +157,11 @@ class Textbook_ds extends Textbook {
         $stmt->bind_param('isssssd', $row['course_offering_id'], $row['title'], $row['author'], $row['isbn'], $row['publisher'], $row['edition'], $row['price']);
 
         $success = $stmt->execute();
-        // if (!$success) {
-        //     echo "Update failed: " . $stmt->error;
-        // }
+        if (!$success) {
+            echo "Update failed: " . $stmt->error;
+        } else {
+            echo "Update Successful!";
+        }
     }
 
     
@@ -178,9 +175,11 @@ class Textbook_ds extends Textbook {
         $stmt->bind_param('i', $id);
 
         $success = $stmt->execute();
-        // if (!$success) {
-        //     echo "Delete failed: " . $stmt->error;
-        // }
+        if (!$success) {
+            echo "Delete failed: " . $stmt->error;
+        } else {
+            echo "Delete Successful!";
+        }
     }
 
 }
