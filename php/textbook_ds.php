@@ -73,6 +73,9 @@ class Textbook_ds extends Textbook {
 
         $qry = 'SELECT ' . $sel_list.' FROM Textbook';
         $stmt = $this->conn->prepare($qry);
+        echo $stmt;
+        echo"<br>";
+        echo $qry;
         $stmt->execute();
         $stmt->store_result();
         $stmt->bind_result(
