@@ -55,6 +55,13 @@
         }
     }
 
+    if($deleteResult){
+        echo"successful delete";
+    }
+    else{
+        echo"failed delete";
+    }
+
     // if($insertInfo){
     //     echo "Insert successful!";
     // }else{
