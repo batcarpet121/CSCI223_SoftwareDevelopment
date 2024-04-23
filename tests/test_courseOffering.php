@@ -24,7 +24,8 @@
     $course_term = "Spring";
     $course_year = "2024";
 
-    $deleteKey=10;
+    //Delete row
+    $deleteKey=9;
 
     $singleResult = $course_offering_obj->selectSingle($key);
     $allResult = $course_offering_obj->selectAll($sel_list);
