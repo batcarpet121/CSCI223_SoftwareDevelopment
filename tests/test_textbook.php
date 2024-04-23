@@ -119,22 +119,22 @@
                 echo 'Course offering ID: ' . $resultField[1] . '<br>';
             }
             if(isset($includedFields['title'])){
-                echo 'Title: ' . $resultField[1] . '<br>';
+                echo 'Title: ' . $resultField[2] . '<br>';
             }
             if(isset($includedFields['author'])){
-                echo 'Author: ' . $resultField[1] . '<br>';
+                echo 'Author: ' . $resultField[3] . '<br>';
             }
             if(isset($includedFields['isbn'])){
-                echo 'ISBN: ' . $resultField[1] . '<br>';
+                echo 'ISBN: ' . $resultField[4] . '<br>';
             }
             if(isset($includedFields['publisher'])){
-                echo 'Publisher: ' . $resultField[1] . '<br>';
+                echo 'Publisher: ' . $resultField[5] . '<br>';
             }
             if(isset($includedFields['edition'])){
-                echo 'Edition: ' . $resultField[1] . '<br>';
+                echo 'Edition: ' . $resultField[6] . '<br>';
             }
             if(isset($includedFields['price'])){
-                echo 'Price: $' . $resultField[1] . '<br>';
+                echo 'Price: $' . $resultField[7] . '<br>';
             }
             echo '<br>';
         }        
