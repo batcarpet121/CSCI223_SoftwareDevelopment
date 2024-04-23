@@ -57,7 +57,7 @@
                 echo 'Department ID: ' . $resultField[0] . '<br>';
             }
             if(isset($includedFields['dept_name'])){
-                echo 'Department ID: ' . $resultField[1] . '<br>';
+                echo 'Department Name: ' . $resultField[1] . '<br>';
             }
             echo '<br>';
         }        
