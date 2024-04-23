@@ -16,6 +16,13 @@
     $departmentID = 1;
     $qryResult = $testDepartment->selectSingle($departmentID);   
     print_r($qryResult);
+    if ($qryResult) {
+        echo "Department ID: " . $qryResult[0] . "<br>";
+        echo "Department Name: " . $qryResult[1] . "<br>";
+        echo "<br>";
+    } else {
+        echo "No record found for the given key.";
+    }
 
     echo '<br><br><br>Select all empty test<br>';
     $departmentSelectMult = '';
