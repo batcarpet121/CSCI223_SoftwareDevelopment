@@ -137,9 +137,11 @@ class Department_ds extends Department {
         $stmt->bind_param('i', $id);
 
         $success = $stmt->execute();
-        // if (!$success) {
-        //     echo "Delete failed: " . $stmt->error;
-        // }
+        if (!$success) {
+            echo "Delete failed: " . $stmt->error;
+        } else {
+            echo 'Woo delete worked!';
+        }
     }
 
 }

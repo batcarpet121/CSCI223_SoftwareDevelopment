@@ -38,16 +38,16 @@
     // $testDepartment->insert($deptInsert);
 
 
-    echo '<br><br><br>Update test<br>';
-    $deptUpdate = array(
-    'dept_id' => 4,
-    'dept_name' => 'New test');
-    $testDepartment->update($deptUpdate);
+    // echo '<br><br><br>Update test<br>';
+    // $deptUpdate = array(
+    // 'dept_id' => 4,
+    // 'dept_name' => 'New test');
+    // $testDepartment->update($deptUpdate);
     
+    echo '<br><br><br>Delete test<br>';
+    $delDept = 4;
+    $testDepartment->delete($delDept);
 
-
-
-    // $textbookDelete = '';
     
 ?>
 
