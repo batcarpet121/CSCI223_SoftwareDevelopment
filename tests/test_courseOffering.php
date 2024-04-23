@@ -19,14 +19,17 @@
     $key = 1;
 
     //Insert values
-    $insert_offering_id = 5;
-    $insert_course_id = 5;
-    $insert_term = "Spring";
-    $insert_year = "2024";
+    $course_offering_id = 15;
+    $course_id = 15;
+    $course_term = "Spring";
+    $course_year = "2024";
+
+    $deleteKey=12;
 
     $singleResult = $course_offering_obj->selectSingle($key);
     $allResult = $course_offering_obj->selectAll($sel_list);
-    $insertInfo = $course_offering_obj->insert($insert_offering_id, $insert_course_id, $insert_term, $insert_year);
+    //$insertInfo = $course_offering_obj->insert($course_offering_id, $course_id, $course_term, $course_year);
+    $deleteResult = $course_offering_obj->delete($deleteKey);
 
     echo "Testing select single <br>";
 
@@ -52,16 +55,13 @@
         }
     }
 
-    echo"$insert_offering_id <br>";
-    echo"$insert_course_id <br>";
-    echo"$insert_term <br>";
-    echo"$insert_year <br>";
+    // if($insertInfo){
+    //     echo "Insert successful!";
+    // }else{
+    //     echo "Insert Failed.";
+    // }
 
-    if($insertInfo){
-        echo "Insert successful!";
-    }else{
-        echo "Insert Failed.";
-    }
+
 
 
 
