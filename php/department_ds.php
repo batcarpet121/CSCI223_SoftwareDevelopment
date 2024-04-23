@@ -12,9 +12,7 @@ class Department_ds extends Department {
 
     public function __construct()
     {
-        echo '10';
         $this->conn = db_connect();
-        echo '11';
         if ($this->conn) {
             echo "Database connection successful.<br>";
         } else {
@@ -24,11 +22,9 @@ class Department_ds extends Department {
     }
 
     public function selectSingle($key) {
-        echo '1';
         if ($key == null) {
             return false;
         }
-        echo '2';
         $qry = 'SELECT * FROM Dept WHERE Dept_id = ?';
         // For testing uncomment any commented code below --
         // echo $qry;
@@ -106,9 +102,11 @@ class Department_ds extends Department {
             's', $values['dept_name']);
         $success = $stmt->execute();
 
-        // if (!$success) {
-        //     echo "Insert failed: " . $stmt->error;
-        // }
+        if (!$success) {
+            echo "Insert failed: " . $stmt->error;
+        } else {
+            echo "Woo insert worked!";
+        }
     }
 
     public function update($row) {

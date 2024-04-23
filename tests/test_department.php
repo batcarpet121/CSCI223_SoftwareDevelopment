@@ -27,6 +27,11 @@
     $qryResultMult = $testDepartment->selectAll($departmentSelectField);
     print_r($qryResultMult);
 
+
+    echo '<br><br><br>Insert test<br>';
+    $newDept = 'AaronsDepartment';
+    $deptInsert = $testDepartment->insert($newDept);
+
     // echo '<br><br><br>Insert test<br>';
     // $textbookInsert = array(    
     // 'class_id' => 1,
