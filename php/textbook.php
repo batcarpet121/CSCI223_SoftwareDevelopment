@@ -2,7 +2,7 @@
 class Textbook {
 
     var $textbook_id;
-    var $class_id;
+    var $course_offering_id;
     var $title;
     var $author;
     var $isbn;

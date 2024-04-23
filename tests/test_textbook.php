@@ -99,7 +99,7 @@
 
     // echo '<br><br><br>Insert test<br>';
     // $textbookInsert = array(    
-    // 'class_id' => 1,
+    // 'course_offering_id' => 1,
     // 'title' => 'Insert Test',
     // 'author' => 'Aaron Polaske',
     // 'isbn' => '0123456789',

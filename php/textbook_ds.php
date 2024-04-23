@@ -36,7 +36,7 @@ class Textbook_ds extends Textbook {
         // $stmt->store_result();
         $stmt->bind_result(
             $this->textbook_id,
-            $this->class_id,
+            $this->course_offering_id,
             $this->title,
             $this->author,
             $this->isbn,
@@ -47,7 +47,7 @@ class Textbook_ds extends Textbook {
         $row = array();
         if ($stmt->fetch()) {
             array_push($row, $this->textbook_id);
-            array_push($row, $this->class_id);
+            array_push($row, $this->course_offering_id);
             array_push($row, $this->title);
             array_push($row, $this->author);
             array_push($row, $this->isbn);
@@ -77,7 +77,7 @@ class Textbook_ds extends Textbook {
         $stmt->store_result();
         $stmt->bind_result(
             $this->textbook_id,
-            $this->class_id,
+            $this->course_offering_id,
             $this->title,
             $this->author,
             $this->isbn,
@@ -91,7 +91,7 @@ class Textbook_ds extends Textbook {
                 $row = array();
     
                 array_push($row, $this->textbook_id);
-                array_push($row, $this->class_id);
+                array_push($row, $this->course_offering_id);
                 array_push($row, $this->title);
                 array_push($row, $this->author);
                 array_push($row, $this->isbn);
@@ -111,41 +111,14 @@ class Textbook_ds extends Textbook {
     
         }
 
-    // public function insert($values) {
-    //     echo '1';
-    //     if (!is_array($values)){
-    //         return false;
-    //     }
-    //     echo '2';
-        
-    //     $qry = "INSERT INTO textbook (class_id, title, author, isbn, publisher, edition, price) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    //     echo '3';
-    //     $stmt = $this->conn->prepare($qry);
-    //     echo '4';
-    //     echo $stmt;
-    //     echo'<br><br><br>';
-    //     echo $qry;
-    //     $stmt->bind_param(
-    //         'isssssd',
-    //         $values['class_id'], 
-    //         $values['title'], 
-    //         $values['author'], 
-    //         $values['isbn'], 
-    //         $values['publisher'], 
-    //         $values['edition'], 
-    //         $values['price']);
-    //         echo '5';
-    //     $success = $stmt->execute();
-    //         echo '6';
-    //     if (!$success) {
-    //         echo "Insert failed: " . $stmt->error;
-    //     }
-    // }
-
-    public function insert($classID, $title, $author, $isbn, $publisher, $edition, $price) {
+    public function insert($values) {
+        echo '1';
+        if (!is_array($values)){
+            return false;
+        }
         echo '2';
         
-        $qry = "INSERT INTO textbook (class_id, title, author, isbn, publisher, edition, price) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $qry = "INSERT INTO textbook (course_offering_id, title, author, isbn, publisher, edition, price) VALUES (?, ?, ?, ?, ?, ?, ?)";
         echo '3';
         $stmt = $this->conn->prepare($qry);
         echo '4';
@@ -153,7 +126,14 @@ class Textbook_ds extends Textbook {
         echo'<br><br><br>';
         echo $qry;
         $stmt->bind_param(
-            'isssssd', $classID, $title, $author, $isbn, $publisher, $edition, $price);
+            'isssssd',
+            $values['course_offering_id'], 
+            $values['title'], 
+            $values['author'], 
+            $values['isbn'], 
+            $values['publisher'], 
+            $values['edition'], 
+            $values['price']);
             echo '5';
         $success = $stmt->execute();
             echo '6';
@@ -162,38 +142,14 @@ class Textbook_ds extends Textbook {
         }
     }
 
-    // public function updateRow($value, $field, $id) {
-    //     if ($value == null || $field == null || $id == null) {
-    //         return false;
-    //     }
 
-    //     $qry = 'UPDATE textbook set ' . $field . ' = ' . $value . ' WHERE textbook_id = ' . $id;
-    //     $stmt = $this->conn->prepare($qry);
-    //     switch(gettype($value)){
-    //         case 'integer';
-    //             $bindtype = 'i';
-    //             break;
-    //         case 'double';
-    //             $bindtype = 'd';
-    //             break;
-    //         case 'string';
-    //         default:
-    //             $bindtype = 's';
-    //             break;
-    //     }
-    //     $stmt->bind_param($bindtype . 'i', $value, $id);
-    //     $success = $stmt->execute();
-    //     if (!$success) {
-    //         echo "Update failed: " . $stmt->error;
-    //     }
-    // }
 
     public function update($row) {
         if ($row == null) {
             return false;
         }
 
-        $qry = 'UPDATE Textbook SET class_id = (?), 
+        $qry = 'UPDATE Textbook SET course_offering_id = (?), 
                                     title = (?),
                                     author = (?),
                                     isbn = (?),
@@ -203,7 +159,7 @@ class Textbook_ds extends Textbook {
                                     textbook_id = ' . $row['textbook_id'];
 
         $stmt = $this->conn->prepare($qry);
-        $stmt->bind_param('isssssd', $row['class_id'], $row['title'], $row['author'], $row['isbn'], $row['publisher'], $row['edition'], $row['price']);
+        $stmt->bind_param('isssssd', $row['course_offering_id'], $row['title'], $row['author'], $row['isbn'], $row['publisher'], $row['edition'], $row['price']);
 
         $success = $stmt->execute();
         // if (!$success) {
