@@ -42,7 +42,7 @@
     }
 
     echo '<br><br><br>Select all test<br>';
-    $departmentSelectField = '0, dept_name';
+    $departmentSelectField = 'dept_id, 0';
     $includedFields = array_flip(explode(", ", $departmentSelectField));
 
     $qryResultMult = $testDepartment->selectAll($departmentSelectField);
