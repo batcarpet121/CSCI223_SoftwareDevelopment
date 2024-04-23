@@ -69,7 +69,7 @@
     
     if($qryResultMultFields){
         echo "<br>";
-        foreach($qryResultMultSelect as $fieldResult){
+        foreach($qryResultMultFields as $fieldResult){
             if(isset($includedFields['textbook_id'])){
                 echo 'Textbook ID: ' . $fieldResult[0] . '<br>';
             }
