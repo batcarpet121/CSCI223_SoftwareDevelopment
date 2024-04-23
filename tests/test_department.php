@@ -39,10 +39,10 @@
 
 
     echo '<br><br><br>Update test<br>';
-    $textbookUpdate = array(
+    $deptUpdate = array(
     'dept_id' => 4,
     'dept_name' => 'Something Else');
-    $testTextbook->update($textbookUpdate);
+    $testDepartment->update($deptUpdate);
     
 
 
