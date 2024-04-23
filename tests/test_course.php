@@ -25,12 +25,12 @@
     // Update
     $update_course_id=9;
     $update_dept_id=1;
-    $update_course_title= "105 Javascript";
+    $update_course_title= 'Javascript';
 
     $singleResult = $course_obj->selectSingle($key);
     $allResult = $course_obj->selectAll($sel_list);
     // $insertInfo = $course_obj->insertInfo($insert_dept_id, $insert_course_title);
-    $updateInfo = $course_obj->update($update_course_id, $update_dept_id, $update_course_title);
+    $updateInfo = $course_obj->update($update_dept_id, $update_course_title, $update_course_id);
 
     echo "Testing select single <br>";
 
@@ -63,7 +63,7 @@
     //     echo "Unable to insert the infomation";
     // }
 
-    if($update){
+    if($updateInfo){
         echo "Information Updated";
     } else {
         echo "failed";
