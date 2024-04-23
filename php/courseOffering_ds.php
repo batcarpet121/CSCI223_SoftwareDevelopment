@@ -85,12 +85,11 @@ class Course_Offering_ds extends Course_Offering{
         $qry = 'INSERT INTO CourseOffering (course_offering_id, course_id, course_term, course_year) VALUES (?, ?, ?, ?)';
         $stmt = $this->conn->prepare($qry);
     
-        $stmt->bind_param('iiss', $course_offering_id, $course_id, $course_term, $course_year);
+        $stmt->bind_param('iisi', $course_offering_id, $course_id, $course_term, $course_year);
         
         if ($stmt->execute()) {
             return true;
         } else {
-            echo "Insertion failed: " . $stmt->error;
             return false; 
         }
     }

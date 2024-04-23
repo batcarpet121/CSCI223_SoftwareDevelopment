@@ -18,8 +18,15 @@
     //Select Single values
     $key = 1;
 
+    //Insert values
+    $user_id = 2;
+    $role_id = 2;
+    $username = "TestUser2";
+    $password = "TestPassword2";
+
     $singleResult = $tracker_user_obj->selectSingle($key);
     $allResult = $tracker_user_obj->selectAll($sel_list);
+    $insertInfo = $tracker_user_obj->insert($user_id, $role_id, $username, $password);
 
     echo "Testing select single <br>";
 
@@ -43,6 +50,12 @@
             echo "Password: " . $result[3] . "<br>";
             echo "<br>";
         }
+    }
+
+    if($insertInfo){
+        echo "Insert successful!";
+    }else{
+        echo "Insert Failed.";
     }
 
     ?>

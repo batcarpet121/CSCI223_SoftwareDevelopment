@@ -19,10 +19,10 @@
     $key = 1;
 
     //Insert values
-    $course_offering_id = 15;
-    $course_id = 15;
+    $course_offering_id = 9;
+    $course_id = 9;
     $course_term = "Spring";
-    $course_year = "2024";
+    $course_year = 2024;
 
     //Delete row
     // $deleteKey=9;
@@ -57,12 +57,12 @@
         }
     }
 
-    if($deleteResult){
-        echo"successful delete";
-    }
-    else{
-        echo"failed delete";
-    }
+    // if($deleteResult){
+    //     echo"successful delete";
+    // }
+    // else{
+    //     echo"failed delete";
+    // }
 
     // if($insertInfo){
     //     echo "Insert successful!";
