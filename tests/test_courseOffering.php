@@ -18,8 +18,15 @@
     //Select Single values
     $key = 1;
 
+    //Insert values
+    $insert_offering_id = 5;
+    $insert_course_id = 5;
+    $insert_term = "Spring";
+    $insert_year = "2024";
+
     $singleResult = $course_offering_obj->selectSingle($key);
     $allResult = $course_offering_obj->selectAll($sel_list);
+    $insertInfo = $course_offering_obj->insert($insert_offering_id, $insert_course_id, $insert_term, $insert_year);
 
     echo "Testing select single <br>";
 
@@ -43,6 +50,12 @@
             echo "Course Year: " . $result[3] . "<br>";
             echo "<br>";
         }
+    }
+
+    if($insertInfo){
+        echo "Insert successful!";
+    }else{
+        echo "Insert Failed.";
     }
 
     ?>
