@@ -33,11 +33,11 @@ class Department_ds extends Department {
         $stmt->execute();
         // $stmt->store_result();
 
-        if ($stmt->affected_rows > 1) {
-            echo "Rows affected: " . $stmt->affected_rows . "<br>";
+        if ($stmt->num_rows > 1) {
+            echo "Rows affected: " . $stmt->num_rows . "<br>";
             return false;
         } else {
-            echo "Rows affected: " . $stmt->affected_rows . "<br>";
+            echo "Rows affected: " . $stmt->num_rows . "<br>";
         }
 
 
@@ -69,7 +69,7 @@ class Department_ds extends Department {
             $qry = 'SELECT ' . $sel_list . ' FROM Dept';
             $stmt = $this->conn->prepare($qry);
             $stmt->execute();
-            echo "Rows affected: " . $stmt->affected_rows . "<br>";
+            echo "Rows affected: " . $stmt->num_rows . "<br>";
             $stmt->store_result();
             $stmt->bind_result(
                 $this->dept_id,

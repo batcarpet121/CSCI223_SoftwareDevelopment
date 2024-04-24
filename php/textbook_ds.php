@@ -34,11 +34,11 @@ class Textbook_ds extends Textbook {
         $stmt->bind_param('s', $key);
         $stmt->execute();
 
-        if ($stmt->affected_rows > 1) {
-            echo "Rows affected: " . $stmt->affected_rows . "<br>";
+        if ($stmt->num_rows > 1) {
+            echo "Rows affected: " . $stmt->num_rows . "<br>";
             return false;
         } else {
-            echo "Rows affected: " . $stmt->affected_rows . "<br>";
+            echo "Rows affected: " . $stmt->num_rows . "<br>";
         }
 
         // $stmt->store_result();
@@ -131,7 +131,7 @@ class Textbook_ds extends Textbook {
             $qry = 'SELECT ' . $sel_list . ' FROM Textbook';
             $stmt = $this->conn->prepare($qry);
             $stmt->execute();
-            echo "Rows affected: " . $stmt->affected_rows . "<br>";
+            echo "Rows affected: " . $stmt->num_rows . "<br>";
             $stmt->store_result();
             $stmt->bind_result(
                 $this->textbook_id,
