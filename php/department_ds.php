@@ -32,6 +32,15 @@ class Department_ds extends Department {
         $stmt->bind_param('s', $key);
         $stmt->execute();
         // $stmt->store_result();
+
+        if ($stmt->affected_rows > 1) {
+            echo $stmt->affected_rows . "Affected rows was greater than 1, expected only 1.";
+            return false;
+        } else {
+            echo $stmt->affected_rows . "Affected exactly 1 row";
+        }
+
+
         $stmt->bind_result(
             $this->dept_id,
             $this->dept_name);
