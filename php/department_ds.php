@@ -34,10 +34,10 @@ class Department_ds extends Department {
         // $stmt->store_result();
 
         if ($stmt->affected_rows > 1) {
-            echo $stmt->affected_rows . "Affected rows was greater than 1, expected only 1.";
+            echo "Rows affected: " . $stmt->affected_rows . "<br>";
             return false;
         } else {
-            echo $stmt->affected_rows . "Affected exactly 1 row";
+            echo "Rows affected: " . $stmt->affected_rows . "<br>";
         }
 
 

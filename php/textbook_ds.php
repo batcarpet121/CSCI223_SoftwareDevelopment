@@ -33,6 +33,14 @@ class Textbook_ds extends Textbook {
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('s', $key);
         $stmt->execute();
+
+        if ($stmt->affected_rows > 1) {
+            echo "Rows affected: " . $stmt->affected_rows . "<br>";
+            return false;
+        } else {
+            echo "Rows affected: " . $stmt->affected_rows . "<br>";
+        }
+
         // $stmt->store_result();
         $stmt->bind_result(
             $this->textbook_id,
