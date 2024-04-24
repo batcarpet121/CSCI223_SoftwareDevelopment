@@ -69,6 +69,7 @@ class Department_ds extends Department {
             $qry = 'SELECT ' . $sel_list . ' FROM Dept';
             $stmt = $this->conn->prepare($qry);
             $stmt->execute();
+            echo "Rows affected: " . $stmt->affected_rows . "<br>";
             $stmt->store_result();
             $stmt->bind_result(
                 $this->dept_id,
@@ -104,6 +105,7 @@ class Department_ds extends Department {
 
         $stmt->bind_param('s', $values['dept_name']);
         $success = $stmt->execute();
+        echo "Rows affected: " . $stmt->affected_rows . "<br>";
 
         if (!$success) {
             echo "Insert failed: " . $stmt->error;
@@ -123,6 +125,7 @@ class Department_ds extends Department {
         $stmt->bind_param('si', $row['dept_name'], $row['dept_id']);
 
         $success = $stmt->execute();
+        echo "Rows affected: " . $stmt->affected_rows . "<br>";
         if (!$success) {
             echo "Update failed: " . $stmt->error;
         } else {
@@ -141,6 +144,7 @@ class Department_ds extends Department {
         $stmt->bind_param('i', $id);
 
         $success = $stmt->execute();
+        echo "Rows affected: " . $stmt->affected_rows . "<br>";
         if (!$success) {
             echo "Delete failed: " . $stmt->error;
         } else {

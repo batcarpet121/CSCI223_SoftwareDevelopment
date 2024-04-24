@@ -131,6 +131,7 @@ class Textbook_ds extends Textbook {
             $qry = 'SELECT ' . $sel_list . ' FROM Textbook';
             $stmt = $this->conn->prepare($qry);
             $stmt->execute();
+            echo "Rows affected: " . $stmt->affected_rows . "<br>";
             $stmt->store_result();
             $stmt->bind_result(
                 $this->textbook_id,
@@ -188,6 +189,7 @@ class Textbook_ds extends Textbook {
             $values['price']);
 
         $success = $stmt->execute();
+        echo "Rows affected: " . $stmt->affected_rows . "<br>";
         if (!$success) {
             echo "Insert failed: " . $stmt->error;
         } else {
@@ -215,6 +217,7 @@ class Textbook_ds extends Textbook {
         $stmt->bind_param('isssssd', $row['course_offering_id'], $row['title'], $row['author'], $row['isbn'], $row['publisher'], $row['edition'], $row['price']);
 
         $success = $stmt->execute();
+        echo "Rows affected: " . $stmt->affected_rows . "<br>";
         if (!$success) {
             echo "Update failed: " . $stmt->error;
         } else {
@@ -233,6 +236,7 @@ class Textbook_ds extends Textbook {
         $stmt->bind_param('i', $id);
 
         $success = $stmt->execute();
+        echo "Rows affected: " . $stmt->affected_rows . "<br>";
         if (!$success) {
             echo "Delete failed: " . $stmt->error;
         } else {
