@@ -81,7 +81,7 @@ class tracker_role_ds extends tracker_role
         $stmt->bind_param('s', $info['role_name']);
 
         if($stmt->execute()){
-            return true;
+            return $stmt->affected_rows;
         }
         else{
             return false;
@@ -96,7 +96,7 @@ class tracker_role_ds extends tracker_role
         $stmt->bind_param('si', $values['role_name'], $role_id);
 
         if ($stmt->execute()) {
-            return true;
+            return $stmt->affected_rows;
         }else{
             return false;
         }
