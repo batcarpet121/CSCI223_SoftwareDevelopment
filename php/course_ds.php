@@ -21,7 +21,10 @@ class course_ds extends course
     }
 
     public function __destruct(){
-        
+        if($this->conn){
+            $this->conn->close();
+            echo "This connection is closed";
+        }
     }
 
     public function selectSingle($key)
