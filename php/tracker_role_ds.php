@@ -23,7 +23,6 @@ class tracker_role_ds extends tracker_role
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('s', $key);
         $stmt->execute();
-        //  $stmt->store_result();
         $stmt->bind_result($this->role_id, $this->role_name);
 
         $row = array();
@@ -73,15 +72,15 @@ class tracker_role_ds extends tracker_role
         }
     }
 
-    public function insert($info)
+    public function insert($id, $name)
     {
-        $qry = 'INSERT INTO Role VALUES ($info)';
+        $qry = 'INSERT INTO Role VALUES ? ?';
 
         $stmt = $this->conn->prepare($qry);
-        $stmt->bind_param('s', $info['role_name']);
+        $stmt->bind_param('is', $id, $role_name);
 
         if($stmt->execute()){
-            return true;
+            return $stmt->affected_rows;
         }
         else{
             return false;
@@ -96,7 +95,7 @@ class tracker_role_ds extends tracker_role
         $stmt->bind_param('si', $values['role_name'], $role_id);
 
         if ($stmt->execute()) {
-            return true;
+            return $stmt->affected_rows;
         }else{
             return false;
         }
