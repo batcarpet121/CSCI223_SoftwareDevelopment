@@ -33,6 +33,7 @@ class Textbook_ds extends Textbook {
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('s', $key);
         $stmt->execute();
+        $stmt->store_result();
 
         if ($stmt->num_rows > 1) {
             echo "Rows affected: " . $stmt->num_rows . "<br>";
@@ -131,8 +132,8 @@ class Textbook_ds extends Textbook {
             $qry = 'SELECT ' . $sel_list . ' FROM Textbook';
             $stmt = $this->conn->prepare($qry);
             $stmt->execute();
-            echo "Rows affected: " . $stmt->num_rows . "<br>";
             $stmt->store_result();
+            echo "Rows affected: " . $stmt->num_rows . "<br>";
             $stmt->bind_result(
                 $this->textbook_id,
                 $this->course_offering_id,

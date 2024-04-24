@@ -31,7 +31,7 @@ class Department_ds extends Department {
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('s', $key);
         $stmt->execute();
-        // $stmt->store_result();
+        $stmt->store_result();
 
         if ($stmt->num_rows > 1) {
             echo "Rows affected: " . $stmt->num_rows . "<br>";
@@ -69,8 +69,8 @@ class Department_ds extends Department {
             $qry = 'SELECT ' . $sel_list . ' FROM Dept';
             $stmt = $this->conn->prepare($qry);
             $stmt->execute();
-            echo "Rows affected: " . $stmt->num_rows . "<br>";
             $stmt->store_result();
+            echo "Rows affected: " . $stmt->num_rows . "<br>";
             $stmt->bind_result(
                 $this->dept_id,
                 $this->dept_name);
