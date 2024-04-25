@@ -44,7 +44,7 @@ class tracker_role_ds extends tracker_role
         // // expect csv string in arg. explode into arr
         // }
 
-        $qry = 'SELECT * FROM Role';
+        $qry = 'SELECT * FROM Tracker_Role';
         $stmt = $this->conn->prepare($qry);
         if ($stmt == false){
             echo 'role_ds failed prepare() in selectAll()'.'<br';
@@ -74,7 +74,7 @@ class tracker_role_ds extends tracker_role
 
     public function insert($id, $name)
     {
-        $qry = "INSERT INTO Role VALUES ($id, $name)";
+        $qry = "INSERT INTO Tracker_Role VALUES ($id, $name)";
 
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('is',$id, $name );
@@ -92,7 +92,7 @@ class tracker_role_ds extends tracker_role
 
     public function update($role_id, $values)
     {
-        $qry = 'UPDATE Role SET role_name = ? WHERE role_id = ?';
+        $qry = 'UPDATE Tracker_Role SET role_name = ? WHERE role_id = ?';
 
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('si', $values['role_name'], $role_id);
