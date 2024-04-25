@@ -42,7 +42,7 @@
                     $course_offering_obj = new Course_Offering_ds($conn);
 
                     $courseOfferingSelectMult = '';
-                    $qryResultMult = $course_offering_obj->selectAll($courseOfferingSelectMult);
+                    $qryResultMult = $course_offering_obj->selectAll($sel_list);
                     if($qryResultMult){
                         foreach($qryResultMult as $result){
                             echo $result[1]. ". ". $result[2]. ", ". $result[3]. "<br>";
