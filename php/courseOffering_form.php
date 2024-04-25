@@ -39,13 +39,13 @@
                 <?php 
                     require("../php/courseOffering_ds.php");
 
-                    $course = new courseOffering_ds($conn);
+                    $course_offering_obj = new Course_Offering_ds($conn);
 
-                    $departmentSelectMult = '';
-                    $qryResultMult = $department->selectAll($departmentSelectMult);
+                    $courseOfferingSelectMult = '';
+                    $qryResultMult = $course_offering_obj->selectAll($courseOfferingSelectMult);
                     if($qryResultMult){
                         foreach($qryResultMult as $result){
-                            echo $result[0]. ". ". $result[1]. "<br>";
+                            echo $result[1]. ". ". $result[2]. ", ". $result[3]. "<br>";
                         }
                     }
                 ?>
@@ -57,34 +57,40 @@
                 Main Content
             </h2>
             <div class="formWrapper">
-                <form action="" id="addCourseForm">
-                    <div class="addForm">
-                        <!-- <label for="addMultipleCourses">Add multiple Courses:</label> -->
-                        <!-- <input type="checkbox" id="addMultipleCourses"> -->
+                <form action="" id="addOfferingform" method="POST">
+                    <div class="addId">
+                        <label for="Dept_Title">Enter Course ID:</label>
+                        <input type="text" id="Dept_Title" name="Course_ID" placeholder="Enter the Course ID" required>
                     </div>
-                    <div id="ADD_DEPT" class="addForm">
-                        <form action="department_ds.php" method="POST">
-                            <label for="Dept_Title">Enter Department Title:</label>
-                            <input type="text" id="Dept_Title" name="Dept_Title" placeholder="Enter the Department Title" required>
-                            <div class="SubmitButton">
-                                <button type="submit">Add Department</button>
-                            </div>
-                        </form>
+                    <div class="addTerm">
+                        <label for="Dept_Title">Enter Course Term:</label>
+                        <input type="text" id="Dept_Title" name="Course_Term" placeholder="Enter the Course Term" required>
                     </div>
-                    <?php
-                        
-                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                            $deptTitle = trim($_POST["Dept_Title"]);
-                            $insert = $department->insert($deptTitle);
-
-                        }
-                    ?>
-
-                    
-                    <div id="currentAddedCourses">
-                        <p>Added Department</p>
+                    <div class="addYear">
+                        <label for="Dept_Title">Enter Course Year:</label>
+                        <input type="text" id="Dept_Title" name="Course_Year" placeholder="Enter the Course_Year" required>
+                    </div>
+                    <div class="SubmitButton">
+                        <button type="submit">Add Department</button>
                     </div>
                 </form>
+                <?php 
+                    if($_SERVER["REQUEST_METHOD"] == "POST"){
+                        $ID = $_POST['Course_ID'];
+                        $Term = $_POST['Course_Term'];
+                        $Year = $_POST['Course_Year'];
+                        
+                        $inserting =$course_offering_obj->insert($ID, $Term, $Year);
+
+                        if($inserting){
+                            echo("Successful insert");
+                        }
+                        else{
+                            echo $title;
+                            echo("Failed insert");
+                        }
+                    }
+                ?>
             </div>
         </div>
 
@@ -101,20 +107,7 @@
     document.getElementById("addCourseForm").addEventListener("submit", function(event){
         event.preventDefault();
         
-        alert("Course Succesfully added");
-
-        var courseTitle = document.getElementById("COURSE_TITLE").value;
-        var newCourseElement = document.createElement("p");
-
-        newCourseElement.textContent = courseTitle;
-
-        document.getElementById("currentAddedCourses").appendChild(newCourseElement);
-        document.getElementById("COURSE_TITLE").value = "";
-
-        var addMultipleCoursesCheckbox = document.getElementById("addMultipleCourses");
-        if (!addMultipleCoursesCheckbox.checked) {
-            window.location.href = '../index.html';
-        }
+  
     });
 
 </script>
