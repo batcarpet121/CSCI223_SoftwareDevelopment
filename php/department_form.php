@@ -57,44 +57,31 @@
                 Main Content
             </h2>
             <div class="formWrapper">
-                <form action="" id="addCourseForm">
+                <form action="" id="addDeptform" method="POST">
                     <div class="addForm">
-                        <!-- <label for="addMultipleCourses">Add multiple Courses:</label> -->
-                        <!-- <input type="checkbox" id="addMultipleCourses"> -->
+                        <label for="Dept_Title">Enter Department Title:</label>
+                        <input type="text" id="Dept_Title" name="Dept_Title" placeholder="Enter the Department Title" required>
                     </div>
-                    <div id="ADD_DEPT" class="addForm">
-                        <?php if ($_SERVER["REQUEST_METHOD"] == "GET") { ?>
-                        <form action="<?php $_SERVER['department_ds.php']?>" method="POST">
-                            <label for="Dept_Title">Enter Department Title:</label>
-                            <input type="text" id="Dept_Title" name="Dept_Title" placeholder="Enter the Department Title" required>
-                            <div class="SubmitButton">
-                                <button type="submit">Add Department</button>
-                            </div>
-                        </form>
-                        <?php    
-                        }
-                        elseif(!in_array("", $_POST)){
-                            $title = htmlspecialchars(strip_tags($_POST['Dept_Title']));
-                            $inserting = $department->insert($title);  
-                            if($inserting){
-                                echo "Insert Succeeded";
-                            }
-                            else{
-                                echo "Failed to Insert";
-                            }
-                        } ?>
-                    </div>
-
-                    
-                    <div id="currentAddedCourses">
-                        <p>Added Department</p>
+                    <div class="SubmitButton">
+                        <button type="submit">Add Department</button>
                     </div>
                 </form>
+                <?php 
+                    if($_SERVER["REQUEST_METHOD"] == "POST"){
+                        $title = htmlspecialchars(strip_tags($_POST['Dept_title']));
+                        $inserting =$department->insert(['dept_name' => $title]);
+
+                        if($inserting){
+                            echo("Successful insert");
+                        }
+                        else{
+                            echo("Failed insert");
+                        }
+                    }
+                ?>
             </div>
         </div>
-
     </div>
-
 </body>
 
 <footer>
