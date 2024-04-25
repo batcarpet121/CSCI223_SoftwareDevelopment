@@ -69,7 +69,7 @@
                 <?php 
                     if($_SERVER["REQUEST_METHOD"] == "POST"){
                         $title = htmlspecialchars(strip_tags($_POST['Dept_title']));
-                        $inserting =$department->insert(['dept_name' => $title]);
+                        $inserting =$department->insert($title);
 
                         if($inserting){
                             echo("Successful insert");
