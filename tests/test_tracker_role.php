@@ -38,8 +38,8 @@
 
     if ($allResult) {
         foreach ($allResult as $result) {
-            echo "Role ID: " . $singleResult[0] . "<br>";
-            echo "Role Name: " . $singleResult[1] . "<br>";
+            echo "Role ID: " . $result[0] . "<br>";
+            echo "Role Name: " . $result[1] . "<br>";
             echo "<br>";
         }
     }
