@@ -14,7 +14,7 @@ class Department_ds extends Department {
     {
         $this->conn = db_connect();
         if ($this->conn) {
-            echo "Database connection successful.<br>";
+            // echo "Database connection successful.<br>";
         } else {
             echo "Database connection failed: " . $this->conn->connect_error . "<br>";
         }
@@ -34,7 +34,7 @@ class Department_ds extends Department {
         $stmt->store_result();
 
         if ($stmt->num_rows > 1) {
-            echo "Rows affected: " . $stmt->num_rows . "<br>";
+            // echo "Rows affected: " . $stmt->num_rows . "<br>";
             return false;
         } else {
             echo "Rows affected: " . $stmt->num_rows . "<br>";
@@ -70,7 +70,7 @@ class Department_ds extends Department {
             $stmt = $this->conn->prepare($qry);
             $stmt->execute();
             $stmt->store_result();
-            echo "Rows affected: " . $stmt->num_rows . "<br>";
+            // echo "Rows affected: " . $stmt->num_rows . "<br>";
             $stmt->bind_result(
                 $this->dept_id,
                 $this->dept_name);
