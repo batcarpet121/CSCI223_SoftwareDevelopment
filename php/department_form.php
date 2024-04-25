@@ -68,7 +68,8 @@
                 </form>
                 <?php 
                     if($_SERVER["REQUEST_METHOD"] == "POST"){
-                        $title = htmlspecialchars(strip_tags($_POST['Dept_title']));
+                        $title = $_POST['Dept_title'];
+                        echo $title;
                         $inserting =$department->insert($title);
 
                         if($inserting){
