@@ -74,7 +74,7 @@ class tracker_role_ds extends tracker_role
 
     public function insert($id, $name)
     {
-        $qry = "INSERT INTO Tracker_Role VALUES ($id, $name)";
+        $qry = "INSERT INTO Tracker_Role VALUES (?,?)";
 
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('is',$id, $name );

@@ -51,14 +51,13 @@
     $insertResult = $tracker_role_obj->insert($role_id, $role_name);
 
     if ($insertInfo == 1) {
-        echo "Insert successful!";
-        $return_status = true;
+        echo "Insert successful! $insertResult rows affected<br/>";
+        
     } else {
         echo "Insert Failed.";
-        $return_status = false;
+        
     }
 
-    // return $return_status;
 
     ?>
 
