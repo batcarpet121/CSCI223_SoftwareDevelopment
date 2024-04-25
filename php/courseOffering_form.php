@@ -33,7 +33,7 @@
     <div class="container">
         <div id="sideBar">
             <h2>
-                Deparments
+                Course Offerings
             </h2>
             <p>
                 <?php 
