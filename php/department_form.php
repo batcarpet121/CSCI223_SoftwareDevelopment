@@ -91,24 +91,24 @@
 
 <script>
 
-    document.getElementById("addCourseForm").addEventListener("submit", function(event){
-        event.preventDefault();
+    // document.getElementById("addCourseForm").addEventListener("submit", function(event){
+    //     event.preventDefault();
         
-        alert("Course Succesfully added");
+    //     alert("Course Succesfully added");
 
-        var courseTitle = document.getElementById("COURSE_TITLE").value;
-        var newCourseElement = document.createElement("p");
+    //     var courseTitle = document.getElementById("COURSE_TITLE").value;
+    //     var newCourseElement = document.createElement("p");
 
-        newCourseElement.textContent = courseTitle;
+    //     newCourseElement.textContent = courseTitle;
 
-        document.getElementById("currentAddedCourses").appendChild(newCourseElement);
-        document.getElementById("COURSE_TITLE").value = "";
+    //     document.getElementById("currentAddedCourses").appendChild(newCourseElement);
+    //     document.getElementById("COURSE_TITLE").value = "";
 
-        var addMultipleCoursesCheckbox = document.getElementById("addMultipleCourses");
-        if (!addMultipleCoursesCheckbox.checked) {
-            window.location.href = '../index.html';
-        }
-    });
+    //     var addMultipleCoursesCheckbox = document.getElementById("addMultipleCourses");
+    //     if (!addMultipleCoursesCheckbox.checked) {
+    //         window.location.href = '../index.html';
+    //     }
+    // });
 
 </script>
 
