@@ -45,7 +45,7 @@
                     $qryResultMult = $department->selectAll($departmentSelectMult);
                     if($qryResultMult);
                         foreach($qryResultMult as $result){
-                            echo "id: ". $result[0]. "Name: ". $result[1];
+                            echo "id: ". $result[0]. "Name: ". $result[1]. "<br>";
                         }
                 ?>
                 <div>
