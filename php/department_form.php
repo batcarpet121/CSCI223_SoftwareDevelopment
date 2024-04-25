@@ -48,9 +48,6 @@
                             echo $result[0]. ". ". $result[1]. "<br>";
                         }
                 ?>
-                <div>
-                    <button onclick="window.location.href='../index.html'">Add Course Offering</button>
-                </div>
             </p>
         </div>
 
@@ -61,8 +58,8 @@
             <div class="formWrapper">
                 <form action="" id="addCourseForm">
                     <div class="addForm">
-                        <label for="addMultipleCourses">Add multiple Courses:</label>
-                        <input type="checkbox" id="addMultipleCourses">
+                        <!-- <label for="addMultipleCourses">Add multiple Courses:</label> -->
+                        <!-- <input type="checkbox" id="addMultipleCourses"> -->
                     </div>
                     <div class="addForm">
                         <label for="DEPT">Select a Department: </label>
