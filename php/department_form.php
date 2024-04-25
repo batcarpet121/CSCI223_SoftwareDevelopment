@@ -70,7 +70,7 @@
                     if($_SERVER["REQUEST_METHOD"] == "POST"){
                         $title = $_POST['Dept_Title'];
                         
-                        $inserting =$department->insert($title);
+                        $inserting =$department->insert(['dept_name' => $title]);
 
                         if($inserting){
                             echo("Successful insert");
