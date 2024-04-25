@@ -43,10 +43,11 @@
 
                     $departmentSelectMult = '';
                     $qryResultMult = $department->selectAll($departmentSelectMult);
-                    if($qryResultMult);
+                    if($qryResultMult){
                         foreach($qryResultMult as $result){
                             echo $result[0]. ". ". $result[1]. "<br>";
                         }
+                    }
                 ?>
             </p>
         </div>
@@ -61,24 +62,15 @@
                         <!-- <label for="addMultipleCourses">Add multiple Courses:</label> -->
                         <!-- <input type="checkbox" id="addMultipleCourses"> -->
                     </div>
-                    <div class="addForm">
-                        <label for="DEPT">Select a Department: </label>
-                        <select name="DEPT" id="DEPT">
-                            <div id="DEPT_FORM">
-                                <option value="TEST_ONE">TEST ONE</option>
-                                <option value="TEST_TWO">TEST TWO</option>
-                            </div>
-                        </select>
-                    </div>
                     <div id="ADD_COURSE" class="addForm">
-                        <label for="COURSE_Title">Enter Course Title:</label>
-                        <input type="text" id="COURSE_TITLE" name="COURSE_TITLE" placeholder="Enter the Course Title" required>
+                        <label for="Dept_Title">Enter Department Title:</label>
+                        <input type="text" id="Dept_Title" name="Dept_Title" placeholder="Enter the Department Title" required>
                     </div>
                     <div class="SubmitButton">
-                        <button type="submit">Add Course</button>
+                        <button type="submit">Add Department</button>
                     </div>
                     <div id="currentAddedCourses">
-                        <p>Added Courses</p>
+                        <p>Added Department</p>
                     </div>
                 </form>
             </div>
