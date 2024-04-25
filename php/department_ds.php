@@ -31,13 +31,22 @@ class Department_ds extends Department {
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('s', $key);
         $stmt->execute();
-        // $stmt->store_result();
+        $stmt->store_result();
+
+        if ($stmt->num_rows > 1) {
+            echo "Rows affected: " . $stmt->num_rows . "<br>";
+            return false;
+        } else {
+            echo "Rows affected: " . $stmt->num_rows . "<br>";
+        }
+
+
         $stmt->bind_result(
             $this->dept_id,
             $this->dept_name);
             echo '3';
         $row = array();
-        if ($stmt->fetch()) {
+        while ($stmt->fetch()) {
             array_push($row, $this->dept_id);
             array_push($row, $this->dept_name);
         }
@@ -61,6 +70,7 @@ class Department_ds extends Department {
             $stmt = $this->conn->prepare($qry);
             $stmt->execute();
             $stmt->store_result();
+            echo "Rows affected: " . $stmt->num_rows . "<br>";
             $stmt->bind_result(
                 $this->dept_id,
                 $this->dept_name);
@@ -95,6 +105,7 @@ class Department_ds extends Department {
 
         $stmt->bind_param('s', $values['dept_name']);
         $success = $stmt->execute();
+        echo "Rows affected: " . $stmt->affected_rows . "<br>";
 
         if (!$success) {
             echo "Insert failed: " . $stmt->error;
@@ -114,6 +125,7 @@ class Department_ds extends Department {
         $stmt->bind_param('si', $row['dept_name'], $row['dept_id']);
 
         $success = $stmt->execute();
+        echo "Rows affected: " . $stmt->affected_rows . "<br>";
         if (!$success) {
             echo "Update failed: " . $stmt->error;
         } else {
@@ -132,6 +144,7 @@ class Department_ds extends Department {
         $stmt->bind_param('i', $id);
 
         $success = $stmt->execute();
+        echo "Rows affected: " . $stmt->affected_rows . "<br>";
         if (!$success) {
             echo "Delete failed: " . $stmt->error;
         } else {
