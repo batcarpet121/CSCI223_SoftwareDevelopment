@@ -50,7 +50,7 @@ class tracker_role_ds extends tracker_role
             echo 'role_ds failed prepare() in selectAll()'.'<br';
         }
         $stmt->execute();
-        $stmt->store_result();
+        // $stmt->store_result();
         $stmt->bind_result($this->role_id, $this->role_name);
 
         $returnSet = array();
