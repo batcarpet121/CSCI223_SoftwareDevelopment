@@ -58,7 +58,7 @@
         $return_status = false;
     }
 
-    return $return_status;
+    // return $return_status;
 
     ?>
 
