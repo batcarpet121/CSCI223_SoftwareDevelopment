@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <h4>Test Tracker User</h4>
+    <h4>Test Tracker Role</h4>
     <?php
     require("../php/tracker_role_ds.php");
 
@@ -20,8 +20,8 @@
 
     
 
-    $singleResult = $tracker_user_obj->selectSingle($key);
-    $allResult = $tracker_user_obj->selectAll($sel_list);
+    $singleResult = $tracker_role_obj->selectSingle($key);
+    $allResult = $tracker_role_obj->selectAll($sel_list);
 
     echo "Testing select single <br>";
 
@@ -48,7 +48,7 @@
 
     $role_id = 100;
     $role_name = 'Test Role 100';
-    $insertResult = $tracker_user_obj->insert($role_id, $role_name);
+    $insertResult = $tracker_role_obj->insert($role_id, $role_name);
 
     if($insertInfo == 1){
         echo "Insert successful!";
