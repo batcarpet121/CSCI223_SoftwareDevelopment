@@ -69,13 +69,14 @@
                 <?php 
                     if($_SERVER["REQUEST_METHOD"] == "POST"){
                         $title = $_POST['Dept_title'];
-                        echo $title;
+                        
                         $inserting =$department->insert($title);
 
                         if($inserting){
                             echo("Successful insert");
                         }
                         else{
+                            echo $title;
                             echo("Failed insert");
                         }
                     }
@@ -91,24 +92,11 @@
 
 <script>
 
-    // document.getElementById("addCourseForm").addEventListener("submit", function(event){
-    //     event.preventDefault();
+    document.getElementById("addDeptForm").addEventListener("submit", function(event){
+        event.preventDefault();
         
-    //     alert("Course Succesfully added");
-
-    //     var courseTitle = document.getElementById("COURSE_TITLE").value;
-    //     var newCourseElement = document.createElement("p");
-
-    //     newCourseElement.textContent = courseTitle;
-
-    //     document.getElementById("currentAddedCourses").appendChild(newCourseElement);
-    //     document.getElementById("COURSE_TITLE").value = "";
-
-    //     var addMultipleCoursesCheckbox = document.getElementById("addMultipleCourses");
-    //     if (!addMultipleCoursesCheckbox.checked) {
-    //         window.location.href = '../index.html';
-    //     }
-    // });
+        
+    });
 
 </script>
 
