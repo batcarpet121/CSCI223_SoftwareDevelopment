@@ -68,7 +68,7 @@
                 </form>
                 <?php 
                     if($_SERVER["REQUEST_METHOD"] == "POST"){
-                        $title = $_POST['Dept_title'];
+                        $title = $_POST['Dept_Title'];
                         
                         $inserting =$department->insert($title);
 
