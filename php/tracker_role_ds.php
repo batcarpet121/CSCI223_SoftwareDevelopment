@@ -46,6 +46,9 @@ class tracker_role_ds extends tracker_role
 
         $qry = 'SELECT * FROM Role';
         $stmt = $this->conn->prepare($qry);
+        if ($stmt == false){
+            echo 'role_ds failed prepare() in selectAll()'.'<br';
+        }
         $stmt->execute();
         $stmt->store_result();
         $stmt->bind_result($this->role_id, $this->role_name);
