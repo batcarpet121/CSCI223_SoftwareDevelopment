@@ -37,9 +37,9 @@
             </h2>
             <p>
                 <?php 
-                    require("../php/department_ds.php");
+                    require("../php/courseOffering_ds.php");
 
-                    $department = new Department_ds();
+                    $course = new courseOffering_ds($conn);
 
                     $departmentSelectMult = '';
                     $qryResultMult = $department->selectAll($departmentSelectMult);
@@ -63,7 +63,6 @@
                         <!-- <input type="checkbox" id="addMultipleCourses"> -->
                     </div>
                     <div id="ADD_DEPT" class="addForm">
-                        <?php if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
                         <form action="department_ds.php" method="POST">
                             <label for="Dept_Title">Enter Department Title:</label>
                             <input type="text" id="Dept_Title" name="Dept_Title" placeholder="Enter the Department Title" required>
@@ -71,11 +70,15 @@
                                 <button type="submit">Add Department</button>
                             </div>
                         </form>
-                        <?php 
+                    </div>
+                    <?php
+                        
+                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $deptTitle = trim($_POST["Dept_Title"]);
                             $insert = $department->insert($deptTitle);
-                        } ?>
-                    </div>
+
+                        }
+                    ?>
 
                     
                     <div id="currentAddedCourses">
