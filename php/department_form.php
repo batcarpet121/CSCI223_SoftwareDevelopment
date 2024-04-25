@@ -37,7 +37,7 @@
             </h2>
             <p>
                 <?php 
-                    require("php/deparment_ds.php");
+                    require("../php/deparment_ds.php");
 
                     $department = new Department_ds();
 
