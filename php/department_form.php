@@ -63,12 +63,16 @@
                         <!-- <input type="checkbox" id="addMultipleCourses"> -->
                     </div>
                     <div id="ADD_COURSE" class="addForm">
-                        <label for="Dept_Title">Enter Department Title:</label>
-                        <input type="text" id="Dept_Title" name="Dept_Title" placeholder="Enter the Department Title" required>
+                        <form>
+                            <label for="Dept_Title">Enter Department Title:</label>
+                            <input type="text" id="Dept_Title" name="Dept_Title" placeholder="Enter the Department Title" required>
+                            <div class="SubmitButton">
+                                <button type="submit">Add Department</button>
+                            </div>
+                        </form>
+                        
                     </div>
-                    <div class="SubmitButton">
-                        <button type="submit">Add Department</button>
-                    </div>
+                    
                     <div id="currentAddedCourses">
                         <p>Added Department</p>
                     </div>
