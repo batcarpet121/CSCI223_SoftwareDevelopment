@@ -33,17 +33,18 @@ class tracker_role_ds extends tracker_role
         }
     }
 
-    public function selectAll($sel_list)
+    public function selectAll()
     {
-        if ($sel_list == null) {
-            $sel_list = '*';
-        } else {
-            ;
-            // ToDo - handle specific cols
-        // expect csv string in arg. explode into arr
-        }
+        //srr - probably dead code
+        // if ($sel_list == null) {
+        //     $sel_list = '*';
+        // } else {
+        //     ;
+        //     // ToDo - handle specific cols
+        // // expect csv string in arg. explode into arr
+        // }
 
-        $qry = 'SELECT '. $sel_list.' FROM Role';
+        $qry = 'SELECT * FROM Role';
         $stmt = $this->conn->prepare($qry);
         $stmt->execute();
         $stmt->store_result();

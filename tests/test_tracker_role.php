@@ -18,10 +18,10 @@
     //Select Single values
     $key = 1;
 
-    
+
 
     $singleResult = $tracker_role_obj->selectSingle($key);
-    $allResult = $tracker_role_obj->selectAll($sel_list);
+    $allResult = $tracker_role_obj->selectAll();
 
     echo "Testing select single <br>";
 
@@ -50,10 +50,10 @@
     $role_name = 'Test Role 100';
     $insertResult = $tracker_role_obj->insert($role_id, $role_name);
 
-    if($insertInfo == 1){
+    if ($insertInfo == 1) {
         echo "Insert successful!";
         $return_status = true;
-    }else{
+    } else {
         echo "Insert Failed.";
         $return_status = false;
     }
