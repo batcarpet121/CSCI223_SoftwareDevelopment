@@ -1,13 +1,14 @@
 <?php
 require('../data/tracker_role.php');
+require('../utils/db_utils.php');
 
 class tracker_role_ds extends tracker_role
 {
     public $conn;
 
-    public function __construct($conn)
+    public function __construct()
     {
-        $this->conn = $conn;
+        $this->conn = db_connect();
     }
 
     public function selectSingle($key)
@@ -71,15 +72,18 @@ class tracker_role_ds extends tracker_role
     {
         $qry = 'INSERT INTO Role VALUES ($info)';
 
-        $stmt = $this->conn->preprare($qry);
+        $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('s', $info['role_name']);
+        $stmt->execute();
 
-        if($stmt->execute()){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return $this->conn->affected_rows;
+
+        // if($stmt->execute()){
+        //     return true;
+        // }
+        // else{
+        //     return false;
+        // }
     }
 
     public function update($role_id, $values)
