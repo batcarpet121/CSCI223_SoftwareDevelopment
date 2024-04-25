@@ -71,8 +71,17 @@
                                 <button type="submit">Add Department</button>
                             </div>
                         </form>
-                        <?php 
-                            
+                        <?php    
+                        }
+                        elseif(!in_array("", $_POST)){
+                            $title = htmlspecialchars(strip_tags($_POST['Dept_Title']));
+                            $inserting = $department->insert($title);  
+                            if($inserting){
+                                echo "Insert Succeeded";
+                            }
+                            else{
+                                echo "Failed to Insert";
+                            }
                         } ?>
                     </div>
 
