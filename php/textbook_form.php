@@ -60,41 +60,11 @@
                 <form action="../php/add_textbook.php" method="post">
                     <label for="course_offering_id">Course Offering ID:</label>
                     <select id="course_offering_id" name="course_offering_id" required>
-                        <?php
-                            $placeholders = array_fill(0, 8, '0');
-    
-                            $fieldMapping = [
-                                'textbook_id' => 0,
-                                'course_offering_id' => 1,
-                                'title' => 2,
-                                'author' => 3,
-                                'isbn' => 4,
-                                'publisher' => 5,
-                                'edition' => 6,
-                                'price' => 7
-                            ];
-                            
-                            $textbookSelectFields = ['course_offering_id'];
-
-                            foreach ($textbookSelectFields as $field) {
-                                if (array_key_exists($field, $fieldMapping)) {
-                                    $placeholders[$fieldMapping[$field]] = $field;
-                                }
-                            }
-
-                            $sqlFields = implode(", ", $placeholders);
-                            $includedFields = array_flip(explode(", ", $sqlFields));
-                            
-                            $qryResultMultSelect = $testTextbook->selectAll($sqlFields);
-
-                            while ($row = $result->fetch_assoc()) {
-                                $id = $row['course_offering_id'];
-                                echo '<option value="'.htmlspecialchars($id).'"></option>';
-                              }
-                        
-                        ?>
+                    <option value="13">223 Software Development</option>
+                    <option value="14">100 Python</option>
+                    <option value="15">224 Linux</option>
+                    <option value="16">277 Software Assurance</option>
                     </select><br><br>
-
 
                     <label for="title">Title:</label>
                     <input type="text" id="title" name="title" required><br><br>
