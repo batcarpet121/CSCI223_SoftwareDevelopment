@@ -34,6 +34,21 @@
     <div class="container">
         <div id="sideBar">
             <h2>Courses</h2>
+            <p>
+                <?php
+                require("../php/course_ds.php");
+
+                $course_obj = new Course_ds($conn);
+
+                $courseSelectMult = '';
+                $qryResultMult = $course_obj->selectAll($courseSelectMult);
+                if ($qryResultMult) {
+                    foreach ($qryResultMult as $result) {
+                        echo $result[0] . ". " . $result[1] . ", " . $result[2] . "<br>";
+                    }
+                }
+                ?>
+            </p>
         </div>
 
         <div id="mainContent">
