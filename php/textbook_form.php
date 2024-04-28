@@ -93,19 +93,18 @@
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    fetch('../php/test_textbook.php')
-        .then(response => response.json())
-        .then(data => {
-            var select_id = document.getElementById('course_offering_id');
-            data.forEach(id => {
-                let option_fill = document.createElement('option');
-                option_fill.value = option_fill.textContent = id;
-                select_id.appendChild(option_fill);
-            });
-        })
-});
-
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch('../php/test_textbook.php')
+            .then(response => response.json())
+            .then(data => {
+                var select_id = document.getElementById('course_offering_id');
+                data.forEach(id => {
+                    let option_fill = document.createElement('option');
+                    option_fill.value = option_fill.textContent = id;
+                    select_id.appendChild(option_fill);
+                });
+            })
+    });
 </script>
 
 </html>
