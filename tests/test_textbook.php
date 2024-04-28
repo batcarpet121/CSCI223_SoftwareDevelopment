@@ -59,7 +59,7 @@
 
 
     echo '<br><br><br>Select all test<br>';
-    $textbookSelectFields = 'textbook_id, price, 0, 0, 0, 0, 0, 0';
+    $textbookSelectFields = 'textbook_id, 0, 0, 0, 0, 0, 0, price';
 
     $includedFields = array_flip(explode(", ", $textbookSelectFields));
 
