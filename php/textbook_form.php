@@ -96,7 +96,6 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         fetch('../php/test_textbook.php')
-            .then(response => response.json())
             .then(data => {
                 var select_id = document.getElementById('course_offering_id');
                 data.forEach(id => {

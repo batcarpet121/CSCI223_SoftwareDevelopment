@@ -83,41 +83,40 @@
     $sqlFields = implode(", ", $placeholders);
     $includedFields = array_flip(explode(", ", $sqlFields));
     
-    $qryResultMultSelect = $testTextbook->selectAll($sqlFields);
-    echo json_encode($qryResultMultSelect);
+    $qryResultMultSelect = $testTextbook->selectAll($sqlFields); 
     // print_r($qryResultMultSelect);
     
-    // if($qryResultMultSelect){
-    //     echo "<br>";
-    //     foreach($qryResultMultSelect as $result){
-    //         if(isset($includedFields['textbook_id'])){
-    //             echo 'Textbook ID: ' . $result[0] . '<br>';
-    //         }
-    //         if(isset($includedFields['course_offering_id'])){
-    //             echo 'Course Offering ID: ' . $result[1] . '<br>';
-    //         }
-    //         if(isset($includedFields['title'])){
-    //             echo 'Title: ' . $result[2] . '<br>';
-    //         }
-    //         if(isset($includedFields['author'])){
-    //             echo 'Author: ' . $result[3] . '<br>';
-    //         }
-    //         if(isset($includedFields['isbn'])){
-    //             echo 'ISBN: ' . $result[4] . '<br>';
-    //         }
-    //         if(isset($includedFields['publisher'])){
-    //             echo 'Publisher: ' . $result[5] . '<br>';
-    //         }
-    //         if(isset($includedFields['edition'])){
-    //             echo 'Edition: ' . $result[6] . '<br>';
-    //         }
-    //         if(isset($includedFields['price'])){
-    //             echo 'Price: $' . $result[7] . '<br>';
-    //         }
-    //     }
-    // } else {
-    //     echo "No Records found";
-    // }
+    if($qryResultMultSelect){
+        echo "<br>";
+        foreach($qryResultMultSelect as $result){
+            if(isset($includedFields['textbook_id'])){
+                echo 'Textbook ID: ' . $result[0] . '<br>';
+            }
+            if(isset($includedFields['course_offering_id'])){
+                echo 'Course Offering ID: ' . $result[1] . '<br>';
+            }
+            if(isset($includedFields['title'])){
+                echo 'Title: ' . $result[2] . '<br>';
+            }
+            if(isset($includedFields['author'])){
+                echo 'Author: ' . $result[3] . '<br>';
+            }
+            if(isset($includedFields['isbn'])){
+                echo 'ISBN: ' . $result[4] . '<br>';
+            }
+            if(isset($includedFields['publisher'])){
+                echo 'Publisher: ' . $result[5] . '<br>';
+            }
+            if(isset($includedFields['edition'])){
+                echo 'Edition: ' . $result[6] . '<br>';
+            }
+            if(isset($includedFields['price'])){
+                echo 'Price: $' . $result[7] . '<br>';
+            }
+        }
+    } else {
+        echo "No Records found";
+    }
 
     // echo '<br><br><br>Insert test<br>';
     // $textbookInsert = array(    
