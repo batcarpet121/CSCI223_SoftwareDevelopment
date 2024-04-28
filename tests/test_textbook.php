@@ -59,13 +59,32 @@
 
 
     echo '<br><br><br>Select all test<br>';
-    $textbookSelectFields = 'textbook_id, 0, 0, 0, 0, 0, 0, price';
+    $placeholders = array_fill(0, 8, '0');
+    
+    $fieldMapping = [
+        'textbook_id' => 0,
+        'course_offering_id' => 1,
+        'title' => 2,
+        'author' => 3,
+        'isbn' => 4,
+        'publisher' => 5,
+        'edition' => 6,
+        'price' => 7
+    ];
+    
+    $textbookSelectFields = ['textbook_id', 'price'];
+    
+    foreach ($textbookSelectFields as $field) {
+        if (array_key_exists($field, $fieldMapping)) {
+            $placeholders[$fieldMapping[$field]] = $field;
+        }
+    }
 
-    $includedFields = array_flip(explode(", ", $textbookSelectFields));
-
-    $qryResultMultSelect = $testTextbook->selectAll($textbookSelectFields);
+    $sqlFields = implode(", ", $placeholders);
+    $includedFields = array_flip(explode(", ", $sqlFields));
+    
+    $qryResultMultSelect = $testTextbook->selectAll($sqlFields);
     print_r($qryResultMultSelect);
-
     
     if($qryResultMultSelect){
         echo "<br>";
@@ -86,7 +105,7 @@
                 echo 'ISBN: ' . $result[4] . '<br>';
             }
             if(isset($includedFields['publisher'])){
-                echo 'publisher: ' . $result[5] . '<br>';
+                echo 'Publisher: ' . $result[5] . '<br>';
             }
             if(isset($includedFields['edition'])){
                 echo 'Edition: ' . $result[6] . '<br>';
@@ -94,7 +113,7 @@
             if(isset($includedFields['price'])){
                 echo 'Price: $' . $result[7] . '<br>';
             }
-        }         
+        }
     } else {
         echo "No Records found";
     }
