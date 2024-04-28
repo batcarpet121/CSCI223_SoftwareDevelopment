@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Add Course</title>
+    <title>Add Textbook</title>
     <style>
         .addForm {
             padding: 10px 0;
@@ -58,6 +58,7 @@
             </h2>
             <div class="formWrapper">
                 <form action="../php/add_textbook.php" method="post">
+                    <label for="course_offering_id">Course Offering ID:</label>
                     <select id="course_offering_id" name="course_offering_id" required>
                     </select><br><br>
 
@@ -92,7 +93,7 @@
     <p>This is footer content</p>
 </footer>
 
-<!-- <script>
+<script>
     document.addEventListener('DOMContentLoaded', function() {
         fetch('../php/test_textbook.php')
             .then(response => response.json())
@@ -105,6 +106,6 @@
                 });
             })
     });
-</script> -->
+</script>
 
 </html>
