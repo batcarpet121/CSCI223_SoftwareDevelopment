@@ -60,11 +60,11 @@
                         <input type="text" id="addCourseId" name="course_id" placeholder="Enter the Course ID" required>
                     </div>
                     <div class="addDeptID">
-                        <label for="addDeptID">Enter Course Term:</label>
+                        <label for="addDeptID">Enter the Departement ID:</label>
                         <input type="text" id="addDeptID" name="dept_id" placeholder="Enter the Departement ID" required>
                     </div>
                     <div class="addCourseTitle">
-                        <label for="addCourseTitle">Enter Course Year:</label>
+                        <label for="addCourseTitle">Enter the Course Title:</label>
                         <input type="text" id="addCourseTitle" name="course_title" placeholder="Enter the Course Title" required>
                     </div>
                     <div class="SubmitButton">
