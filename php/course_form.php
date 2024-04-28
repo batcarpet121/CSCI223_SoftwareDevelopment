@@ -34,15 +34,38 @@
     <div class="container">
         <div id="sideBar">
             <h2>Courses</h2>
+            <p>
+                <?php
+                require("../php/course_ds.php");
+
+                $course_obj = new Course_ds($conn);
+
+                $courseSelectMult = '';
+                $qryResultMult = $course_obj->selectAll($courseSelectMult);
+                if ($qryResultMult) {
+                    foreach ($qryResultMult as $result) {
+                        echo $result[0] . ". " . $result[1] . ", " . $result[2] . "<br>";
+                    }
+                }
+                ?>
+            </p>
         </div>
 
         <div id="mainContent">
             <h2>Main Content</h2>
             <div class="formWrapper">
                 <form action="" id="addCourseform" method="POST">
-                    <div class="addForm">
-                        <label for="Course_Name">Enter Course Name:</label>
-                        <input type="text" id="Course_Name" name="Course_Name" placeholder="Enter Course Name" required>
+                    <div class="addCourseId">
+                        <label for="addCourseId">Enter Course ID:</label>
+                        <input type="text" id="addCourseId" name="course_id" placeholder="Enter the Course ID" required>
+                    </div>
+                    <div class="addDeptID">
+                        <label for="addDeptID">Enter the Departement ID:</label>
+                        <input type="text" id="addDeptID" name="dept_id" placeholder="Enter the Departement ID" required>
+                    </div>
+                    <div class="addCourseTitle">
+                        <label for="addCourseTitle">Enter the Course Title:</label>
+                        <input type="text" id="addCourseTitle" name="course_title" placeholder="Enter the Course Title" required>
                     </div>
                     <div class="SubmitButton">
                         <button type="submit">Add Course</button>
