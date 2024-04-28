@@ -15,6 +15,12 @@
         #sideBar p {
             font-size: larger;
         }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 25%;
+        }
     </style>
 </head>
 
