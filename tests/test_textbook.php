@@ -72,7 +72,7 @@
         'price' => 7
     ];
     
-    $textbookSelectFields = ['textbook_id', 'price'];
+    $textbookSelectFields = ['textbook_id', 'author', 'price'];
     
     foreach ($textbookSelectFields as $field) {
         if (array_key_exists($field, $fieldMapping)) {
