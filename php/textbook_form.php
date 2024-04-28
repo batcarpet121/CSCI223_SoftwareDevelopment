@@ -46,7 +46,7 @@
                 <?php
                 require("../php/textbook_ds.php");
 
-                $textbookData = new Textbook_ds();
+                $testTextbook = new Textbook_ds();
 
                 ?>
             </p>
@@ -60,7 +60,41 @@
                 <form action="../php/add_textbook.php" method="post">
                     <label for="course_offering_id">Course Offering ID:</label>
                     <select id="course_offering_id" name="course_offering_id" required>
+                        <?php
+                            $placeholders = array_fill(0, 8, '0');
+    
+                            $fieldMapping = [
+                                'textbook_id' => 0,
+                                'course_offering_id' => 1,
+                                'title' => 2,
+                                'author' => 3,
+                                'isbn' => 4,
+                                'publisher' => 5,
+                                'edition' => 6,
+                                'price' => 7
+                            ];
+                            
+                            $textbookSelectFields = ['course_offering_id'];
+
+                            foreach ($textbookSelectFields as $field) {
+                                if (array_key_exists($field, $fieldMapping)) {
+                                    $placeholders[$fieldMapping[$field]] = $field;
+                                }
+                            }
+
+                            $sqlFields = implode(", ", $placeholders);
+                            $includedFields = array_flip(explode(", ", $sqlFields));
+                            
+                            $qryResultMultSelect = $testTextbook->selectAll($sqlFields);
+
+                            while ($row = $result->fetch_assoc()) {
+                                $id = $row['course_offering_id'];
+                                echo '<option value="'.htmlspecialchars($id).'"></option>';
+                              }
+                        
+                        ?>
                     </select><br><br>
+
 
                     <label for="title">Title:</label>
                     <input type="text" id="title" name="title" required><br><br>
@@ -94,17 +128,7 @@
 </footer>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        fetch('../php/test_textbook.php')
-            .then(data => {
-                var select_id = document.getElementById('course_offering_id');
-                data.forEach(id => {
-                    let option_fill = document.createElement('option');
-                    option_fill.value = option_fill.textContent = id;
-                    select_id.appendChild(option_fill);
-                });
-            })
-    });
+
 </script>
 
 </html>
