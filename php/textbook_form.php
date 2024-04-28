@@ -58,8 +58,8 @@
             </h2>
             <div class="formWrapper">
                 <form action="../php/add_textbook.php" method="post">
-                    <label for="course_offering_id">Course Offering ID:</label>
-                    <input type="text" id="course_offering_id" name="course_offering_id" required><br><br>
+                    <select id="course_offering_id" name="course_offering_id" required>
+                    </select><br><br>
 
                     <label for="title">Title:</label>
                     <input type="text" id="title" name="title" required><br><br>
@@ -93,7 +93,18 @@
 </footer>
 
 <script>
-
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('../php/test_textbook.php')
+        .then(response => response.json())
+        .then(data => {
+            var select_id = document.getElementById('course_offering_id');
+            data.forEach(id => {
+                let option_fill = document.createElement('option');
+                option_fill.value = option_fill.textContent = id;
+                select_id.appendChild(option_fill);
+            });
+        })
+});
 
 </script>
 
