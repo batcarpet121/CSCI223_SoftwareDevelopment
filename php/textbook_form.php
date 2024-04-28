@@ -92,7 +92,7 @@
     <p>This is footer content</p>
 </footer>
 
-<script>
+<!-- <script>
     document.addEventListener('DOMContentLoaded', function() {
         fetch('../php/test_textbook.php')
             .then(response => response.json())
@@ -105,6 +105,6 @@
                 });
             })
     });
-</script>
+</script> -->
 
 </html>
