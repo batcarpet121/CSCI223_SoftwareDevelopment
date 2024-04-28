@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,59 +6,59 @@
     <title>TEST Textbook Datastore</title>
 </head>
 <body>
-     -->
+    
 <?php
-    // require '../php/textbook_ds.php';
+    require '../php/textbook_ds.php';
 
-    // $testTextbook = new Textbook_ds();
+    $testTextbook = new Textbook_ds();
 
-    // echo '<br><br><br>Select single test<br>';
-    // $textbookID = 1;
-    // $qryResult = $testTextbook->selectSingle($textbookID);   
-    // print_r($qryResult);
-    // if ($qryResult) {
-    //     echo '<br>';
-    //     echo "Textbook ID: " . $qryResult[0] . "<br>";
-    //     echo "Course Offering ID: " . $qryResult[1] . "<br>";
-    //     echo "Title: " . $qryResult[2] . "<br>";
-    //     echo "Author: " . $qryResult[3] . "<br>";
-    //     echo "ISBN: " . $qryResult[4] . "<br>";
-    //     echo "Publisher: " . $qryResult[5] . "<br>";
-    //     echo "Edition: " . $qryResult[6] . "<br>";
-    //     echo "Price: " . $qryResult[7] . "<br>";
-    //     echo "<br>";
-    // } else {
-    //     echo "No record found for the given key.";
-    // }
-
-
+    echo '<br><br><br>Select single test<br>';
+    $textbookID = 1;
+    $qryResult = $testTextbook->selectSingle($textbookID);   
+    print_r($qryResult);
+    if ($qryResult) {
+        echo '<br>';
+        echo "Textbook ID: " . $qryResult[0] . "<br>";
+        echo "Course Offering ID: " . $qryResult[1] . "<br>";
+        echo "Title: " . $qryResult[2] . "<br>";
+        echo "Author: " . $qryResult[3] . "<br>";
+        echo "ISBN: " . $qryResult[4] . "<br>";
+        echo "Publisher: " . $qryResult[5] . "<br>";
+        echo "Edition: " . $qryResult[6] . "<br>";
+        echo "Price: " . $qryResult[7] . "<br>";
+        echo "<br>";
+    } else {
+        echo "No record found for the given key.";
+    }
 
 
-    // echo '<br><br><br>Select all empty test<br>';
-    // $textbookSelectMult = '';
-    // $qryResultMult = $testTextbook->selectAll($textbookSelectMult);
-    // print_r($qryResultMult);
-    // if($qryResultMult){
-    //     foreach($qryResultMult as $result){
-    //         echo '<br>';
-    //         echo "Textbook ID: " . $qryResult[0] . "<br>";
-    //         echo "Course Offering ID: " . $qryResult[1] . "<br>";
-    //         echo "Title: " . $qryResult[2] . "<br>";
-    //         echo "Author: " . $qryResult[3] . "<br>";
-    //         echo "ISBN: " . $qryResult[4] . "<br>";
-    //         echo "Publisher: " . $qryResult[5] . "<br>";
-    //         echo "Edition: " . $qryResult[6] . "<br>";
-    //         echo "Price: $" . $qryResult[7] . "<br>";
-    //         echo "<br>";
-    //     }        
+
+
+    echo '<br><br><br>Select all empty test<br>';
+    $textbookSelectMult = '';
+    $qryResultMult = $testTextbook->selectAll($textbookSelectMult);
+    print_r($qryResultMult);
+    if($qryResultMult){
+        foreach($qryResultMult as $result){
+            echo '<br>';
+            echo "Textbook ID: " . $qryResult[0] . "<br>";
+            echo "Course Offering ID: " . $qryResult[1] . "<br>";
+            echo "Title: " . $qryResult[2] . "<br>";
+            echo "Author: " . $qryResult[3] . "<br>";
+            echo "ISBN: " . $qryResult[4] . "<br>";
+            echo "Publisher: " . $qryResult[5] . "<br>";
+            echo "Edition: " . $qryResult[6] . "<br>";
+            echo "Price: $" . $qryResult[7] . "<br>";
+            echo "<br>";
+        }        
         
-    // } else {
-    //     echo "No Records found";
-    // }
+    } else {
+        echo "No Records found";
+    }
 
 
 
-    // echo '<br><br><br>Select all test<br>';
+    echo '<br><br><br>Select all test<br>';
     $placeholders = array_fill(0, 8, '0');
     
     $fieldMapping = [
@@ -72,7 +72,7 @@
         'price' => 7
     ];
     
-    $textbookSelectFields = ['course_offering_id'];
+    $textbookSelectFields = ['textbook_id', 'author', 'price'];
     
     foreach ($textbookSelectFields as $field) {
         if (array_key_exists($field, $fieldMapping)) {
@@ -83,8 +83,8 @@
     $sqlFields = implode(", ", $placeholders);
     $includedFields = array_flip(explode(", ", $sqlFields));
     
-    $qryResultMultSelect = $testTextbook->selectAll($sqlFields); 
-    // print_r($qryResultMultSelect);
+    $qryResultMultSelect = $testTextbook->selectAll($sqlFields);
+    print_r($qryResultMultSelect);
     
     if($qryResultMultSelect){
         echo "<br>";
@@ -146,5 +146,5 @@
     // $testTextbook->delete($deleteID);
 ?>
 
-<!-- </body>
-</html> -->
+</body>
+</html>
