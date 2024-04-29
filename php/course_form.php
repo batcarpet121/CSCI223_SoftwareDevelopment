@@ -44,7 +44,7 @@
                 $qryResultMult = $course_obj->selectAll($courseSelectMult);
                 if ($qryResultMult) {
                     foreach ($qryResultMult as $result) {
-                        echo $result[0] . ". " . $result[1] . ", " . $result[2] . "<br>";
+                        echo $result[1] . ", " . $result[2] . "<br>";
                     }
                 }
                 ?>
@@ -55,10 +55,6 @@
             <h2>Main Content</h2>
             <div class="formWrapper">
                 <form action="" id="addCourseform" method="POST">
-                    <div class="addCourseId">
-                        <label for="addCourseId">Enter Course ID:</label>
-                        <input type="text" id="addCourseId" name="course_id" placeholder="Enter the Course ID" required>
-                    </div>
                     <div class="addDeptID">
                         <label for="addDeptID">Enter the Departement ID:</label>
                         <input type="text" id="addDeptID" name="dept_id" placeholder="Enter the Departement ID" required>
@@ -71,6 +67,23 @@
                         <button type="submit">Add Course</button>
                     </div>
                 </form>
+                <?php
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $deptID = $_POST['dept_id'];
+                    $courseTitle = $_POST['course_title'];
+
+                    $inserting = $course->insertInfo([
+                        'dept_id' => $deptID,
+                        'course_title' => $courseTitle
+                    ]);
+
+                    if ($inserting) {
+                        echo "Successful insert";
+                    } else {
+                        echo "Failed insert";
+                    }
+                }
+                ?>
             </div>
         </div>
     </div>
