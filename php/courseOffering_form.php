@@ -48,7 +48,7 @@
                 $courseResultMult = $course_obj->selectAll($courseSelectMult);
                 if ($courseResultMult) {
                     foreach ($courseResultMult as $result) {
-                        echo "ID: " . $result[0]. " | Course Name: " . $result[1]. "<br>";
+                        echo "ID: " . $result[0]. " | Course Name: " . $result[2]. "<br>";
                     }
                 }
                 echo "<br>";
