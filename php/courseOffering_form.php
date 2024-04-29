@@ -38,13 +38,9 @@
             <p>
                 <?php 
                     require("../php/courseOffering_ds.php");
-                    require("../php/department_ds.php");
 
                     $course_offering_obj = new Course_Offering_ds($conn);
-                    $department_obj = new Department_ds();
 
-                    $qryDep = '';
-                    $qryDepSelect = $department_obj->selectAll($qryDep);
 
                     $courseOfferingSelectMult = '';
                     $qryResultMult = $course_offering_obj->selectAll($courseOfferingSelectMult);
@@ -70,8 +66,8 @@
                                 $qryDep = '';
                                 $qryDepSelect = $department_obj->selectAll($qryDep);
                                 if($qryResultMult){
-                                    foreach($qryDepSelect as $result){
-                                        echo "<option value=$result[0]> $result[0] </option>";
+                                    foreach($qryResultMult as $result){
+                                        echo "<option value=$result[1]> $result[1] </option>";
                                     }
                                 }
                             ?>
