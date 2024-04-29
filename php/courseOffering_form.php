@@ -67,6 +67,7 @@
                         <select type="text" id="Dept_Title" name="Course_Term" placeholder="Enter the Course Term" required>
                             <option value="Spring">Spring</option>
                             <option value="Fall">Fall</option>
+                        </select>
                     </div>
                     <div class="addYear">
                         <label for="Dept_Title">Enter Course Year:</label>
