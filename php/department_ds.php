@@ -4,7 +4,7 @@ require('../php/department.php');
 /* Ignore any conn errors as steve will make the connection file
     Make sure to adjust the current code based on the textbook table
 */
-require('../utils/db_utils.php');
+require_once('../utils/db_utils.php');
 
 class Department_ds extends Department {
 

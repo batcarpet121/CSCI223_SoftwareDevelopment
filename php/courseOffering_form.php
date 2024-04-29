@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,10 +11,10 @@
             padding: 10px 0;
             font-size: larger;
         }
+
         #sideBar p {
             font-size: larger;
         }
-
     </style>
 </head>
 
@@ -36,19 +37,28 @@
                 Course Offerings
             </h2>
             <p>
-                <?php 
-                    require("../php/courseOffering_ds.php");
+                <?php
+                require("../php/courseOffering_ds.php");
+                require("../php/course_ds.php");
 
-                    $course_offering_obj = new Course_Offering_ds($conn);
+                $course_offering_obj = new Course_Offering_ds($conn);
+                $course_obj = new course_ds($conn);
 
-
-                    $courseOfferingSelectMult = '';
-                    $qryResultMult = $course_offering_obj->selectAll($courseOfferingSelectMult);
-                    if($qryResultMult){
-                        foreach($qryResultMult as $result){
-                            echo $result[1]. ". ". $result[2]. ", ". $result[3]. "<br>";
-                        }
+                $courseSelectMult = '';
+                $courseResultMult = $course_obj->selectAll($courseSelectMult);
+                if ($courseResultMult) {
+                    foreach ($courseResultMult as $result) {
+                        echo "ID: " . $result[0]. " | Course Name: " . $result[2]. "<br>";
                     }
+                }
+                echo "<br>";
+                $courseOfferingSelectMult = '';
+                $qryResultMult = $course_offering_obj->selectAll($courseOfferingSelectMult);
+                if ($qryResultMult) {
+                    foreach ($qryResultMult as $result) {
+                        echo $result[1] . ". " . $result[2] . ", " . $result[3] . "<br>";
+                    }
+                }
                 ?>
             </p>
         </div>
@@ -62,16 +72,15 @@
                     <div class="addId">
                         <label for="Dept_Title">Select Course ID:</label>
                         <select type="text" id="Course_ID" name="Course_ID" placeholder="Enter the Course ID" required>
-                            <?php 
-                                
-                                if($qryResultMult){
-                                    foreach($qryResultMult as $result){
-                                        echo "<option value=". $result[1]. ">". $result[1] . "</option>";
-                                    }
+                            <?php
+                            if ($courseResultMult) {
+                                foreach ($courseResultMult as $result) {
+                                    echo "<option value=" . $result[0] . ">" . $result[0] . "</option>";
                                 }
+                            }
                             ?>
                         </select>
-                            
+
                     </div>
                     <div class="addTerm">
                         <label for="Dept_Title">Select a term</label>
@@ -88,22 +97,21 @@
                         <button type="submit">Add Department</button>
                     </div>
                 </form>
-                <?php 
-                    if($_SERVER["REQUEST_METHOD"] == "POST"){
-                        $ID = $_POST['Course_ID'];
-                        $Term = $_POST['Course_Term'];
-                        $Year = $_POST['Course_Year'];
-                        
-                        $inserting =$course_offering_obj->insert($ID, $Term, $Year);
+                <?php
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $ID = $_POST['Course_ID'];
+                    $Term = $_POST['Course_Term'];
+                    $Year = $_POST['Course_Year'];
 
-                        if($inserting){
-                            echo("Successful insert");
-                        }
-                        else{
-                            
-                            echo("Failed insert");
-                        }
+                    $inserting = $course_offering_obj->insert($ID, $Term, $Year);
+
+                    if ($inserting) {
+                        echo ("Successful insert");
+                    } else {
+
+                        echo ("Failed insert");
                     }
+                }
                 ?>
             </div>
         </div>
@@ -117,13 +125,11 @@
 </footer>
 
 <script>
-
-    document.getElementById("addCourseForm").addEventListener("submit", function(event){
+    document.getElementById("addCourseForm").addEventListener("submit", function(event) {
         event.preventDefault();
-        
-  
-    });
 
+
+    });
 </script>
 
 </html>
