@@ -41,7 +41,7 @@
                     require("../php/department_ds.php");
 
                     $course_offering_obj = new Course_Offering_ds($conn);
-                    $dept_obj = new Department_ds($conn);
+                    $course_obj = new course_ds($conn);
 
 
                     $courseOfferingSelectMult = '';
@@ -66,9 +66,11 @@
                         <select type="text" id="Course_ID" name="Course_ID" placeholder="Enter the Course ID" required>
                             <?php 
                                 
-                                if($qryResultMult){
-                                    foreach($qryResultMult as $result){
-                                        echo "<option value=". $result[1]. ">". $result[1] . "</option>";
+                                $courseSelectMult = '';
+                                $courseResultMult = $course_obj->selectAll($courseSelectMult);
+                                if($courseResultMult){
+                                    foreach($courseResultMult as $result){
+                                        echo "<option value=". $result[0]. ">". $result[0] . "</option>";
                                     }
                                 }
                             ?>
