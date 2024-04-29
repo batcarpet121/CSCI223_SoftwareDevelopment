@@ -77,7 +77,7 @@
 
                     if ($inserting) {
                         echo "Successful insert";
-                        header("Location: " . $_SERVER['REQUEST_URI']);
+                        echo "<script>window.location.href = window.location.pathname;</script>";
                         exit();
                     } else {
                         echo "Failed insert";
