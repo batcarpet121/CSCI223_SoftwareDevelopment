@@ -63,8 +63,11 @@
                         <input type="text" id="Dept_Title" name="Course_ID" placeholder="Enter the Course ID" required>
                     </div>
                     <div class="addTerm">
-                        <label for="Dept_Title">Enter Course Term:</label>
-                        <input type="text" id="Dept_Title" name="Course_Term" placeholder="Enter the Course Term" required>
+                        <label for="Dept_Title">Select a term</label>
+                        <select type="text" id="Dept_Title" name="Course_Term" placeholder="Enter the Course Term" required>
+                            <option value="Spring">Spring</option>
+                            <option value="Fall">Fall</option>
+                        </select>
                     </div>
                     <div class="addYear">
                         <label for="Dept_Title">Enter Course Year:</label>
@@ -86,7 +89,7 @@
                             echo("Successful insert");
                         }
                         else{
-                            echo $title;
+                            
                             echo("Failed insert");
                         }
                     }
