@@ -63,8 +63,7 @@
                         <label for="Dept_Title">Select Course ID:</label>
                         <select type="text" id="Course_ID" name="Course_ID" placeholder="Enter the Course ID" required>
                             <?php 
-                                $qryDep = '';
-                                $qryDepSelect = $department_obj->selectAll($qryDep);
+                                
                                 if($qryResultMult){
                                     foreach($qryResultMult as $result){
                                         echo "<option value=". $result[1]. ">". $result[1] . "</option>";
