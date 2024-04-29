@@ -79,6 +79,7 @@
                         echo "Successful insert";
                         //line below this fixes adding duplicates when refreshing the page
                         echo "<script>window.location.href = window.location.pathname;</script>";
+                        echo "Added new course!";
                         exit();
                     } else {
                         echo "Failed insert";
