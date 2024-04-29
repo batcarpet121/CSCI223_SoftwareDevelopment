@@ -56,7 +56,7 @@
             <div class="formWrapper">
                 <form action="" id="addCourseform" method="POST">
                     <div class="addDeptID">
-                        <label for="addDeptID">Enter the Departement ID:</label>
+                        <label for="addDeptID">Enter the Department ID:</label>
                         <input type="text" id="addDeptID" name="dept_id" placeholder="Enter the Departement ID" required>
                     </div>
                     <div class="addCourseTitle">
@@ -68,14 +68,12 @@
                     </div>
                 </form>
                 <?php
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    $deptID = $_POST['dept_id'];
-                    $courseTitle = $_POST['course_title'];
 
-                    $inserting = $course->insertInfo([
-                        'dept_id' => $deptID,
-                        'course_title' => $courseTitle
-                    ]);
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $insertDeptID = $_POST['dept_id'];
+                    $insertCourseTitle = $_POST['course_title'];
+
+                    $inserting = $course_obj->insertInfo($insertDeptID, $insertCourseTitle);
 
                     if ($inserting) {
                         echo "Successful insert";
