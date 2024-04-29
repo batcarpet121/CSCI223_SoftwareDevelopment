@@ -67,7 +67,7 @@
                                 $qryDepSelect = $department_obj->selectAll($qryDep);
                                 if($qryResultMult){
                                     foreach($qryResultMult as $result){
-                                        echo "<option value=$result[1]> $result[1] </option>";
+                                        echo "<option value=". $result[1]. ">". $result[1] . "</option>";
                                     }
                                 }
                             ?>
