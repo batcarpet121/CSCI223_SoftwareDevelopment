@@ -38,7 +38,7 @@
             <p>
                 <?php 
                     require("../php/courseOffering_ds.php");
-                    require("../php/department_ds.php");
+                    require("../php/course_ds.php");
 
                     $course_offering_obj = new Course_Offering_ds($conn);
                     $course_obj = new course_ds($conn);
