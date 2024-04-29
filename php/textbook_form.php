@@ -44,7 +44,7 @@
             </h2>
             <p>
                 <?php
-                require("../php/textbook_ds.php");
+                require_once("../php/textbook_ds.php");
 
                 $testTextbook = new Textbook_ds();
 
@@ -60,10 +60,20 @@
                 <form action="../php/add_textbook.php" method="post">
                     <label for="course_offering_id">Course Offering ID:</label>
                     <select id="course_offering_id" name="course_offering_id" required>
-                    <option value="13">223 Software Development</option>
-                    <option value="14">100 Python</option>
-                    <option value="15">224 Linux</option>
-                    <option value="16">277 Software Assurance</option>
+                    <?php 
+                        $qryResult = $testTextbook->selectAll('');
+                        if($qryResult){
+                            foreach($qryResult as $result){
+                                echo "<option value=" . $result[1] . ">" . $result[1] . "</option>";
+                            }        
+                            
+                            } else {
+                                echo "No Records found";
+                            }                     
+                    
+                    
+                    ?>
+
                     </select><br><br>
 
                     <label for="title">Title:</label>
