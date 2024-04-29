@@ -32,7 +32,7 @@
     </header>
 
     <div class="container">
-        <div id="sideBar">
+        <div id="courseOfferingsideBar">
             <h2>
                 Course Offerings
             </h2>
