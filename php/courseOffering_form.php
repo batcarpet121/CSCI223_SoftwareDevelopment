@@ -41,7 +41,7 @@
                     require("../php/department_ds.php");
 
                     $course_offering_obj = new Course_Offering_ds($conn);
-                    $department_obj = new Department_ds($conn);
+                    $department_obj = new Department_ds();
 
                     $qryDep = '';
                     $qryDepSelect = $department_obj->selectAll($qryDep);
