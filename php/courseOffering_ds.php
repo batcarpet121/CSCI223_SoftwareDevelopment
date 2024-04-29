@@ -89,7 +89,9 @@ class Course_Offering_ds extends Course_Offering{
             return true;
         }
         else{
-            echo $stmt->errno;
+            if($stmt->errno == 1452){
+                echo "There is no foriegn key for course Idwith that id";
+            }
             return false;
             
         }
