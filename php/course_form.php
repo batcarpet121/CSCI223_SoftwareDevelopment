@@ -77,6 +77,8 @@
 
                     if ($inserting) {
                         echo "Successful insert";
+                        header("Location: " . $_SERVER['REQUEST_URI']);
+                        exit();
                     } else {
                         echo "Failed insert";
                     }
