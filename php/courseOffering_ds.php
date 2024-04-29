@@ -90,7 +90,7 @@ class Course_Offering_ds extends Course_Offering{
         }
         else{
             echo $stmt->errno;
-            return $stmt->errno;
+            return false;
             
         }
     }
