@@ -52,6 +52,7 @@
                     }
                 }
                 echo "<br>";
+                echo "Course Offerings (Course ID | Term | Year";
                 $courseOfferingSelectMult = '';
                 $qryResultMult = $course_offering_obj->selectAll($courseOfferingSelectMult);
                 if ($qryResultMult) {
