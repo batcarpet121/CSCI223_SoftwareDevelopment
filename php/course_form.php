@@ -72,7 +72,7 @@
                     $deptID = $_POST['dept_id'];
                     $courseTitle = $_POST['course_title'];
 
-                    $inserting = $course->insert([
+                    $inserting = $course->insertInfo([
                         'dept_id' => $deptID,
                         'course_title' => $courseTitle
                     ]);
