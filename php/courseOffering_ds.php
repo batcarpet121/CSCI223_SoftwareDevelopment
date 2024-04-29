@@ -85,7 +85,14 @@ class Course_Offering_ds extends Course_Offering{
         $qry = 'INSERT INTO CourseOffering (course_id, course_term, course_year) VALUES (?, ?, ?)';
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('isi', $course_id, $course_term, $course_year);
-        return $stmt->execute();
+        if($stmt->execute()){
+            return true;
+        }
+        else{
+            echo $stmt->errno;
+            return $stmt->errno;
+            
+        }
     }
 
     public function update($value, $field, $id) {
