@@ -41,6 +41,7 @@
 
                     $course_offering_obj = new Course_Offering_ds($conn);
 
+
                     $courseOfferingSelectMult = '';
                     $qryResultMult = $course_offering_obj->selectAll($courseOfferingSelectMult);
                     if($qryResultMult){
@@ -59,19 +60,29 @@
             <div class="formWrapper">
                 <form action="" id="addOfferingform" method="POST">
                     <div class="addId">
-                        <label for="Dept_Title">Enter Course ID:</label>
-                        <input type="text" id="Dept_Title" name="Course_ID" placeholder="Enter the Course ID" required>
+                        <label for="Dept_Title">Select Course ID:</label>
+                        <select type="text" id="Course_ID" name="Course_ID" placeholder="Enter the Course ID" required>
+                            <?php 
+                                
+                                if($qryResultMult){
+                                    foreach($qryResultMult as $result){
+                                        echo "<option value=". $result[1]. ">". $result[1] . "</option>";
+                                    }
+                                }
+                            ?>
+                        </select>
+                            
                     </div>
                     <div class="addTerm">
                         <label for="Dept_Title">Select a term</label>
-                        <select type="text" id="Dept_Title" name="Course_Term" placeholder="Enter the Course Term" required>
+                        <select type="text" id="Course_Term" name="Course_Term" placeholder="Enter the Course Term" required>
                             <option value="Spring">Spring</option>
                             <option value="Fall">Fall</option>
                         </select>
                     </div>
                     <div class="addYear">
                         <label for="Dept_Title">Enter Course Year:</label>
-                        <input type="text" id="Dept_Title" name="Course_Year" placeholder="Enter the Course_Year" required>
+                        <input type="text" id="Course_Year" name="Course_Year" placeholder="Enter the Course_Year" required>
                     </div>
                     <div class="SubmitButton">
                         <button type="submit">Add Department</button>
