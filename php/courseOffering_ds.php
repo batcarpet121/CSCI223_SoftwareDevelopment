@@ -1,6 +1,6 @@
 <?php
 require('../php/courseOffering.php');
-require("../utils/db_utils.php");
+require_once("../utils/db_utils.php");
 
 class Course_Offering_ds extends Course_Offering{
     public $conn;
