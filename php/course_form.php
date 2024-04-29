@@ -69,14 +69,14 @@
                 </form>
                 <?php
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    $deptID = $_POST['addDeptID'];
-                    $courseTitle = $_POST['addCourseTitle'];
-                
+                    $deptID = $_POST['dept_id'];
+                    $courseTitle = $_POST['course_title'];
+
                     $inserting = $course->insert([
                         'dept_id' => $deptID,
                         'course_title' => $courseTitle
                     ]);
-                
+
                     if ($inserting) {
                         echo "Successful insert";
                     } else {
