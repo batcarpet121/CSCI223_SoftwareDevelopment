@@ -77,6 +77,7 @@
 
                     if ($inserting) {
                         echo "Successful insert";
+                        //line below this fixes adding duplicates when refreshing the page
                         echo "<script>window.location.href = window.location.pathname;</script>";
                         exit();
                     } else {
