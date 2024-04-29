@@ -7,13 +7,13 @@ class Course_Offering_ds extends Course_Offering{
 
     public function __construct($conn)
     {
-        $conn = db_connect();
-        $this->conn = $conn;
         
-        if ($conn->connect_error == null) {
-            echo "success!<br>";
+        $this->conn = db_connect();
+        
+        if ($this->conn) {
+            // echo "Database connection successful.<br>";
         } else {
-            echo "FAILED! <br>" . $conn->connect_error;
+            echo "Database connection failed: " . $this->conn->connect_error . "<br>";
         }
     
     }

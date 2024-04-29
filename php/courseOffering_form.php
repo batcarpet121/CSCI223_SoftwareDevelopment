@@ -40,6 +40,7 @@
                     require("../php/courseOffering_ds.php");
 
                     $course_offering_obj = new Course_Offering_ds($conn);
+                    $dept_obj = new Department_ds($conn);
 
 
                     $courseOfferingSelectMult = '';
