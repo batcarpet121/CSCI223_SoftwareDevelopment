@@ -95,7 +95,7 @@
                         <input type="text" id="Course_Year" name="Course_Year" placeholder="Enter the Course_Year" required>
                     </div>
                     <div class="SubmitButton">
-                        <button type="submit">Add Department</button>
+                        <button type="submit">Add Course Offering</button>
                     </div>
                 </form>
                 <?php
