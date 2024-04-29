@@ -124,12 +124,12 @@
     <p>This is footer content</p>
 </footer>
 
-<script>
+<!-- <script>
     document.getElementById("addCourseForm").addEventListener("submit", function(event) {
         event.preventDefault();
 
 
     });
-</script>
+</script> -->
 
 </html>
