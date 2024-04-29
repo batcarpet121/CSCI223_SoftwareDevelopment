@@ -71,6 +71,7 @@
                                     }
                                 }
                             ?>
+                        </select>
                             
                     </div>
                     <div class="addTerm">
