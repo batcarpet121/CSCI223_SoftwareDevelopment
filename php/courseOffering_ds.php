@@ -84,7 +84,7 @@ class Course_Offering_ds extends Course_Offering{
     public function insert($course_id, $course_term, $course_year) {
         $qry = 'INSERT INTO CourseOffering (course_id, course_term, course_year) VALUES (?, ?, ?)';
         $stmt = $this->conn->prepare($qry);
-        $stmt->bind_param('sii', $course_id, $course_term, $course_year);
+        $stmt->bind_param('isi', $course_id, $course_term, $course_year);
         return $stmt->execute();
     }
 
