@@ -5,6 +5,7 @@ class Joined_Tables_Textbook {
     var $course_offering_id;
     var $term;
     var $year;
+    var $course_title;
 
 }
 
@@ -26,9 +27,10 @@ class Textbook_Join extends Joined_Tables_Textbook {
 
     public function getCourseOfferings() {
 
-        $qry = "SELECT CO.course_offering_id, CO.course_term, CO.course_year
+        $qry = "SELECT CO.course_offering_id, CO.course_term, CO.course_year, C.course_title
         FROM CourseOffering CO
-        INNER JOIN Textbook T ON CO.course_offering_id = T.course_offering_id";
+        INNER JOIN Textbook T ON CO.course_offering_id = T.course_offering_id
+		INNER JOIN Course C on CO.course_id = C.course_id";
         $stmt = $this->conn->prepare($qry);
         if (!$stmt) {
             echo "Prepare error: " . $this->conn->error;
@@ -40,7 +42,8 @@ class Textbook_Join extends Joined_Tables_Textbook {
         $stmt->bind_result(
             $this->course_offering_id,
             $this->term,
-            $this->year);
+            $this->year,
+            $this->course_title);
 
             $returnSet = array();
             $rowCount = 0;
@@ -49,6 +52,7 @@ class Textbook_Join extends Joined_Tables_Textbook {
                 array_push($row, $this->course_offering_id);
                 array_push($row, $this->term);
                 array_push($row, $this->year);
+                array_push($row, $this->course_title);
     
                 $rowCount++;
                 array_push($returnSet, $row);

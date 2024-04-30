@@ -65,7 +65,7 @@
                         $options = $tableJoins->getCourseOfferings();
                         if (!empty($options)) {
                             foreach ($options as $option) {
-                                echo "<option value='{$option[0]}'>{$option[0]} - {$option[1]} - {$option[2]}</option>";
+                                echo "<option value='{$option[0]}'>{$option[3]} - {$option[1]} - {$option[2]}</option>";
                             }  
                         } else {
                             echo '<option value="">No Results Found</option>';
