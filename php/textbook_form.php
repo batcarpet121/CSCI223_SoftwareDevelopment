@@ -62,15 +62,14 @@
                     <?php 
                         //Need to join course_offerings term and year and course course name to the respective IDs next
                         $options = $testTextbook->getCourseOfferings();
-                       
-                        if(!empty($options)){
+                        if (!empty($options)) {
                             foreach ($options as $option) {
-                                echo "<option value='{$option['course_offering_id']}'>{$option['course_offering_id']} - 
-                                {$option['term']} - {$option['year']}</option>";                            }  
+                                echo "<option value='{$option['course_offering_id']}'>{$option['course_offering_id']} - {$option['term']} - {$option['year']}</option>";
+                            }  
                         } else {
                             echo '<option value="">No Results Found</option>';
                         }
-          
+                                
                     
                     ?>
 
