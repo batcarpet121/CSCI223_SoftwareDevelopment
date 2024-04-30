@@ -72,7 +72,7 @@
                         //     } 
                         $options = $testTextbook->getCourseOfferings();
                        
-                        if($options){
+                        if(!empty($options)){
                             foreach ($options as $option) {
                                 echo "<option value=" . $option['course_offering_id'] . ">" . $option['course_offering_id'] . "</option>";
                             }  
