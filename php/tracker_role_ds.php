@@ -80,7 +80,17 @@ class tracker_role_ds extends tracker_role
         $stmt->bind_param('is',$id, $name );
         $stmt->execute();
 
-        return $this->conn->affected_rows;
+        if($stmt->execute()){
+            return true;
+        }
+        else{
+            echo $stmt->errno;
+            if($stmt->errno == 1452){
+                echo "There is no foriegn key for course Idwith that id";
+            }
+            return false;
+            
+        }
 
         // if($stmt->execute()){
         //     return true;
