@@ -71,7 +71,7 @@
                         //         echo "No Records found";
                         //     } 
                         
-                        // getCourseOfferings();
+                        getCourseOfferings();
                     
                     
                     ?>

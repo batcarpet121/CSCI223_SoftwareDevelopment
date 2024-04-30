@@ -1,5 +1,10 @@
 <?php
 
+require('../php/textbook.php');
+/* Ignore any conn errors as steve will make the connection file
+    Make sure to adjust the current code based on the textbook table
+*/
+
 require('../utils/db_utils.php');
 class Textbook_ds extends Textbook {
 
