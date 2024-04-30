@@ -187,10 +187,10 @@ class Textbook_ds extends Textbook {
         FROM CourseOffering CO
         INNER JOIN Textbook T ON CO.course_offering_id = T.course_offering_id";
         $stmt = $this->conn->prepare($qry);
-        if (!$stmt) {
-            echo "Prepare error: " . $this->conn->error;
-            return [];
-        }
+        // if (!$stmt) {
+        //     echo "Prepare error: " . $this->conn->error;
+        //     return [];
+        // }
         $stmt->execute();
         $stmt->store_result();
 

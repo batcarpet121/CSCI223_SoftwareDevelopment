@@ -64,7 +64,7 @@
                         $options = $testTextbook->getCourseOfferings();
                         if (!empty($options)) {
                             foreach ($options as $option) {
-                                echo "<option value='{$option['course_offering_id']}'>{$option['course_offering_id']}</option>";
+                                echo "<option value='{$option['course_offering_id']}'>{$option['course_offering_id']} - {$option['term']} - {$option['year']}</option>";
                             }  
                         } else {
                             echo '<option value="">No Results Found</option>';
