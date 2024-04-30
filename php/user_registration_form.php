@@ -44,7 +44,7 @@
                 require("../php/tracker_role_ds.php");
                 require("../php/tracker_user_ds.php");
 
-                $tracjer_user_obj = new tracker_user_ds($conn);
+                $tracker_user_obj = new tracker_user_ds($conn);
                 $tracker_role_obj = new tracker_role_ds();
 
                 $allResult = $tracker_role_obj->selectAll();
