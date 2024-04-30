@@ -45,7 +45,6 @@
             <p>
                 <?php
                 require_once("../php/textbook_ds.php");
-                require_once("../utils/add_textbook_options.php");
         
                 $testTextbook = new Textbook_ds();
                 ?>
