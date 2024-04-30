@@ -74,8 +74,7 @@
                        
                         if($options){
                             foreach ($options as $option) {
-                                // echo "<option value=" . $option['course_offering_id'] . ">" . $option['course_offering_id'] . "</option>";
-                                echo "<option value='{$option['course_offering_id']}'>{$option['course_offering_id']}</option>";
+                                echo "<option value=" . $option['course_offering_id'] . ">" . $option['course_offering_id'] . "</option>";
                             }  
                         } else {
                             echo '<option value="">No Results Found</option>';
