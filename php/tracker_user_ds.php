@@ -1,6 +1,6 @@
 <?php
 require('../php/tracker_user.php');
-require("../utils/db_utils.php");
+require_once("../utils/db_utils.php");
 
 class tracker_user_ds extends Tracker_User{
     public $conn;

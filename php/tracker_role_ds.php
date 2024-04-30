@@ -1,6 +1,6 @@
 <?php
 require('tracker_role.php');
-require('../utils/db_utils.php');
+require_once('../utils/db_utils.php');
 
 class tracker_role_ds extends tracker_role
 {
