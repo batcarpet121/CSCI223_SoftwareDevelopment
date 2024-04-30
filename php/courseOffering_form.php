@@ -52,6 +52,7 @@
                     }
                 }
                 echo "<br>";
+                echo "Course Offerings (Course ID | Term | Year) <br>";
                 $courseOfferingSelectMult = '';
                 $qryResultMult = $course_offering_obj->selectAll($courseOfferingSelectMult);
                 if ($qryResultMult) {
@@ -94,7 +95,7 @@
                         <input type="text" id="Course_Year" name="Course_Year" placeholder="Enter the Course_Year" required>
                     </div>
                     <div class="SubmitButton">
-                        <button type="submit">Add Department</button>
+                        <button type="submit">Add Course Offering</button>
                     </div>
                 </form>
                 <?php
@@ -124,12 +125,12 @@
     <p>This is footer content</p>
 </footer>
 
-<script>
+<!-- <script>
     document.getElementById("addCourseForm").addEventListener("submit", function(event) {
         event.preventDefault();
 
 
     });
-</script>
+</script> -->
 
 </html>
