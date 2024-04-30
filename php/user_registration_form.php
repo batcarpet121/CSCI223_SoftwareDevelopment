@@ -44,8 +44,7 @@
                 require("../php/tracker_role_ds.php");
                 require("../php/tracker_user_ds.php");
 
-
-
+                $tracjer_user_obj = new tracker_user_ds($conn);
                 $tracker_role_obj = new tracker_role_ds();
 
                 $allResult = $tracker_role_obj->selectAll();
@@ -85,7 +84,7 @@
                     $username = $_POST['user_username'];
                     $password = $_POST['user_password'];
 
-                    $inserting = $tracker_role_obj->insert($id, $username, $password);
+                    $inserting = $tracker_user_obj->insert($id, $username, $password);
 
                     if ($inserting) {
                         echo ("Successful insert");
