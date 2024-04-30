@@ -69,7 +69,7 @@
                 <form action="" id="addDeptform" method="POST">
                     <div class="addUsername">
                         <label for="Username">Enter a username:</label>
-                        <input type="text" id="user_username" name="user_username" placeholder="Enter a username" required>
+                        <input type="text" id="user_username" name="user_username" placeholder="Enter a usernamee" required>
                     </div>
                     <div class="addPassword">
                         <label for="Dept_Title">Select a term</label>
