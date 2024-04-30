@@ -185,7 +185,7 @@ class Textbook_ds extends Textbook {
     public function getCourseOfferings() {
         $qry = "SELECT course_offering_id
                 FROM Textbook
-                INNER JOIN Textbook.course_offering_id ON CourseOffering.course_offering_id = course_offering_id";
+                INNER JOIN CourseOffering ON Textbook.course_offering_id = CourseOffering.course_offering_id";
         $stmt = $this->conn->prepare($qry);
         $stmt->execute();
         $stmt->store_result();
