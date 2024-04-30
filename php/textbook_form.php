@@ -48,7 +48,6 @@
                 require_once("../utils/add_textbook_options.php");
         
                 $testTextbook = new Textbook_ds();
-                $options = $testTextbook->getCourseOfferings();
                 ?>
             </p>
         </div>
@@ -71,10 +70,10 @@
                         //     } else {
                         //         echo "No Records found";
                         //     } 
-                        foreach($options as $option){
-                            echo "<option value='{$option['course_offering_id']}'>{$option['course_offering_id']}</option>";
-                        }
-                    
+                        $options = $testTextbook->getCourseOfferings();
+                        foreach ($options as $option) {
+                            echo "<option value=" . $option[0] . ">" . $option[0] . "</option>";
+                        }            
                     
                     ?>
 
