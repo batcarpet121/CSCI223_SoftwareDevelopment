@@ -45,7 +45,8 @@
             <p>
                 <?php
                 require_once("../php/textbook_ds.php");
-        
+                require_once("../php/textbook_join_tables.php");
+                $tableJoins = new Textbook_Join();
                 $testTextbook = new Textbook_ds();
                 ?>
             </p>
@@ -61,7 +62,7 @@
                     <select id="course_offering_id" name="course_offering_id" required>
                     <?php 
                         //Need to join course_offerings term and year and course course name to the respective IDs next
-                        $options = $testTextbook->getCourseOfferings();
+                        $options = $tableJoins->getCourseOfferings();
                         if (!empty($options)) {
                             foreach ($options as $option) {
                                 echo "<option value='{$option['course_offering_id']}'>{$option[1]} - {$option[2]} - {$option[3]}</option>";
