@@ -190,13 +190,21 @@ class Textbook_ds extends Textbook {
         $stmt->execute();
         $stmt->store_result();
 
+        $results = [];
+        $rowCount = 0;
         if ($stmt->num_rows > 0) {
             $stmt->bind_result($course_offering_id);
             while ($stmt->fetch()) {
-                echo "<option value='$course_offering_id'>$course_offering_id</option>";
+                $results[] = [
+                    'course_offering_id' => $course_offering_id,
+                ];
+                $rowCount++;
             }
+        }
+        if ($rowCount > 0) {
+            return $results;
         } else {
-            echo "<option value=''>No Records Found</option>";
+            echo "Nothing to return";
         }
     }
 
