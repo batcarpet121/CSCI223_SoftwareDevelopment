@@ -31,8 +31,8 @@ CREATE TABLE Course (
 CREATE TABLE CourseOffering (
     course_offering_id INT PRIMARY KEY AUTO_INCREMENT,
     course_id INT,
-    term VARCHAR(20),
-    year INT,
+    course_term VARCHAR(20),
+    course_year INT,
     FOREIGN KEY (course_id) REFERENCES Course(course_id)
 );
 
