@@ -1,6 +1,6 @@
 <?php 
 
-require('../utils/db_utils.php');
+require_once('../utils/db_utils.php');
 
 // SELECT Textbook.course_offering_id, Course_offering.course_offering_id FROM Textbook, Course_Offering
 // WHERE Textbook.course_offering_id, Course_offering.course_offering_id
@@ -40,7 +40,7 @@ class Textbook_utils {
 
         $stmt->close();
     }
-    
+
     public function __destruct() {
         $this->conn->close();
     }
