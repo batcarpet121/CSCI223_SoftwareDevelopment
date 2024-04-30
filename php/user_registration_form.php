@@ -44,8 +44,7 @@
                 require("../php/tracker_role_ds.php");
                 require("../php/tracker_user_ds.php");
 
-
-
+                $tracker_user_obj = new tracker_user_ds($conn);
                 $tracker_role_obj = new tracker_role_ds();
 
                 $allResult = $tracker_role_obj->selectAll();
@@ -72,8 +71,8 @@
                         <input type="text" id="user_username" name="user_username" placeholder="Enter a usernamee" required>
                     </div>
                     <div class="addPassword">
-                        <label for="Dept_Title">Select a term</label>
-                        <select type="input" id="user_password" name="user_password" placeholder="Enter a password" required>
+                        <label for="Dept_Title">Select a password</label>
+                        <input type="input" id="user_password" name="user_password" placeholder="Enter a password" required>
                     </div>
                     <div class="SubmitButton">
                         <button type="submit">Register</button>
@@ -85,7 +84,7 @@
                     $username = $_POST['user_username'];
                     $password = $_POST['user_password'];
 
-                    $inserting = $department->insert($id, $username, $password);
+                    $inserting = $tracker_user_obj->insert($id, $username, $password);
 
                     if ($inserting) {
                         echo ("Successful insert");
