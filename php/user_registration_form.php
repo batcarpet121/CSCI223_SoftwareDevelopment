@@ -72,8 +72,8 @@
                         <input type="text" id="user_username" name="user_username" placeholder="Enter a usernamee" required>
                     </div>
                     <div class="addPassword">
-                        <label for="Dept_Title">Select a term</label>
-                        <select type="input" id="user_password" name="user_password" placeholder="Enter a password" required>
+                        <label for="Dept_Title">Select a password</label>
+                        <input type="input" id="user_password" name="user_password" placeholder="Enter a password" required>
                     </div>
                     <div class="SubmitButton">
                         <button type="submit">Register</button>
