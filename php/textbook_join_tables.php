@@ -1,7 +1,15 @@
 <?php 
 
+class Joined_Tables_Textbook {
+
+    var $course_offering_id;
+    var $term;
+    var $year;
+
+}
+
 require_once('../utils/db_utils.php');
-class Textbook_Join {
+class Textbook_Join extends Joined_Tables_Textbook {
     public $conn;
 
     public function __construct()
@@ -32,18 +40,29 @@ class Textbook_Join {
         $results = [];
         $rowCount = 0;
         if ($stmt->num_rows > 0) {
-            $stmt->bind_result($course_offering_id, $term, $year);
-            while ($stmt->fetch()) {
-                $results[] = [
-                    'course_offering_id' => $course_offering_id,
-                    'term' => $term,
-                    'year' => $year
-                ];
-                $rowCount++;
-            }
-        }
-    return $results;
+            $stmt->bind_result(
+                $this->course_offering_id,
+                $this->term,
+                $this->year);
+    
+                $returnSet = array();
+                $rowCount = 0;
+                while ($stmt->fetch()) {
+                    $row = array();
+                    array_push($row, $this->course_offering_id);
+                    array_push($row, $this->term);
+                    array_push($row, $this->year);
+        
+                    $rowCount++;
+                    array_push($returnSet, $row);
+                }
+                if ($rowCount > 0) {
+                    return $returnSet;
+                } else {
+                    return null;
+                }
     }
+}
 
     public function __destruct() {
         $this->conn->close();
