@@ -207,7 +207,7 @@ class Textbook_ds extends Textbook {
                 $rowCount++;
             }
         }
-        
+        echo $results;
       return $results;
     }
 
