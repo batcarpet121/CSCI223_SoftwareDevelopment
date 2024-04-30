@@ -40,6 +40,10 @@ class Textbook_utils {
 
         $stmt->close();
     }
+    
+    public function __destruct() {
+        $this->conn->close();
+    }
 }
 
 ?>

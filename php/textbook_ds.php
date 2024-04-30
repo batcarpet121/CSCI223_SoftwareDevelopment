@@ -182,6 +182,10 @@ class Textbook_ds extends Textbook {
         }
     }
 
+    public function __destruct() {
+        $this->conn->close();
+    }
+
 }
 
 
