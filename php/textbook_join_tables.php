@@ -27,10 +27,8 @@ class Textbook_Join extends Joined_Tables_Textbook {
 
     public function getCourseOfferings() {
 
-        $qry = "SELECT CO.course_offering_id, CO.course_term, CO.course_year, C.course_title
-        FROM CourseOffering CO
-        INNER JOIN Textbook T ON CO.course_offering_id = T.course_offering_id
-		INNER JOIN Course C on CO.course_id = C.course_id";
+        $qry = "SELECT course_offering_id, course_term, course_year, course_title FROM CourseOffering
+        LEFT JOIN Course ON CourseOffering.course_id = Course.course_id";
         $stmt = $this->conn->prepare($qry);
         if (!$stmt) {
             echo "Prepare error: " . $this->conn->error;
