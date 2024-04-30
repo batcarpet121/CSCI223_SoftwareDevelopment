@@ -85,7 +85,7 @@
                     $username = $_POST['user_username'];
                     $password = $_POST['user_password'];
 
-                    $inserting = $department->insert($id, $username, $password);
+                    $inserting = $tracker_role_obj->insert($id, $username, $password);
 
                     if ($inserting) {
                         echo ("Successful insert");
