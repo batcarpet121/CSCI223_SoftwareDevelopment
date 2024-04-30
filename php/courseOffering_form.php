@@ -24,11 +24,14 @@
             <h1>Tracker2024</h1>
         </div>
         <div id="nav">
+            <input id="SearchBar" type="text" placeholder="Search...">
             <a href="../index.html">Home</a>
-            <a href="../html/course_form.html">Course Form</a>
             <a href="../html/view.html">View</a>
+            <a href="../php/department_form.php">Department Form</a>
+            <a href="../php/course_form.php">Courses Form</a>
+            <a href="../php/courseOffering_form.php">Course Offering Form</a>
+            <a href="../php/textbook_form.php">Textbook Form</a>
         </div>
-        <input id="SearchBar" type="text" placeholder="Search...">
     </header>
 
     <div class="container">
