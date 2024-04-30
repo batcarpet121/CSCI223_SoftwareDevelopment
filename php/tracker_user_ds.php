@@ -92,7 +92,17 @@ class tracker_user_ds extends Tracker_User{
         $qry = 'UPDATE Tracker_User SET ' . $field . ' = ? WHERE user_id = ?';
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('si', $value, $id);
-        return $stmt->execute();
+        if($stmt->execute()){
+            return true;
+        }
+        else{
+            echo $stmt->errno;
+            if($stmt->errno == 1452){
+                echo "There is no foriegn key for course Idwith that id";
+            }
+            return false;
+            
+        }
     }
 
     public function delete($id) {
