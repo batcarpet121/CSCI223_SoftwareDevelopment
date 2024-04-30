@@ -60,15 +60,7 @@
                     <label for="course_offering_id">Course Offering ID:</label>
                     <select id="course_offering_id" name="course_offering_id" required>
                     <?php 
-                        // $qryResult = $testTextbook->selectAll('');
-                        // if($qryResult){
-                        //     foreach($qryResult as $result){
-                        //         echo "<option value=" . $result[1] . ">" . $result[1] . "</option>";
-                        //     }        
-                            
-                        //     } else {
-                        //         echo "No Records found";
-                        //     } 
+                        //Need to join course_offerings term and year and course course name to the respective IDs next
                         $options = $testTextbook->getCourseOfferings();
                        
                         if(!empty($options)){
