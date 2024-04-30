@@ -34,34 +34,30 @@ class Textbook_Join extends Joined_Tables_Textbook {
             echo "Prepare error: " . $this->conn->error;
             return [];
         }
+        echo $qry;
         $stmt->execute();
         $stmt->store_result();
+        $stmt->bind_result(
+            $this->course_offering_id,
+            $this->term,
+            $this->year);
 
-        $results = [];
-        $rowCount = 0;
-        if ($stmt->num_rows > 0) {
-            $stmt->bind_result(
-                $this->course_offering_id,
-                $this->term,
-                $this->year);
+            $returnSet = array();
+            $rowCount = 0;
+            while ($stmt->fetch()) {
+                $row = array();
+                array_push($row, $this->course_offering_id);
+                array_push($row, $this->term);
+                array_push($row, $this->year);
     
-                $returnSet = array();
-                $rowCount = 0;
-                while ($stmt->fetch()) {
-                    $row = array();
-                    array_push($row, $this->course_offering_id);
-                    array_push($row, $this->term);
-                    array_push($row, $this->year);
-        
-                    $rowCount++;
-                    array_push($returnSet, $row);
-                }
-                if ($rowCount > 0) {
-                    return $returnSet;
-                } else {
-                    return null;
-                }
-    }
+                $rowCount++;
+                array_push($returnSet, $row);
+            }
+            if ($rowCount > 0) {
+                return $returnSet;
+            } else {
+                return null;
+            }
 }
 
     public function __destruct() {
