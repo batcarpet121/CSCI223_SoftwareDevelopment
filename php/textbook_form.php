@@ -72,7 +72,7 @@
                         //     } 
                         $options = $testTextbook->getCourseOfferings();
                         foreach ($options as $option) {
-                            echo "<option value=" . $option[0] . ">" . $option[0] . "</option>";
+                            echo "<option value=" . $option[1] . ">" . $option[0] . $option[1] . $option[2] . "</option>";
                         }            
                     
                     ?>
