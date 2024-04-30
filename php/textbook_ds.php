@@ -183,7 +183,7 @@ class Textbook_ds extends Textbook {
     }
 
     public function getCourseOfferings() {
-        $qry = "SELECT Textbook.course_offering_id
+        $qry = "SELECT Textbook.course_offering_id, CourseOffering.term, CourseOffering.year
             FROM Textbook
             INNER JOIN CourseOffering ON Textbook.course_offering_id = CourseOffering.course_offering_id";
         $stmt = $this->conn->prepare($qry);
@@ -193,10 +193,12 @@ class Textbook_ds extends Textbook {
         $results = [];
         $rowCount = 0;
         if ($stmt->num_rows > 0) {
-            $stmt->bind_result($course_offering_id);
+            $stmt->bind_result($course_offering_id, $term, $year);
             while ($stmt->fetch()) {
                 $results[] = [
                     'course_offering_id' => $course_offering_id,
+                    'term' => $term,
+                    'year' => $year
                 ];
                 $rowCount++;
             }
