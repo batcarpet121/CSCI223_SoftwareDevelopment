@@ -26,7 +26,7 @@ class Textbook_Join extends Joined_Tables_Textbook {
 
     public function getCourseOfferings() {
 
-        $qry = "SELECT CO.course_offering_id, CO.term, CO.year
+        $qry = "SELECT CO.course_offering_id, CO.course_term, CO.course_year
         FROM CourseOffering CO
         INNER JOIN Textbook T ON CO.course_offering_id = T.course_offering_id";
         $stmt = $this->conn->prepare($qry);
