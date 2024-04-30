@@ -37,8 +37,6 @@ class Textbook_utils {
         } else {
             echo "<option value=''>No Records Found</option>";
         }
-
-        $stmt->close();
     }
 
     public function __destruct() {

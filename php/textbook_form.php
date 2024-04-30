@@ -48,7 +48,6 @@
                 require_once("../utils/add_textbook_options.php");
         
                 $testTextbook = new Textbook_ds();
-                $courseOfferingOptions = new Textbook_utils();
                 ?>
             </p>
         </div>
@@ -72,7 +71,7 @@
                         //         echo "No Records found";
                         //     } 
                         
-                        $courseOfferingOptions->getCourseOfferings();
+                        $testTextbook->getCourseOfferings();
                     
                     
                     ?>
