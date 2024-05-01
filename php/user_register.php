@@ -69,12 +69,13 @@
                 </form>
                 <?php 
                     if($_SERVER["REQUEST_METHOD"] == "POST"){
-
-                        $role_id = 1;
                         $username = $_POST['username'];
-                        $password = $_POST['password'];
+                        $password = $_POST['password'];    
+                        $role_id = 1;
+
+                        $does_exist = $user_acct->selectSingle($username);
             
-                        if (!$user_acct->selectSingle($username)) {
+                        if (!$does_exist) {
                             $values = [
                                 'role_id' => $role_id,
                                 'username' => $username,

@@ -30,22 +30,12 @@ class User_Account_Utils extends User {
             return false;
         }
         $qry = 'SELECT * FROM Tracker_User WHERE username = ?';
-        $stmt = '';
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('s', $key);
         $stmt->execute();
-        $stmt->bind_result(
-            $this->role_id,
-            $this->username,
-            $this->password);
-        
-        $row = array();
-        if ($stmt->fetch()) {
-            array_push($row, $this->role_id);
-            array_push($row, $this->username);
-            array_push($row, $this->password);
-        }
-        if (!empty($row)) {
+
+        $stmt->store_result();
+        if ($stmt->num_rows > 0) {
             return true;
         } else {
             return false;
@@ -71,6 +61,7 @@ class User_Account_Utils extends User {
             $values['password']);
 
         $stmt->execute();
+        $stmt->store_result();
         if ($stmt->affected_rows == 1) {
             return true;
         } else {
@@ -91,11 +82,11 @@ class User_Account_Utils extends User {
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('isss', $row['role_id'], $row['username'], $row['password'], $row['username']);
 
-        $success = $stmt->execute();
-        if (!$success) {
-            echo "Update failed: " . $stmt->error;
+        $stmt->execute();
+        if ($stmt->affected_rows == 1) {
+            echo "Delete Successful!";
         } else {
-            echo "Update Successful!";
+            echo "Delete failed: " . $stmt->error;
         }
     }
 
@@ -111,9 +102,9 @@ class User_Account_Utils extends User {
 
         $stmt->execute();
         if ($stmt->affected_rows == 1) {
-            echo "Delete failed: " . $stmt->error;
-        } else {
             echo "Delete Successful!";
+        } else {
+            echo "Delete failed: " . $stmt->error;
         }
     }
 
