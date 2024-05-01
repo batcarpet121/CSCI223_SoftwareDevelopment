@@ -37,24 +37,24 @@
     echo '<br><br><br>Select all empty test<br>';
     $textbookSelectMult = '';
     $qryResultMult = $testTextbook->selectAll($textbookSelectMult);
-    print_r($qryResultMult);
-    if($qryResultMult){
-        foreach($qryResultMult as $result){
-            echo '<br>';
-            echo "Textbook ID: " . $qryResult[0] . "<br>";
-            echo "Course Offering ID: " . $qryResult[1] . "<br>";
-            echo "Title: " . $qryResult[2] . "<br>";
-            echo "Author: " . $qryResult[3] . "<br>";
-            echo "ISBN: " . $qryResult[4] . "<br>";
-            echo "Publisher: " . $qryResult[5] . "<br>";
-            echo "Edition: " . $qryResult[6] . "<br>";
-            echo "Price: $" . $qryResult[7] . "<br>";
-            echo "<br>";
-        }        
+    // print_r($qryResultMult);
+    // if($qryResultMult){
+    //     foreach($qryResultMult as $result){
+    //         echo '<br>';
+    //         echo "Textbook ID: " . $qryResult[0] . "<br>";
+    //         echo "Course Offering ID: " . $qryResult[1] . "<br>";
+    //         echo "Title: " . $qryResult[2] . "<br>";
+    //         echo "Author: " . $qryResult[3] . "<br>";
+    //         echo "ISBN: " . $qryResult[4] . "<br>";
+    //         echo "Publisher: " . $qryResult[5] . "<br>";
+    //         echo "Edition: " . $qryResult[6] . "<br>";
+    //         echo "Price: $" . $qryResult[7] . "<br>";
+    //         echo "<br>";
+    //     }        
         
-    } else {
-        echo "No Records found";
-    }
+    // } else {
+    //     echo "No Records found";
+    // }
 
     echo '<br><br>';
     echo $qryResultMult[1];
