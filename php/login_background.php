@@ -12,6 +12,7 @@
                 }
             }
         } else {
+            echo $allResult->$errno;
             echo "Failed";
         }
     }
