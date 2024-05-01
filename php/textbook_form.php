@@ -37,6 +37,7 @@
             <a href="../php/course_form.php">Courses Form</a>
             <a href="../php/courseOffering_form.php">Course Offering Form</a>
             <a href="../php/textbook_form.php">Textbook Form</a>
+            <a href="../php/user_registration_form.php">Login/Register</a>
         </div>
     </header>
 
