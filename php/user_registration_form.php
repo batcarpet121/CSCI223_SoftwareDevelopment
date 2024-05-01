@@ -76,8 +76,15 @@
                             if($username == $allResult[2] and $password == $allResult[3]){
                                 echo "Welcome ". $username;
                             }
+                            else{
+                                echo "Cannot find user";
+                            }
                         }
                     }
+                    else{
+                        echo "Failed";
+                    }
+
                 }
                 ?>
             </div>
@@ -127,11 +134,11 @@
 </footer>
 
 <script>
-    document.getElementById("addDeptForm").addEventListener("submit", function(event) {
-        event.preventDefault();
+    // document.getElementById("addDeptForm").addEventListener("submit", function(event) {
+    //     event.preventDefault();
 
 
-    });
+    // });
 </script>
 
 </html>
