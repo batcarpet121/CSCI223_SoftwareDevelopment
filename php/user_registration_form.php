@@ -66,8 +66,8 @@
                     </div>
                 </form>
                 <?php
+                var_dump($_POST);
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    $id = 2;
                     $username = $_POST['login_user_username'];
                     $password = $_POST['login_user_password'];
 
