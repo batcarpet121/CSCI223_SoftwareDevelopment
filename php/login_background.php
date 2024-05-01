@@ -42,7 +42,7 @@
         Redirecting to back to the registration page
     </h3>
     <p><strong>Note:</strong> If your browser supports Refresh, you'll be
-        redirected to GeeksforGeeks Homepage, in 5 seconds.
+        redirected to the Registration/Login page, in 5 seconds.
     </p>
 </body>
 
