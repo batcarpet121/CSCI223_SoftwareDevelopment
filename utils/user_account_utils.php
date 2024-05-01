@@ -58,18 +58,21 @@ class User_Account_Utils extends User {
     
         $qry = "INSERT INTO Tracker_User (role_id, username, password) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($qry);
-
+        if (!$stmt) {
+            echo "Statement prep error";
+            return false;
+        }
         $stmt->bind_param(
             'iss',
             $values['role_id'],
             $values['username'], 
             $values['password']);
 
-        $success = $stmt->execute();
-        if (!$success) {
-            echo "Insert failed: " . $stmt->error;
+        $stmt->execute();
+        if ($stmt->affected_rows == 1) {
+            return false;
         } else {
-            echo "Insert Successful!";
+            return true;
         }
     }
 
@@ -104,8 +107,8 @@ class User_Account_Utils extends User {
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('s', $user);
 
-        $success = $stmt->execute();
-        if (!$success) {
+        $stmt->execute();
+        if ($stmt->affected_rows == 1) {
             echo "Delete failed: " . $stmt->error;
         } else {
             echo "Delete Successful!";
