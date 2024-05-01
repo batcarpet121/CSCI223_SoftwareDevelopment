@@ -35,11 +35,13 @@ class User_Account_Utils extends User {
         $stmt->bind_param('s', $key);
         $stmt->execute();
         $stmt->bind_result(
+            $this->role_id,
             $this->username,
             $this->password);
         
         $row = array();
         if ($stmt->fetch()) {
+            array_push($row, $this->role_id);
             array_push($row, $this->username);
             array_push($row, $this->password);
         }
