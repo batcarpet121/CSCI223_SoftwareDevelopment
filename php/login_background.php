@@ -1,4 +1,6 @@
 <?php
+    require_once("../php/tracker_user_ds.php");
+
     $tracker_user_obj = new tracker_user_ds($conn);
 
     $allResult = $tracker_user_obj->selectAll('');
