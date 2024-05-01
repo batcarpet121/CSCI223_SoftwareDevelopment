@@ -70,7 +70,7 @@
                 <?php 
                     if($_SERVER["REQUEST_METHOD"] == "POST"){
                         
-                        $role_id = 2;
+                        $role_id = 1;
                         $username = $_POST['username'];
                         $password = $_POST['password'];
             
