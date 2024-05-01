@@ -52,7 +52,7 @@
                 ?>
             </p>
             <div class="formWrapper">
-                <form action="" id="addLogInform" method="POST">
+                <form action="../php/login_background.php" id="addLogInform" method="POST">
                     <div class="addUsername">
                         <label for="Username">Enter your username:</label>
                         <input type="text" id="login_user_username" name="login_user_username" placeholder="Enter a usernamee" required>
@@ -66,26 +66,26 @@
                     </div>
                 </form>
                 <?php
-                var_dump($_POST);
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    $username = $_POST['login_user_username'];
-                    $password = $_POST['login_user_password'];
+                // var_dump($_POST);
+                // if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                //     $username = $_POST['login_user_username'];
+                //     $password = $_POST['login_user_password'];
 
-                    if($allResult){
-                        foreach($allResult as $result){
-                            if($username == $allResult[2] and $password == $allResult[3]){
-                                echo "Welcome ". $username;
-                            }
-                            else{
-                                echo "Cannot find user";
-                            }
-                        }
-                    }
-                    else{
-                        echo "Failed";
-                    }
+                //     if($allResult){
+                //         foreach($allResult as $result){
+                //             if($username == $allResult[2] and $password == $allResult[3]){
+                //                 echo "Welcome ". $username;
+                //             }
+                //             else{
+                //                 echo "Cannot find user";
+                //             }
+                //         }
+                //     }
+                //     else{
+                //         echo "Failed";
+                //     }
 
-                }
+                // }
                 ?>
             </div>
         </div>
@@ -95,7 +95,7 @@
                 Register
             </h2>
             <div class="formWrapper">
-                <form action="" id="addDeptform" method="POST">
+                <form action="../php/register_background.php" id="addDeptform" method="POST">
                     <div class="addUsername">
                         <label for="Username">Enter a username:</label>
                         <input type="text" id="user_username" name="user_username" placeholder="Enter a usernamee" required>
@@ -109,20 +109,20 @@
                     </div>
                 </form>
                 <?php
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    $id = 2;
-                    $username = $_POST['user_username'];
-                    $password = $_POST['user_password'];
+                // if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                //     $id = 2;
+                //     $username = $_POST['user_username'];
+                //     $password = $_POST['user_password'];
 
-                    $inserting = $tracker_user_obj->insert($id, $username, $password);
+                //     $inserting = $tracker_user_obj->insert($id, $username, $password);
 
-                    if ($inserting) {
-                        echo ("Successful insert");
-                    } else {
-                        echo $title;
-                        echo ("Failed insert");
-                    }
-                }
+                //     if ($inserting) {
+                //         echo ("Successful insert");
+                //     } else {
+                //         echo $title;
+                //         echo ("Failed insert");
+                //     }
+                // }
                 ?>
             </div>
         </div>
