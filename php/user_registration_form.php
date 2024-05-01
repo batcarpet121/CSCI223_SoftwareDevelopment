@@ -68,8 +68,8 @@
                 <?php
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $id = 2;
-                    $username = $_POST['user_username'];
-                    $password = $_POST['user_password'];
+                    $username = $_POST['login_user_username'];
+                    $password = $_POST['login_user_password'];
 
                     if($allResult){
                         foreach($allResult as $result){
@@ -80,6 +80,7 @@
                     }
                 }
                 ?>
+            </div>
         </div>
 
         <div id="mainContent">
