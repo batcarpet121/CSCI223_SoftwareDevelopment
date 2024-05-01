@@ -14,7 +14,7 @@
 
         if ($allResult) {
             foreach ($allResult as $result) {
-                if ($username == $allResult[2] and $password == $allResult[3]) {
+                if ($username == $allResult[2] && $password == $allResult[3]) {
                     echo "Welcome " . $username;
                 } else {
                     echo "Cannot find user";
