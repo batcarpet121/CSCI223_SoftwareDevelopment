@@ -60,7 +60,9 @@ class Textbook_Join extends Joined_Tables_Textbook {
             } else {
                 return null;
             }
-}
+        }
+
+        
 
     public function __destruct() {
         $this->conn->close();

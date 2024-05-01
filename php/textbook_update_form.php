@@ -68,7 +68,7 @@
 
                         if (!empty($txtIDs)) {
                             foreach ($txtIDs as $txtID) {
-                                echo "<option value='{$txtID[0]}'>{$txtID[0]} - {$txtID[1]} - {$txtID[2]}</option>";
+                                echo "<option value='{$txtID[0]}'>{$txtID[0]} - {$txtID[3]} - {$txtID[2]}</option>";
                             }  
                         } else {
                             echo '<option value="">No Results Found</option>';
