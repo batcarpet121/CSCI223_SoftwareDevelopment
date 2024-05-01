@@ -15,13 +15,13 @@
         if ($allResult) {
             $counter = 0;
             foreach ($allResult as $result) {
-                echo $counter;
+                echo $allResult[2];
                 if ($username == $allResult[2]) {
                     echo "Welcome " . $allResult[2];
                     $counter = 1;
                 }
             }
-            if($counter = 0){
+            if($counter == 0){
                 echo "Incorrect Username or Password";
             }
         } else {
