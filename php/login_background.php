@@ -9,8 +9,8 @@
         $username = $_POST['login_user_username'];
         $password = $_POST['login_user_password'];
 
-        echo $username;
-        echo $password;
+        // echo $username;
+        // echo $password;
 
         if ($allResult) {
             foreach ($allResult as $result) {
