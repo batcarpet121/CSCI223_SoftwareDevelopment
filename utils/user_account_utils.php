@@ -72,9 +72,9 @@ class User_Account_Utils extends User {
 
         $stmt->execute();
         if ($stmt->affected_rows == 1) {
-            return false;
-        } else {
             return true;
+        } else {
+            return false;
         }
     }
 
