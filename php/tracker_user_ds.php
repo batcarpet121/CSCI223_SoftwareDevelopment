@@ -81,10 +81,10 @@ class tracker_user_ds extends Tracker_User{
         }
     }
 
-    public function insert($values) {
-        $qry = 'INSERT INTO Tracker_User (user_id, role_id, username, PASSWORD) VALUES (?, ?, ?, ?)';
+    public function insert($role_id, $username, $password) {
+        $qry = 'INSERT INTO Tracker_User (role_id, username, password) VALUES (?, ?, ?, ?)';
         $stmt = $this->conn->prepare($qry);
-        $stmt->bind_param('iiss', $values['user_id'], $values['role_id'], $values['username'], $values['PASSWORD']);
+        $stmt->bind_param('iss', $role_id, $username, $password);
         return $stmt->execute();
     }
 
