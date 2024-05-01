@@ -57,7 +57,7 @@
     }
 
     echo '<br><br>';
-    echo $qryResultMult;
+    echo $qryResultMult[1];
 
 
 
