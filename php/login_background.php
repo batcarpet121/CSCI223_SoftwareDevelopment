@@ -15,6 +15,7 @@
         if ($allResult) {
             $counter = 0;
             foreach ($allResult as $result) {
+                echo $counter;
                 if ($username == $allResult[2]) {
                     echo "Welcome " . $allResult[2];
                     $counter = 1;
