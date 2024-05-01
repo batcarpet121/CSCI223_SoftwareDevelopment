@@ -15,8 +15,7 @@
         if ($allResult) {
             $counter = 0;
             foreach ($allResult as $result) {
-                echo $result[2];
-                if ($username == $result[2]) {
+                if ($username == $result[2] && $password == $result[3]) {
                     echo "Welcome " . $result[2];
                     $counter = 1;
                 }
