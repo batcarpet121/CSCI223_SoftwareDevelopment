@@ -60,11 +60,10 @@
                 Main Content
             </h2>
             <div class="formWrapper">
-                <form action="../php/add_textbook.php" method="post">
+                <form action="" method="post">
                     <label for="course_offering_id">Course Offering ID:</label>
                     <select id="course_offering_id" name="course_offering_id" required>
                     <?php 
-                        //Need to join course_offerings term and year and course course name to the respective IDs next
                         $options = $tableJoins->getCourseOfferings();
                         if (!empty($options)) {
                             foreach ($options as $option) {
@@ -99,6 +98,31 @@
 
                     <input type="submit" value="Add Textbook" id="submitTextbook">
                 </form>
+                <?php 
+                    if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+                        $values = [    
+                            'course_offering_id' => $_POST['course_offering_id'],
+                            'title' => $_POST['title'],
+                            'author' => $_POST['author'],
+                            'isbn' => $_POST['isbn'],
+                            'publisher' => $_POST['publisher'],
+                            'edition' => $_POST['edition'],
+                            'price' => $_POST['price']
+                        ];
+                        
+                        $inserting = $testTextbook->insert($values);
+                
+                        if($inserting){
+                            echo("Successful insert");
+                        }
+                        else{
+                            echo("Failed insert");
+                        }
+                    }
+                
+                
+                ?>
             </div>
         </div>
 
