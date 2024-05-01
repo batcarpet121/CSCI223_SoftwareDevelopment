@@ -37,7 +37,7 @@
     <div class="container">
         <div id="sideBar">
             <h2>
-                Registration
+                Login In
             </h2>
             <p>
                 <?php
@@ -48,21 +48,43 @@
                 $tracker_role_obj = new tracker_role_ds();
 
                 $allResult = $tracker_role_obj->selectAll();
-
-                // $departmentSelectMult = '';
-                // $qryResultMult = $department->selectAll($departmentSelectMult);
-                // if ($qryResultMult) {
-                //     foreach ($qryResultMult as $result) {
-                //         echo $result[0] . ". " . $result[1] . "<br>";
-                //     }
-                // }
+                
                 ?>
             </p>
+            <div class="formWrapper">
+                <form action="" id="addLogInform" method="POST">
+                    <div class="addUsername">
+                        <label for="Username">Enter your username:</label>
+                        <input type="text" id="login_user_username" name="login_user_username" placeholder="Enter a usernamee" required>
+                    </div>
+                    <div class="addPassword">
+                        <label for="Dept_Title">Enter your password</label>
+                        <input type="input" id="login_user_password" name="login_user_password" placeholder="Enter a password" required>
+                    </div>
+                    <div class="SubmitButton">
+                        <button type="submit">Login</button>
+                    </div>
+                </form>
+                <?php
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $id = 2;
+                    $username = $_POST['user_username'];
+                    $password = $_POST['user_password'];
+
+                    if($allResult){
+                        foreach($allResult as $result){
+                            if($username == $allResult[2] and $password == $allResult[3]){
+                                echo "Welcome ". $username;
+                            }
+                        }
+                    }
+                }
+                ?>
         </div>
 
         <div id="mainContent">
             <h2>
-                Main Content
+                Register
             </h2>
             <div class="formWrapper">
                 <form action="" id="addDeptform" method="POST">

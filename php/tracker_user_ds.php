@@ -11,7 +11,7 @@ class tracker_user_ds extends Tracker_User{
         $this->conn = $conn;
         
         if ($conn->connect_error == null) {
-            echo "success!<br>";
+            ;
         } else {
             echo "FAILED! <br>" . $conn->connect_error;
         }
