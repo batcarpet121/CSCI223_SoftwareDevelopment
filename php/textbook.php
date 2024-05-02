@@ -9,6 +9,7 @@ class Textbook {
     var $publisher;
     var $edition;
     var $price;
+    var $date_added;
 
 }
 

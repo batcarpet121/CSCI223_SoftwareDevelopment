@@ -42,7 +42,8 @@ class Textbook_ds extends Textbook {
             $this->isbn,
             $this->publisher,
             $this->edition,
-            $this->price);
+            $this->price,
+            $this->date_added);
         
         $row = array();
         if ($stmt->fetch()) {
@@ -54,6 +55,7 @@ class Textbook_ds extends Textbook {
             array_push($row, $this->publisher);
             array_push($row, $this->edition);
             array_push($row, $this->price);
+            array_push($row, $this->date_added);
         }
         if (!empty($row)) {
             return $row;
@@ -83,7 +85,8 @@ class Textbook_ds extends Textbook {
             $this->isbn,
             $this->publisher,
             $this->edition,
-            $this->price);
+            $this->price,
+            $this->date_added);
 
             $returnSet = array();
             $rowCount = 0;
@@ -98,6 +101,7 @@ class Textbook_ds extends Textbook {
                 array_push($row, $this->publisher);
                 array_push($row, $this->edition);
                 array_push($row, $this->price);
+                array_push($row, $this->date_added);
     
                 $rowCount++;
     
@@ -116,7 +120,7 @@ class Textbook_ds extends Textbook {
             return false;
         }
     
-        $qry = "INSERT INTO Textbook (course_offering_id, title, author, isbn, publisher, edition, price) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $qry = "INSERT INTO Textbook (course_offering_id, title, author, isbn, publisher, edition, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($qry);
 
         $stmt->bind_param(
@@ -127,7 +131,8 @@ class Textbook_ds extends Textbook {
             $values['isbn'], 
             $values['publisher'], 
             $values['edition'], 
-            $values['price']);
+            $values['price'],
+            $values['date_added']);
 
         $success = $stmt->execute();
         if (!$success) {
@@ -150,11 +155,12 @@ class Textbook_ds extends Textbook {
                                     isbn = (?),
                                     publisher = (?),
                                     edition = (?),
-                                    price = (?) WHERE 
+                                    price = (?)
+                                    date_added = (?) WHERE 
                                     textbook_id = ' . $row['textbook_id'];
 
         $stmt = $this->conn->prepare($qry);
-        $stmt->bind_param('isssssd', $row['course_offering_id'], $row['title'], $row['author'], $row['isbn'], $row['publisher'], $row['edition'], $row['price']);
+        $stmt->bind_param('isssssds', $row['course_offering_id'], $row['title'], $row['author'], $row['isbn'], $row['publisher'], $row['edition'], $row['price'], $row['date_added']);
 
         $success = $stmt->execute();
         if (!$success) {
