@@ -96,7 +96,7 @@
                         <?php
                         $options = $tableJoins->getCourseOfferings();
                         foreach ($options as $option) {
-                            echo "<option value='{$option[0]}'>{$option[0]} - {$option[3]}</option>";
+                            echo "<option value='{$option[0]}'>{$option[0]} - {$option[3]} - {$option[1]} - {$option[2]}</option>";
                         }
                         ?>
 
