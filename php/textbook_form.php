@@ -44,7 +44,7 @@
     <div class="container">
         <div id="sideBar">
             <h2>
-                Add Textbook
+                Available courses
             </h2>
             <p>
                 <?php
@@ -52,13 +52,26 @@
                 require_once("../php/textbook_join_tables.php");
                 $tableJoins = new Textbook_Join();
                 $testTextbook = new Textbook_ds();
+
+                $qryResult = $tableJoins->getCourseOfferings('');
+                if($qryResult){
+                    foreach($qryResult as $result){
+                        echo "Course: " . $result[3] . "<br>";
+                        echo "Year: " . $result[2] . "<br>";
+                        echo "Term: " . $result[1] . "<br>";
+                        echo "<br>";
+                    }        
+                    
+                } else {
+                    echo "No Records found";
+                }
                 ?>
             </p>
         </div>
 
         <div id="mainContent">
             <h2>
-                Main Content
+                Add textbook
             </h2>
             <div class="formWrapper">
                 <form action="../php/add_textbook.php" method="post">

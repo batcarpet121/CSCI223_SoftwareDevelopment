@@ -77,7 +77,7 @@
 
         <div id="mainContent">
             <h2>
-                Main Content
+                Update Textbook
             </h2>
             <div class="formWrapper">
                 <form action="" method="post">
