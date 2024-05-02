@@ -31,7 +31,6 @@ class Textbook_Join extends Joined_Tables_Textbook {
             echo "Prepare error: " . $this->conn->error;
             return [];
         }
-        echo $qry;
         $stmt->execute();
         $stmt->store_result();
         $stmt->bind_result(
