@@ -53,7 +53,8 @@
                 $tracker_user_obj = new tracker_user_ds($conn);
                 $tracker_role_obj = new tracker_role_ds();
 
-                $allResult = $tracker_user_obj->selectAll('');
+                $allRoleResult = $tracker_role_obj->selectAll('');
+                $allUserResult = $tracker_user_obj->selectAll('');
                 
                 ?>
             </p>
@@ -71,8 +72,8 @@
                         <button type="submit">Login</button>
                     </div>
                 </form>
-                <?php
-                    echo "Welcome ". $_SESSION["username"]; 
+                <?php 
+                    echo "Welcome ". $_SESSION["username"];
                 ?>
             </div>
         </div>
@@ -82,7 +83,19 @@
                 Register
             </h2>
             <div class="formWrapper">
-                <form action="../php/register_background.php" id="addDeptform" method="POST">
+                <form action="../php/admin_register_background.php" id="addDeptform" method="POST">
+                    <div class="addRole">
+                        <label for="Role">Select your role</label>
+                        <select type="text" id="Role_ID" name="Role_ID" placeholder="Select your Role" required>
+                            <?php
+                            if ($allRoleResult) {
+                                foreach ($allRoleResult as $result) {
+                                    echo "<option value=" . $result[1] . ">" . $result[1] . "</option>";
+                                }
+                            }
+                            ?>
+                        </select>
+                    </div>
                     <div class="addUsername">
                         <label for="Username">Enter a username:</label>
                         <input type="text" id="user_username" name="user_username" placeholder="Enter a usernamee" required>
@@ -95,6 +108,7 @@
                         <button type="submit">Register</button>
                     </div>
                 </form>
+                
             </div>
         </div>
     </div>

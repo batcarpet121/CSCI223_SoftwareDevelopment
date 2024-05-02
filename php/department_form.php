@@ -31,6 +31,7 @@
             <a href="../php/courseOffering_form.php">Course Offering Form</a>
             <a href="../php/textbook_form.php">Textbook Form</a>
             <a href="../php/user_registration_form.php">Login/Register</a>
+            <a href="../php/admin_registration_form.php">Admin Registration</a>
         </div>
     </header>
 
@@ -49,7 +50,9 @@
                     $qryResultMult = $department->selectAll($departmentSelectMult);
                     if($qryResultMult){
                         foreach($qryResultMult as $result){
-                            echo $result[0]. ". ". $result[1]. "<br>";
+                            echo "Department ID: " . $result[0]."<br>";
+                            echo "Department Name: " . $result[1] . "<br>";
+                            echo "<br>";
                         }
                     }
                 ?>
