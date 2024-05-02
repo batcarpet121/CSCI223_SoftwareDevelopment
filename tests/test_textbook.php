@@ -49,6 +49,7 @@
             echo "Publisher: " . $qryResult[5] . "<br>";
             echo "Edition: " . $qryResult[6] . "<br>";
             echo "Price: $" . $qryResult[7] . "<br>";
+            echo "Date Added: $" . $qryResult[9] . "<br>";
             echo "<br>";
         }        
         
