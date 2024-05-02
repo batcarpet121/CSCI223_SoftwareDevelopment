@@ -68,6 +68,10 @@
                         <button type="submit">Login</button>
                     </div>
                 </form>
+                <?php 
+                    echo "Welcome". $_SESSION["username"];
+                    echo "Welcome". $_SESSION["account_id"]
+                ?>
             </div>
         </div>
 

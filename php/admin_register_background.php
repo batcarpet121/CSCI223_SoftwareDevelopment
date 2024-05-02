@@ -4,7 +4,7 @@
 <head>
     <title>Redirecting to Another page in HTML</title>
     <!-- Redirecting to another page using meta tag -->
-    <meta http-equiv="refresh" content="30; url =../php/admin_registration_form.php" />
+    <meta http-equiv="refresh" content="5; url =../php/admin_registration_form.php" />
 </head>
 
 <body>
@@ -26,13 +26,11 @@
         if($allRoleResult){
             foreach($allRoleResult as $result){
                 if($id == $result[1]){
-                    echo "they match";
                     $id = $result[0];
                 }
             }
         }
         
-        echo "final id is ".  $id;
 
         $inserting = $tracker_user_obj->insert($id, $username, $password);
 

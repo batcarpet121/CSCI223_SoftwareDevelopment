@@ -1,10 +1,13 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <title>Redirecting to Another page in HTML</title>
     <!-- Redirecting to another page using meta tag -->
-    <meta http-equiv="refresh" content="5; url =../php/user_registration_form.php" />
+    <meta http-equiv="refresh" content="5; url =../php/admin_registration_form.php" />
 </head>
 
 <body>
@@ -28,6 +31,9 @@
                 if ($username == $result[2] && $password == $result[3]) {
                     echo "Welcome " . $result[2];
                     $counter = 1;
+
+                    $_SESSION["username"] = $result[2];
+                    $_SESSION["account_id"] = $result[1];
                 }
             }
             if ($counter == 0) {
