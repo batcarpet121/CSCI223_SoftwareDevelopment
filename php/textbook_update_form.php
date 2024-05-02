@@ -64,7 +64,7 @@
                         echo "Publisher: " . $result[5] . "<br>";
                         echo "Edition: " . $result[6] . "<br>";
                         echo "Price: $" . $result[7] . "<br>";
-                        echo "Date Added: $" . $result[8] . "<br>";
+                        echo "Date Added:" . $result[8] . "<br>";
                         echo "<br>";
                     }
                 } else {
@@ -124,7 +124,7 @@
                     <label for="date_added">Date:</label>
                     <input type="text" id="date_added" name="date_added" required><br><br>
 
-                    <input type="submit" value="Add Textbook" id="submitTextbook">
+                    <input type="submit" value="Update Textbook" id="submitTextbook">
                 </form>
             </div>
         </div>

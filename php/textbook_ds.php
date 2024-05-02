@@ -152,12 +152,12 @@ class Textbook_ds extends Textbook {
                                     isbn = (?),
                                     publisher = (?),
                                     edition = (?),
-                                    price = (?)
+                                    price = (?),
                                     date_added = (?) WHERE 
-                                    textbook_id = ' . $row['textbook_id'];
+                                    textbook_id = (?)';
 
         $stmt = $this->conn->prepare($qry);
-        $stmt->bind_param('isssssds', $row['course_offering_id'], $row['title'], $row['author'], $row['isbn'], $row['publisher'], $row['edition'], $row['price'], $row['date_added']);
+        $stmt->bind_param('isssssdsi', $row['course_offering_id'], $row['title'], $row['author'], $row['isbn'], $row['publisher'], $row['edition'], $row['price'], $row['date_added'], $row['textbook_id']);
 
         $success = $stmt->execute();
         if (!$success) {
