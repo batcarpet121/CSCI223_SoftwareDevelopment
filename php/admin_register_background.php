@@ -22,7 +22,7 @@
 
     echo "Your account id is". $_SESSION["account_id"];
 
-    if ($_SESSION["account_id"] = 3) {
+    if ($_SESSION["account_id"] == 3) {
 
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
