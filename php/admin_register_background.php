@@ -22,6 +22,8 @@
         $username = $_POST['user_username'];
         $password = $_POST['user_password'];
 
+        echo $id;
+
         if($allRoleResult){
             foreach($allRoleResult as $result){
                 if($id == $result[0]){
@@ -30,6 +32,7 @@
             }
         }
         
+        echo $id;
 
         $inserting = $tracker_user_obj->insert($id, $username, $password);
 
