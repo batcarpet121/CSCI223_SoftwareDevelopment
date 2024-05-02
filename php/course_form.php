@@ -48,7 +48,9 @@
                 $qryResultMult = $course_obj->selectAll($courseSelectMult);
                 if ($qryResultMult) {
                     foreach ($qryResultMult as $result) {
-                        echo $result[1] . ", " . $result[2] . "<br>";
+                        echo "Department ID: " . $result[1] . "<br>";
+                        echo "Course: " . $result[2] . "<br>";
+                        echo "<br>";
                     }
                 }
                 ?>
