@@ -33,7 +33,7 @@
                     $counter = 1;
 
                     $_SESSION["username"] = $result[2];
-                    $_SESSION["account_id"] = $result[1];
+                    $_SESSION["role_id"] = $result[1];
                 }
             }
             if ($counter == 0) {

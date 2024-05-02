@@ -21,7 +21,7 @@
     $allRoleResult = $tracker_role_obj->selectAll('');
 
 
-    if ($_SESSION["account_id"] == 3) {
+    if ($_SESSION["role_id"] == 3) {
 
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
