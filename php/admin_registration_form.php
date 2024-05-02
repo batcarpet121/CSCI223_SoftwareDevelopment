@@ -32,6 +32,7 @@
             <a href="../php/courseOffering_form.php">Course Offering Form</a>
             <a href="../php/textbook_form.php">Textbook Form</a>
             <a href="../php/user_registration_form.php">Login/Register</a>
+            <a href="../php/admin_registration_form.php">Admin Registration</a>
         </div>
     </header>
 
@@ -48,7 +49,8 @@
                 $tracker_user_obj = new tracker_user_ds($conn);
                 $tracker_role_obj = new tracker_role_ds();
 
-                $allResult = $tracker_user_obj->selectAll('');
+                $allRoleResult = $tracker_role_obj->selectAll('');
+                $allUserResult = $tracker_user_obj->selectAll('');
                 
                 ?>
             </p>
@@ -66,28 +68,6 @@
                         <button type="submit">Login</button>
                     </div>
                 </form>
-                <?php
-                // var_dump($_POST);
-                // if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                //     $username = $_POST['login_user_username'];
-                //     $password = $_POST['login_user_password'];
-
-                //     if($allResult){
-                //         foreach($allResult as $result){
-                //             if($username == $allResult[2] and $password == $allResult[3]){
-                //                 echo "Welcome ". $username;
-                //             }
-                //             else{
-                //                 echo "Cannot find user";
-                //             }
-                //         }
-                //     }
-                //     else{
-                //         echo "Failed";
-                //     }
-
-                // }
-                ?>
             </div>
         </div>
 
@@ -96,7 +76,19 @@
                 Register
             </h2>
             <div class="formWrapper">
-                <form action="../php/register_background.php" id="addDeptform" method="POST">
+                <form action="../php/admin_register_background.php" id="addDeptform" method="POST">
+                    <div class="addRole">
+                        <label for="Role">Select your role</label>
+                        <select type="text" id="Role_ID" name="Role_ID" placeholder="Select your Role" required>
+                            <?php
+                            if ($allRoleResult) {
+                                foreach ($allRoleResult as $result) {
+                                    echo "<option value=" . $result[1] . ">" . $result[1] . "</option>";
+                                }
+                            }
+                            ?>
+                        </select>
+                    </div>
                     <div class="addUsername">
                         <label for="Username">Enter a username:</label>
                         <input type="text" id="user_username" name="user_username" placeholder="Enter a usernamee" required>
@@ -109,22 +101,7 @@
                         <button type="submit">Register</button>
                     </div>
                 </form>
-                <?php
-                // if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                //     $id = 2;
-                //     $username = $_POST['user_username'];
-                //     $password = $_POST['user_password'];
-
-                //     $inserting = $tracker_user_obj->insert($id, $username, $password);
-
-                //     if ($inserting) {
-                //         echo ("Successful insert");
-                //     } else {
-                //         echo $title;
-                //         echo ("Failed insert");
-                //     }
-                // }
-                ?>
+                
             </div>
         </div>
     </div>
