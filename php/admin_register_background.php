@@ -4,7 +4,7 @@
 <head>
     <title>Redirecting to Another page in HTML</title>
     <!-- Redirecting to another page using meta tag -->
-    <meta http-equiv="refresh" content="10; url =../php/admin_registration_form.php" />
+    <meta http-equiv="refresh" content="30; url =../php/admin_registration_form.php" />
 </head>
 
 <body>
@@ -25,7 +25,7 @@
 
         if($allRoleResult){
             foreach($allRoleResult as $result){
-                echo $result[1]. "<br>";
+                echo "A role is". $result[1]. "<br>";
                 if($id == $result[1]){
                     $id == $result[0];
                 }
