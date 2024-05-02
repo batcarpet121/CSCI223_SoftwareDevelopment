@@ -36,20 +36,20 @@
 
     echo '<br><br><br>Select all empty test<br>';
     $textbookSelectMult = '';
-    $qryResultMult = $testTextbook->selectAll($textbookSelectMult);
-    print_r($qryResultMult);
-    if($qryResultMult){
-        foreach($qryResultMult as $result){
+    $qryResult = $testTextbook->selectAll($textbookSelectMult);
+    print_r($qryResult);
+    if($qryResult){
+        foreach($qryResult as $result){
             echo '<br>';
-            echo "Textbook ID: " . $qryResult[0] . "<br>";
-            echo "Course Offering ID: " . $qryResult[1] . "<br>";
-            echo "Title: " . $qryResult[2] . "<br>";
-            echo "Author: " . $qryResult[3] . "<br>";
-            echo "ISBN: " . $qryResult[4] . "<br>";
-            echo "Publisher: " . $qryResult[5] . "<br>";
-            echo "Edition: " . $qryResult[6] . "<br>";
-            echo "Price: $" . $qryResult[7] . "<br>";
-            echo "Date Added: $" . $qryResult[9] . "<br>";
+            echo "Textbook ID: " . $result[0] . "<br>";
+            echo "Course Offering ID: " . $result[1] . "<br>";
+            echo "Title: " . $result[2] . "<br>";
+            echo "Author: " . $result[3] . "<br>";
+            echo "ISBN: " . $result[4] . "<br>";
+            echo "Publisher: " . $result[5] . "<br>";
+            echo "Edition: " . $result[6] . "<br>";
+            echo "Price: $" . $result[7] . "<br>";
+            echo "Date Added: $" . $result[8] . "<br>";
             echo "<br>";
         }        
         
