@@ -61,19 +61,13 @@
             </h2>
             <div class="formWrapper">
                 <form action="" method="post">
-                <label for="textbook_id">Textbook ID:</label>
+                    <label for="textbook_id">Textbook ID:</label>
                     <select id="textbook_id" name="textbook_id" required>
                     <?php 
-                        $txtIDs = $testTextbook->selectAll('');
-
-                        if (!empty($txtIDs)) {
-                            foreach ($txtIDs as $txtID) {
-                                echo "<option value='{$txtID[0]}'>{$txtID[0]} - {$txtID[3]} - {$txtID[2]}</option>";
-                            }  
-                        } else {
-                            echo '<option value="">No Results Found</option>';
-                        }
-                                
+                        $textbooks = $testTextbook->selectAll('');  
+                        foreach ($textbooks as $textbook) {
+                            echo "<option value='{$textbook[0]}'>" . $textbook[0] . " - " . $textbook[2] . "</option>";
+                        }      
                     
                     ?>
 
