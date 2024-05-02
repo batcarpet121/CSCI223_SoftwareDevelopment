@@ -132,12 +132,11 @@ class Textbook_ds extends Textbook {
             $values['price'],
             $values['date_added']);
 
-        $success = $stmt->execute();
-        if (!$success) {
-            echo "Insert failed: " . $stmt->error;
-        } else {
-            echo "Insert Successful!";
-        }
+            if ($stmt->execute()) {
+                return $stmt->affected_rows;
+            } else {
+                return 0;
+            }
     }
 
 

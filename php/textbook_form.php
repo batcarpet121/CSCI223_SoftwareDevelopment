@@ -116,13 +116,13 @@
                             'date_added' => $_POST['date_added']
                         ];
                         
-                        $inserting = $testTextbook->insert($values);
+                        $rowsAffected= $testTextbook->insert($values);
                 
-                        if($inserting){
-                            echo("Successful insert");
+                        if($rowsAffected == 1){
+                            echo("<p>Successful insert</p>");
                         }
                         else{
-                            echo("Failed insert");
+                            echo("<p>Failed insert</p>");
                         }
                     }
                 
