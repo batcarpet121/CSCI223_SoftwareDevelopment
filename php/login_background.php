@@ -8,6 +8,21 @@
     <title>Redirecting to Another page in HTML</title>
     <!-- Redirecting to another page using meta tag -->
     <meta http-equiv="refresh" content="5; url =../php/admin_registration_form.php" />
+    <script>
+        window.onload = function() {
+            var countdownElement = document.getElementById('countdown');
+            var countdownTime = parseInt(countdownElement.innerText);
+
+            var countdownInterval = setInterval(function() {
+                countdownTime--;
+                countdownElement.innerText = countdownTime;
+
+                if (countdownTime <= 0) {
+                    clearInterval(countdownInterval);
+                }
+            }, 1000);
+        };
+    </script>
 </head>
 
 <body>
@@ -48,7 +63,7 @@
         Redirecting to back to the registration page
     </h3>
     <p><strong>Note:</strong> If your browser supports Refresh, you'll be
-        redirected to the Registration/Login page, in 5 seconds.
+        redirected to the Registration/Login page, in <span id="countdown">5</span> seconds.
     </p>
 </body>
 
