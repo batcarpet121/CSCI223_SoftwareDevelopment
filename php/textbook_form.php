@@ -61,7 +61,7 @@
                 Main Content
             </h2>
             <div class="formWrapper">
-                <form action="" method="post">
+                <form action="../php/add_textbook.php" method="post">
                     <label for="course_offering_id">Course Offering ID:</label>
                     <select id="course_offering_id" name="course_offering_id" required>
                     <?php 
@@ -102,32 +102,6 @@
 
                     <input type="submit" value="Add Textbook" id="submitTextbook">
                 </form>
-                <?php 
-                    if($_SERVER["REQUEST_METHOD"] == "POST"){
-
-                        $values = [    
-                            'course_offering_id' => $_POST['course_offering_id'],
-                            'title' => $_POST['title'],
-                            'author' => $_POST['author'],
-                            'isbn' => $_POST['isbn'],
-                            'publisher' => $_POST['publisher'],
-                            'edition' => $_POST['edition'],
-                            'price' => $_POST['price'],
-                            'date_added' => $_POST['date_added']
-                        ];
-                        
-                        $rowsAffected= $testTextbook->insert($values);
-                
-                        if($rowsAffected == 1){
-                            echo("<p>Successful insert</p>");
-                        }
-                        else{
-                            echo("<p>Failed insert</p>");
-                        }
-                    }
-                
-                
-                ?>
             </div>
         </div>
 
