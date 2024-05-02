@@ -25,10 +25,9 @@
 
         if($allRoleResult){
             foreach($allRoleResult as $result){
-                echo "A role is". $result[1]. "<br>";
                 if($id == $result[1]){
                     echo "they match";
-                    $id == $result[0];
+                    $id = $result[0];
                 }
             }
         }
