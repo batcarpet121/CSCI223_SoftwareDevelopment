@@ -27,7 +27,7 @@
             'date_added' => $_POST['date_added']
         ];
 
-        $rowsAffected = $testTextbook->insert($values);
+        $rowsAffected = $textbookConn->insert($values);
 
         if ($rowsAffected == 1) {
             echo ("<p>Successful insert</p>");
