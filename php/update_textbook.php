@@ -4,7 +4,7 @@
 <head>
     <title>Redirecting to Another page in HTML</title>
     <!-- Redirecting to another page using meta tag -->
-    <meta http-equiv="refresh" content="5; url =../php/textbook_form.php" />
+    <meta http-equiv="refresh" content="5; url =../php/textbook_update_form.php" />
     <script>
         window.onload = function() {
             var countdownElement = document.getElementById('countdown');
