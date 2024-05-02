@@ -118,7 +118,7 @@ class Textbook_ds extends Textbook {
             return false;
         }
     
-        $qry = "INSERT INTO Textbook (course_offering_id, title, author, isbn, publisher, edition, price, date_added) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $qry = "INSERT INTO Textbook (course_offering_id, title, author, isbn, publisher, edition, price, date_added) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($qry);
 
         $stmt->bind_param(
