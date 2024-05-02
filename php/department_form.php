@@ -51,6 +51,7 @@
                         foreach($qryResultMult as $result){
                             echo "Department ID: " . $result[0]."<br>";
                             echo "Department Name: " . $result[1] . "<br>";
+                            echo "<br>";
                         }
                     }
                 ?>
