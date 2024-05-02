@@ -57,8 +57,8 @@
                 if($qryResult){
                     foreach($qryResult as $result){
                         echo "Course: " . $result[3] . "<br>";
-                        echo "Year: " . $result[2] . "<br>";
                         echo "Term: " . $result[1] . "<br>";
+                        echo "Year: " . $result[2] . "<br>";
                         echo "<br>";
                     }        
                     
