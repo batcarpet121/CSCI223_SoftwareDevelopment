@@ -7,7 +7,7 @@
 <head>
     <title>Redirecting to Another page in HTML</title>
     <!-- Redirecting to another page using meta tag -->
-    <meta http-equiv="refresh" content="5; url= ../index.html" />
+    <meta http-equiv="refresh" content="5; url= ../php/admin_registration_form.php" />
 </head>
 
 <body>
@@ -20,7 +20,6 @@
 
     $allRoleResult = $tracker_role_obj->selectAll('');
 
-    echo "Your account id is". $_SESSION["account_id"];
 
     if ($_SESSION["account_id"] == 3) {
 
