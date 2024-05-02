@@ -50,6 +50,7 @@
                     foreach ($qryResultMult as $result) {
                         echo "Department ID: " . $result[1] . "<br>";
                         echo "Course: " . $result[2] . "<br>";
+                        echo "<br>";
                     }
                 }
                 ?>
