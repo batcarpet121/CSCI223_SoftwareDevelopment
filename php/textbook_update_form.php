@@ -54,10 +54,8 @@
 
 
                     $qryResult = $testTextbook->selectAll('');
-                    print_r($qryResult);
                     if($qryResult){
                         foreach($qryResult as $result){
-                            echo '<br>';
                             echo "Textbook ID: " . $result[0] . "<br>";
                             echo "Course Offering ID: " . $result[1] . "<br>";
                             echo "Title: " . $result[2] . "<br>";
