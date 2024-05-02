@@ -4,7 +4,7 @@
 <head>
     <title>Redirecting to Another page in HTML</title>
     <!-- Redirecting to another page using meta tag -->
-    <meta http-equiv="refresh" content="5; url =../php/admin_registration_form.php" />
+    <meta http-equiv="refresh" content="10; url =../php/admin_registration_form.php" />
 </head>
 
 <body>
