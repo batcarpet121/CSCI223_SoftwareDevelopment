@@ -79,7 +79,7 @@
                 Update Textbook
             </h2>
             <div class="formWrapper">
-                <form action="" method="post">
+                <form action="../php/update_textbook.php" method="post">
                     <label for="textbook_id">Textbook ID:</label>
                     <select id="textbook_id" name="textbook_id" required>
                         <?php
@@ -126,31 +126,6 @@
 
                     <input type="submit" value="Add Textbook" id="submitTextbook">
                 </form>
-                <?php
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-                    $values = [
-                        'course_offering_id' => $_POST['course_offering_id'],
-                        'title' => $_POST['title'],
-                        'author' => $_POST['author'],
-                        'isbn' => $_POST['isbn'],
-                        'publisher' => $_POST['publisher'],
-                        'edition' => $_POST['edition'],
-                        'price' => $_POST['price'],
-                        'date_added' => $_POST['date_added']
-                    ];
-
-                    $inserting = $testTextbook->insert($values);
-
-                    if ($inserting) {
-                        echo ("Successful insert");
-                    } else {
-                        echo ("Failed insert");
-                    }
-                }
-
-
-                ?>
             </div>
         </div>
 
