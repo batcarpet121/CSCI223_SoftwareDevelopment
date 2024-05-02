@@ -74,7 +74,6 @@
                 </form>
                 <?php 
                     echo "Welcome ". $_SESSION["username"];
-                    echo "Welcome ". $_SESSION["account_id"]
                 ?>
             </div>
         </div>

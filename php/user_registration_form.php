@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,26 +72,7 @@
                     </div>
                 </form>
                 <?php
-                // var_dump($_POST);
-                // if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                //     $username = $_POST['login_user_username'];
-                //     $password = $_POST['login_user_password'];
-
-                //     if($allResult){
-                //         foreach($allResult as $result){
-                //             if($username == $allResult[2] and $password == $allResult[3]){
-                //                 echo "Welcome ". $username;
-                //             }
-                //             else{
-                //                 echo "Cannot find user";
-                //             }
-                //         }
-                //     }
-                //     else{
-                //         echo "Failed";
-                //     }
-
-                // }
+                    echo "Welcome ". $_SESSION["username"]; 
                 ?>
             </div>
         </div>
@@ -110,22 +95,6 @@
                         <button type="submit">Register</button>
                     </div>
                 </form>
-                <?php
-                // if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                //     $id = 2;
-                //     $username = $_POST['user_username'];
-                //     $password = $_POST['user_password'];
-
-                //     $inserting = $tracker_user_obj->insert($id, $username, $password);
-
-                //     if ($inserting) {
-                //         echo ("Successful insert");
-                //     } else {
-                //         echo $title;
-                //         echo ("Failed insert");
-                //     }
-                // }
-                ?>
             </div>
         </div>
     </div>
