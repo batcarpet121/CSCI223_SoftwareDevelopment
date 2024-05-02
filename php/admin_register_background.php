@@ -26,7 +26,7 @@
 
         if($allRoleResult){
             foreach($allRoleResult as $result){
-                if($id == $result[0]){
+                if($id == $result[1]){
                     $id == $result[0];
                 }
             }
@@ -39,7 +39,6 @@
         if ($inserting) {
             echo ("Successful insert");
         } else {
-            echo $title;
             echo ("Failed insert");
         }
     }
