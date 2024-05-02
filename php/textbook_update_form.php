@@ -64,7 +64,7 @@
                         echo "Publisher: " . $result[5] . "<br>";
                         echo "Edition: " . $result[6] . "<br>";
                         echo "Price: $" . $result[7] . "<br>";
-                        echo "Date Added:" . $result[8] . "<br>";
+                        echo "Date Added: " . $result[8] . "<br>";
                         echo "<br>";
                     }
                 } else {
