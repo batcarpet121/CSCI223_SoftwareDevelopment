@@ -43,14 +43,36 @@
     <div class="container">
         <div id="sideBar">
             <h2>
-                Update Textbook
+                All textbooks
             </h2>
             <p>
                 <?php
-                require_once("../php/textbook_ds.php");
-                require_once("../php/textbook_join_tables.php");
-                $tableJoins = new Textbook_Join();
-                $testTextbook = new Textbook_ds();
+                    require_once("../php/textbook_ds.php");
+                    require_once("../php/textbook_join_tables.php");
+                    $tableJoins = new Textbook_Join();
+                    $testTextbook = new Textbook_ds();
+
+
+                    $qryResult = $testTextbook->selectAll('');
+                    print_r($qryResult);
+                    if($qryResult){
+                        foreach($qryResult as $result){
+                            echo '<br>';
+                            echo "Textbook ID: " . $result[0] . "<br>";
+                            echo "Course Offering ID: " . $result[1] . "<br>";
+                            echo "Title: " . $result[2] . "<br>";
+                            echo "Author: " . $result[3] . "<br>";
+                            echo "ISBN: " . $result[4] . "<br>";
+                            echo "Publisher: " . $result[5] . "<br>";
+                            echo "Edition: " . $result[6] . "<br>";
+                            echo "Price: $" . $result[7] . "<br>";
+                            echo "Date Added: $" . $result[8] . "<br>";
+                            echo "<br>";
+                        }        
+                        
+                    } else {
+                        echo "No Records found";
+                    }
                 ?>
             </p>
         </div>
@@ -107,6 +129,10 @@
                     <label for="price">Price:</label>
                     <input type="text" id="price" name="price" required><br><br>
 
+                    
+                    <label for="date_added">Date:</label>
+                    <input type="text" id="date_added" name="date_added" required><br><br>
+
                     <input type="submit" value="Add Textbook" id="submitTextbook">
                 </form>
                 <?php 
@@ -119,7 +145,8 @@
                             'isbn' => $_POST['isbn'],
                             'publisher' => $_POST['publisher'],
                             'edition' => $_POST['edition'],
-                            'price' => $_POST['price']
+                            'price' => $_POST['price'],
+                            'date_added' => $_POST['date_added']
                         ];
                         
                         $inserting = $testTextbook->insert($values);

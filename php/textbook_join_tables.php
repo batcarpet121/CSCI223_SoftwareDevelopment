@@ -17,12 +17,9 @@ class Textbook_Join extends Joined_Tables_Textbook {
     {
         $this->conn = db_connect();
         
-        if ($this->conn->connect_error == null) {
-            echo "success!";
-        } else {
+        if ($this->conn->connect_error) {
             echo "FAILED! " . $this->conn->connect_error;
         }
-        
     }
 
     public function getCourseOfferings() {

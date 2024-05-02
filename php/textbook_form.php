@@ -97,6 +97,9 @@
                     <label for="price">Price:</label>
                     <input type="text" id="price" name="price" required><br><br>
 
+                    <label for="date_added">Date:</label>
+                    <input type="text" id="date_added" name="date_added" required><br><br>
+
                     <input type="submit" value="Add Textbook" id="submitTextbook">
                 </form>
                 <?php 
@@ -109,7 +112,8 @@
                             'isbn' => $_POST['isbn'],
                             'publisher' => $_POST['publisher'],
                             'edition' => $_POST['edition'],
-                            'price' => $_POST['price']
+                            'price' => $_POST['price'],
+                            'date_added' => $_POST['date_added']
                         ];
                         
                         $inserting = $testTextbook->insert($values);

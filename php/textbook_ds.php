@@ -14,9 +14,7 @@ class Textbook_ds extends Textbook {
     {
         $this->conn = db_connect();
         
-        if ($this->conn->connect_error == null) {
-            echo "success!";
-        } else {
+        if ($this->conn->connect_error) {
             echo "FAILED! " . $this->conn->connect_error;
         }
         
