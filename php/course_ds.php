@@ -12,11 +12,11 @@ class course_ds extends course
         $conn = db_connect();
         $this->conn = $conn;
         
-        if ($conn->connect_error == null) {
-            echo "success! <br>";
-        } else {
-            echo "FAILED! <br> " . $conn->connect_error;
-        }
+        // if ($conn->connect_error == null) {
+        //     echo "success! <br>";
+        // } else {
+        //     echo "FAILED! <br> " . $conn->connect_error;
+        // }
     
     }
 

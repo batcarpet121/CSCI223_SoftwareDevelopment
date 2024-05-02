@@ -44,7 +44,7 @@
     <div class="container">
         <div id="sideBar">
             <h2>
-                Add Textbook
+                Available courses
             </h2>
             <p>
                 <?php
@@ -52,16 +52,29 @@
                 require_once("../php/textbook_join_tables.php");
                 $tableJoins = new Textbook_Join();
                 $testTextbook = new Textbook_ds();
+
+                $qryResult = $tableJoins->getCourseOfferings('');
+                if($qryResult){
+                    foreach($qryResult as $result){
+                        echo "Course: " . $result[3] . "<br>";
+                        echo "Term: " . $result[1] . "<br>";
+                        echo "Year: " . $result[2] . "<br>";
+                        echo "<br>";
+                    }        
+                    
+                } else {
+                    echo "No Records found";
+                }
                 ?>
             </p>
         </div>
 
         <div id="mainContent">
             <h2>
-                Main Content
+                Add textbook
             </h2>
             <div class="formWrapper">
-                <form action="" method="post">
+                <form action="../php/add_textbook.php" method="post">
                     <label for="course_offering_id">Course Offering ID:</label>
                     <select id="course_offering_id" name="course_offering_id" required>
                     <?php 
@@ -97,33 +110,11 @@
                     <label for="price">Price:</label>
                     <input type="text" id="price" name="price" required><br><br>
 
+                    <label for="date_added">Date:</label>
+                    <input type="text" id="date_added" name="date_added" required><br><br>
+
                     <input type="submit" value="Add Textbook" id="submitTextbook">
                 </form>
-                <?php 
-                    if($_SERVER["REQUEST_METHOD"] == "POST"){
-
-                        $values = [    
-                            'course_offering_id' => $_POST['course_offering_id'],
-                            'title' => $_POST['title'],
-                            'author' => $_POST['author'],
-                            'isbn' => $_POST['isbn'],
-                            'publisher' => $_POST['publisher'],
-                            'edition' => $_POST['edition'],
-                            'price' => $_POST['price']
-                        ];
-                        
-                        $inserting = $testTextbook->insert($values);
-                
-                        if($inserting){
-                            echo("Successful insert");
-                        }
-                        else{
-                            echo("Failed insert");
-                        }
-                    }
-                
-                
-                ?>
             </div>
         </div>
 

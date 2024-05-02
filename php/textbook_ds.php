@@ -14,9 +14,7 @@ class Textbook_ds extends Textbook {
     {
         $this->conn = db_connect();
         
-        if ($this->conn->connect_error == null) {
-            echo "success!";
-        } else {
+        if ($this->conn->connect_error) {
             echo "FAILED! " . $this->conn->connect_error;
         }
         
@@ -42,7 +40,8 @@ class Textbook_ds extends Textbook {
             $this->isbn,
             $this->publisher,
             $this->edition,
-            $this->price);
+            $this->price,
+            $this->date_added);
         
         $row = array();
         if ($stmt->fetch()) {
@@ -54,6 +53,7 @@ class Textbook_ds extends Textbook {
             array_push($row, $this->publisher);
             array_push($row, $this->edition);
             array_push($row, $this->price);
+            array_push($row, $this->date_added);
         }
         if (!empty($row)) {
             return $row;
@@ -83,7 +83,8 @@ class Textbook_ds extends Textbook {
             $this->isbn,
             $this->publisher,
             $this->edition,
-            $this->price);
+            $this->price,
+            $this->date_added);
 
             $returnSet = array();
             $rowCount = 0;
@@ -98,6 +99,7 @@ class Textbook_ds extends Textbook {
                 array_push($row, $this->publisher);
                 array_push($row, $this->edition);
                 array_push($row, $this->price);
+                array_push($row, $this->date_added);
     
                 $rowCount++;
     
@@ -116,25 +118,25 @@ class Textbook_ds extends Textbook {
             return false;
         }
     
-        $qry = "INSERT INTO Textbook (course_offering_id, title, author, isbn, publisher, edition, price) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $qry = "INSERT INTO Textbook (course_offering_id, title, author, isbn, publisher, edition, price, date_added) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($qry);
 
         $stmt->bind_param(
-            'isssssd',
+            'isssssds',
             $values['course_offering_id'], 
             $values['title'], 
             $values['author'], 
             $values['isbn'], 
             $values['publisher'], 
             $values['edition'], 
-            $values['price']);
+            $values['price'],
+            $values['date_added']);
 
-        $success = $stmt->execute();
-        if (!$success) {
-            echo "Insert failed: " . $stmt->error;
-        } else {
-            echo "Insert Successful!";
-        }
+            if ($stmt->execute()) {
+                return $stmt->affected_rows;
+            } else {
+                return 0;
+            }
     }
 
 
@@ -150,17 +152,17 @@ class Textbook_ds extends Textbook {
                                     isbn = (?),
                                     publisher = (?),
                                     edition = (?),
-                                    price = (?) WHERE 
-                                    textbook_id = ' . $row['textbook_id'];
+                                    price = (?),
+                                    date_added = (?) WHERE 
+                                    textbook_id = (?)';
 
         $stmt = $this->conn->prepare($qry);
-        $stmt->bind_param('isssssd', $row['course_offering_id'], $row['title'], $row['author'], $row['isbn'], $row['publisher'], $row['edition'], $row['price']);
+        $stmt->bind_param('isssssdsi', $row['course_offering_id'], $row['title'], $row['author'], $row['isbn'], $row['publisher'], $row['edition'], $row['price'], $row['date_added'], $row['textbook_id']);
 
-        $success = $stmt->execute();
-        if (!$success) {
-            echo "Update failed: " . $stmt->error;
+        if ($stmt->execute()) {
+            return $stmt->affected_rows;
         } else {
-            echo "Update Successful!";
+            return 0;
         }
     }
 
@@ -174,11 +176,10 @@ class Textbook_ds extends Textbook {
         $stmt = $this->conn->prepare($qry);
         $stmt->bind_param('i', $id);
 
-        $success = $stmt->execute();
-        if (!$success) {
-            echo "Delete failed: " . $stmt->error;
+        if ($stmt->execute()) {
+            return $stmt->affected_rows;
         } else {
-            echo "Delete Successful!";
+            return 0;
         }
     }
 

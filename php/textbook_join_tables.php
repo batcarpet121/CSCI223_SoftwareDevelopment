@@ -17,12 +17,9 @@ class Textbook_Join extends Joined_Tables_Textbook {
     {
         $this->conn = db_connect();
         
-        if ($this->conn->connect_error == null) {
-            echo "success!";
-        } else {
+        if ($this->conn->connect_error) {
             echo "FAILED! " . $this->conn->connect_error;
         }
-        
     }
 
     public function getCourseOfferings() {
@@ -34,7 +31,6 @@ class Textbook_Join extends Joined_Tables_Textbook {
             echo "Prepare error: " . $this->conn->error;
             return [];
         }
-        echo $qry;
         $stmt->execute();
         $stmt->store_result();
         $stmt->bind_result(
@@ -60,7 +56,9 @@ class Textbook_Join extends Joined_Tables_Textbook {
             } else {
                 return null;
             }
-}
+        }
+
+        
 
     public function __destruct() {
         $this->conn->close();
