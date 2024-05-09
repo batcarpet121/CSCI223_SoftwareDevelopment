@@ -11,7 +11,7 @@
 
     <h4>Api Test</h4>
    <?php
-    require('../api.php');
+    require('../php/api.php');
     echo runApi();
    ?>
    
