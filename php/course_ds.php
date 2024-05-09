@@ -1,4 +1,4 @@
-<?php
+    <?php
 require('../php/course.php');
 require_once("../utils/db_utils.php");
 

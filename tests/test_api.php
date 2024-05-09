@@ -10,10 +10,11 @@
 <body>
 
     <h4>Api Test</h4>
-    <form action="../php/api.php" method="get" >
-        
-    <input type="submit">
-    </form>
+   <?php
+    require('../api.php');
+    echo runApi();
+   ?>
+   
 
 
 
