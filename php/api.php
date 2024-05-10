@@ -1,11 +1,12 @@
 <?php
-$method = $_POST['method'];
+$method = $_POST['REQUEST_METHOD'];
 require_once('course_ds.php');
 
 // Set headers to allow CORS
-header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/json');
+// header('Access-Control-Allow-Origin: *');
+// header('Content-Type: application/json');
 
+// dev only function
 function runApi()
 {
     $course_ds = new course_ds(null);
