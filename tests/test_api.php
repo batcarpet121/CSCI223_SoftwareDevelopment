@@ -13,7 +13,7 @@
    <?php
     require('../php/api.php');
     $result=  json_decode(runApi());
-    var_dump($result);
+    print_r($result);
    ?>
    
 
