@@ -12,7 +12,7 @@
     <h4>Api Test</h4>
    <?php
     require('../php/api.php');
-    $result=  runApi();
+    $result=  json_decode(runApi());
     var_dump($result);
    ?>
    
