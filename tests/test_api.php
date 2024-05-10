@@ -12,7 +12,8 @@
     <h4>Api Test</h4>
    <?php
     require('../php/api.php');
-    echo runApi();
+    $result=  runApi();
+    var_dump($result);
    ?>
    
 
